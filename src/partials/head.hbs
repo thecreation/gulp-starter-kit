@@ -1,0 +1,20 @@
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<title>
+  {{#is title "Home"}}
+    {{data.site.title}} &middot; {{data.site.tagline}}
+  {{else}}
+    {{title}} &middot; {{data.site.title}}
+  {{/is}}
+</title>
+<meta name="author" content="{{data.site.author}}">
+
+{{#block "styles"}}{{>styles}}{{/block}}
+
+<!-- Icons -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ rootPath }}assets/images/apple-touch-icon-precomposed.png">
+
+<link rel="shortcut icon" href="{{ rootPath }}assets/favicon.ico">

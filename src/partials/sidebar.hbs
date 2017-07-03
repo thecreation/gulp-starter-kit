@@ -1,0 +1,25 @@
+<!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>{{ data.site.tagline }}</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item{{#is title "Home"}} active{{/is}}" href="{{ rootPath }}">Home</a>
+
+    {{#each collections.pages}}
+      {{#isnt title null}}
+        <a class="sidebar-nav-item{{#is ../path path}} active{{/is}}" href="{{ rootPath }}{{ path }}">{{ title }}</a>
+      {{/isnt}}
+    {{/each}}
+
+    <span class="sidebar-nav-item">Currently v{{ pkg.version }}</span>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>&copy; {{date "now" "YYYY"}} All rights reserved.</p>
+  </div>
+</div>

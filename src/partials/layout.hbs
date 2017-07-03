@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  {{#block "head"}}{{> head}}{{/block}}
+</head>
+<body>
+  {{#block "sidebar"}}{{> sidebar}}{{/block}}
+  <div class="wrap">
+    {{#block "header"}}{{> header}}{{/block}}
+    <div class="container content">
+      {{#block "main"}}{{{contents}}}{{/block}}
+    </div>
+  </div>
+  <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+  {{#block "scripts"}}{{>scripts}}{{/block}}
+</body>
+</html>
