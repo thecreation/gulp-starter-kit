@@ -24,12 +24,6 @@ export default {
   },
   envDev,
   styles: {
-    autoprefixer: [
-      // For more browsers, see https://github.com/ai/browserslist
-      '> 1%',
-      'last 3 versions',
-      'IE >= 9',
-    ],
     include: [
       // 'node_modules',
       // 'bower_components'

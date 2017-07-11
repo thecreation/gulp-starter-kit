@@ -6,7 +6,6 @@ import gulpif       from 'gulp-if';
 import size         from 'gulp-size';
 import stylelint    from 'stylelint';
 import postcss      from 'gulp-postcss';
-import autoprefixer from 'autoprefixer';
 import syntaxScss   from 'postcss-scss';
 import reporter     from 'postcss-reporter';
 import minify       from 'gulp-clean-css';
@@ -38,9 +37,7 @@ gulp.task('make:styles', () => {
      precision: 10, // https://github.com/sass/sass/issues/1122
      includePaths: config.styles.include,
    }))
-   .pipe(postcss([
-     autoprefixer({browsers: config.styles.autoprefixer}),
-   ]))
+   .pipe(postcss())
    .pipe(gulpif(!config.envDev, minify()))
    .pipe(size({gzip: true, showFiles: true}))
    .pipe(gulp.dest(`${config.assets.build}/styles`))
