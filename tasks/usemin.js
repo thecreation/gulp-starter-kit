@@ -6,8 +6,8 @@ import usemin  from 'gulp-usemin';
 import cssnano from 'gulp-cssnano';
 import uglify  from 'gulp-uglify';
 
-gulp.task('usemin', ['html', 'scripts','styles'], () => {
-  return gulp.src(`{$config.paths.build}/**/*.html`)
+gulp.task('usemin', () => {
+  return gulp.src(`${config.paths.build}/**/*.html`)
     .pipe(flatmap((stream) => {
       return stream
         .pipe(plumber())

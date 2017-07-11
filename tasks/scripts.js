@@ -19,7 +19,7 @@ gulp.task('lint:scripts', () => {
       base: './',
       since: gulp.lastRun('lint:scripts')
     })
-    .pipe(eslint({fix: true})) // see http://eslint.org/docs/rules/
+    .pipe(eslint({fix: false})) // see http://eslint.org/docs/rules/
     .pipe(eslint.format())
     .pipe(gulp.dest('.'));
 });

@@ -1,5 +1,6 @@
-import gulp  from 'gulp';
-import browser  from './browser';
+import gulp    from 'gulp';
+import browser from './browser';
+import config  from '../config';
 
 // SERVER
 // ------------------
