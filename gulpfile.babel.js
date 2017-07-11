@@ -11,6 +11,7 @@ import images  from './tasks/images';
 import scripts from './tasks/scripts';
 import server  from './tasks/server';
 import styles  from './tasks/styles';
+import svgs    from './tasks/svgs';
 import usemin  from './tasks/usemin';
 import watch   from './tasks/watch';
 
@@ -20,7 +21,8 @@ gulp.task('assets', gulp.parallel(
   'copy',
   'styles',
   'scripts',
-  'images'
+  'images',
+  'svgs'
 ));
 
 gulp.task('build', gulp.series(

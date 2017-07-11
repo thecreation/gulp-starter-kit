@@ -1,3 +1,2 @@
-var helpers = require('handlebars-helpers');
-
-module.exports = helpers.comparison();
+import helpers from 'handlebars-helpers';
+export default helpers.comparison();

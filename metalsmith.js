@@ -56,6 +56,12 @@ export default function(callback, clean){
     }]
   }));
   metalsmith.use(rootPath());
+  metalsmith.use(inplace({ // Render handlebars content pages
+    engineOptions: {
+      partials: './partials/'
+    },
+    pattern: '**/*.{hbs,md,html}'
+  }));
   metalsmith.use(layouts({
     engine: 'handlebars',
     rename: true,
@@ -65,12 +71,7 @@ export default function(callback, clean){
     partials: './src/partials',
     partialExtension: '.hbs'
   }));
-  // metalsmith.use(inplace({ // Render handlebars content pages
-  //   engineOptions: {
-  //     pattern: '**/*.{hbs,md,html}',
-  //     partials: './src/partials/'
-  //   }
-  // }));
+
   metalsmith.use(beautify({
     "js": false,
     "preserve_newlines": false,

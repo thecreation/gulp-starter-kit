@@ -26,6 +26,13 @@ gulp.task('watch:images', () => {
   );
 });
 
+gulp.task('watch:svgs', () => {
+  gulp.watch(
+  `${config.assets.source}/svgs/**/*`,
+  gulp.series('svgs')
+  );
+});
+
 gulp.task('watch:html', () => {
   // https://github.com/BrowserSync/browser-sync/issues/711
   function reload(done) {
@@ -48,6 +55,7 @@ gulp.task('watch:misc', () => {
     'html',
     'styles',
     'scripts',
+    'svgs',
     'images'
   ));
 });
@@ -56,6 +64,7 @@ gulp.task('watch', gulp.parallel(
   'watch:styles',
   'watch:scripts',
   'watch:images',
+  'watch:svgs',
   'watch:html',
   'watch:misc'
 ));

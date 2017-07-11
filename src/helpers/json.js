@@ -3,6 +3,4 @@
  *
  * @api public
  */
-module.exports = function(obj, indent) {
-  return JSON.stringify(obj, null, indent);
-};
+export default (obj, indent) => JSON.stringify(obj, null, indent);
