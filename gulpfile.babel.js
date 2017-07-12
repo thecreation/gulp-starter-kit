@@ -8,6 +8,7 @@ import deploy from './tasks/deploy';
 import fonts from './tasks/fonts';
 import html from './tasks/html';
 import images from './tasks/images';
+import favicons from './tasks/favicons';
 import scripts from './tasks/scripts';
 import server from './tasks/server';
 import styles from './tasks/styles';
@@ -20,7 +21,7 @@ import prettier from './tasks/prettier';
 // ------------------
 gulp.task(
   'assets',
-  gulp.parallel('copy', 'styles', 'scripts', 'images', 'svgs')
+  gulp.parallel('copy', 'styles', 'scripts', 'images', 'svgs', 'favicons')
 );
 
 if (config.production) {

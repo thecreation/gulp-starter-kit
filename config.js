@@ -8,6 +8,10 @@ export default {
     production,
     pkg
   },
+  title: pkg.name,
+  version: pkg.version,
+  description: pkg.description,
+  author: pkg.author,
   paths: {
     source: './src/html',
     build: 'dest'
