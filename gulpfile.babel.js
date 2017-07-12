@@ -32,10 +32,6 @@ gulp.task(
   gulp.parallel('copy', 'styles', 'scripts', 'images', 'svgs', 'favicons')
 );
 
-if (config.production) {
-  gulp.task('build', gulp.series('clean', 'assets', 'html', 'usemin'));
-} else {
-  gulp.task('build', gulp.series('clean', 'assets', 'html'));
-}
+gulp.task('build', gulp.series('clean', 'assets', 'html', 'usemin'));
 
 gulp.task('default', gulp.series('build', gulp.parallel('server', 'watch')));

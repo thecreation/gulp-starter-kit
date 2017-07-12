@@ -5,13 +5,13 @@ import config from '../config';
 // import PrettierPlugin from 'prettier-webpack-plugin';
 
 export default {
-  context: path.join(config.root, config.assets.source, 'scripts'),
+  context: path.join(config.root, config.scripts.source),
   entry: {
     // vendor: ['jquery'],
     scripts: './scripts.js'
   },
   output: {
-    path: path.join(config.root, config.assets.build, 'scripts'),
+    path: path.join(config.root, config.scripts.build),
     filename: '[name].js',
     publicPath: 'js/'
   },

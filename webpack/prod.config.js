@@ -2,7 +2,7 @@ import webpack from 'webpack';
 import webpackMerge from 'webpack-merge';
 import webpackCommon from './common.config';
 
-export default webpackMerge(webpackCommon, {
+module.exports = webpackMerge(webpackCommon, {
   devtool: 'source-map',
 
   plugins: [
@@ -15,8 +15,23 @@ export default webpackMerge(webpackCommon, {
       minimize: true
     }),
     new webpack.optimize.UglifyJsPlugin({
+      sourceMap: false,
       compress: {
-        warnings: false
+        sequences: true,
+        dead_code: true,
+        conditionals: true,
+        booleans: true,
+        unused: true,
+        if_return: true,
+        join_vars: true,
+        drop_console: true,
+        warnings: false // Disable warnings. Set to true when checking for issues
+      },
+      mangle: {
+        except: ['$super', '$', 'exports', 'require']
+      },
+      output: {
+        comments: false
       }
     })
   ]

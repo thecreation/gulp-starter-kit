@@ -7,8 +7,8 @@ import plumber from 'gulp-plumber';
 
 gulp.task('svgs', () => {
   return gulp
-    .src(`${config.assets.source}/svgs/**/*`)
-    .pipe(changed(`${config.assets.build}/svgs`))
+    .src(`${config.svgs.source}/**/*`)
+    .pipe(changed(`${config.svgs.build}`))
     .pipe(plumber())
     .pipe(
       svgmin({
@@ -29,6 +29,6 @@ gulp.task('svgs', () => {
       })
     )
     .pipe(plumber.stop())
-    .pipe(gulp.dest(`${config.assets.build}/svgs`))
+    .pipe(gulp.dest(`${config.svgs.build}`))
     .pipe(browser.stream());
 });

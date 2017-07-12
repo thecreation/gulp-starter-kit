@@ -6,15 +6,15 @@ import config from '../config';
 import browser from './browser';
 
 gulp.task("favicons", () => {
-  return gulp.src(`${config.assets.source}/favicons/favicon.png`)
-    .pipe(changed(`${config.assets.build}/favicons`))
+  return gulp.src(`${config.favicons.source}/favicon.png`)
+    .pipe(changed(`${config.favicons.build}`))
     .pipe(favicons({
       appName: config.name,
       appDescription: config.description,
       developerName: null,
       developerURL: null,
       background: 'transparent',
-      path: './assets/favicons/',
+      path: config.favicons.path,
       display: 'standalone',
       orientation: 'portrait',
       version: config.version,
@@ -31,10 +31,12 @@ gulp.task("favicons", () => {
         twitter: false,
         windows: true,
         yandex: true
-      }
+      },
+      html: config.favicons.html,
+      replace: true
     }))
     .on("error", gutil.log)
-    .pipe(gulp.dest(`${config.assets.build}/favicons`))
+    .pipe(gulp.dest(`${config.favicons.build}`))
     .pipe(browser.stream());
 });
 

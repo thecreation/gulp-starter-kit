@@ -26,9 +26,9 @@ handlebars.registerHelper(handlebarsLayouts(handlebars));
 export default function(callback, clean) {
   const metalsmith = new Metalsmith(__dirname);
 
-  metalsmith.metadata(config.metadata);
-  metalsmith.source(config.paths.source);
-  metalsmith.destination(config.paths.build);
+  metalsmith.metadata(config.html.metadata);
+  metalsmith.source(config.html.source);
+  metalsmith.destination(config.html.build);
   metalsmith.clean(false);
   metalsmith.use(drafts());
   metalsmith.use(

@@ -10,13 +10,14 @@ import syntaxScss from 'postcss-scss';
 import reporter from 'postcss-reporter';
 import minify from 'gulp-clean-css';
 import browser from './browser';
+import notify from 'gulp-notify';
 
 // STYLES
 // ------------------
 // lints styles using stylelint (config under 'stylelint' in package.json)
 gulp.task('lint:styles', () => {
   return gulp
-    .src(`${config.assets.source}/styles/**/*.scss`, {
+    .src(`${config.styles.source}/**/*.scss`, {
       since: gulp.lastRun('lint:styles')
     })
     .pipe(
@@ -30,16 +31,11 @@ gulp.task('lint:styles', () => {
     );
 });
 
-// compiles sass into css & minifies it (production)
+// Compiles sass into css & minifies it (production)
 gulp.task('make:styles', () => {
-  const onError = function(err) {
-    console.log(err);
-    this.emit('end');
-  };
-
   return gulp
-    .src(`${config.assets.source}/styles/*.scss`)
-    .pipe(plumber({ errorHandler: onError }))
+    .src(`${config.styles.source}/*.scss`)
+    .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
     .pipe(
       sass({
         precision: 10, // https://github.com/sass/sass/issues/1122
@@ -47,10 +43,10 @@ gulp.task('make:styles', () => {
       })
     )
     .pipe(postcss())
-    .pipe(gulpif(!config.envDev, minify()))
+    .pipe(gulpif(config.production, minify()))
     .pipe(size({ gzip: true, showFiles: true }))
     .pipe(plumber.stop())
-    .pipe(gulp.dest(`${config.assets.build}/styles`))
+    .pipe(gulp.dest(`${config.styles.build}`))
     .pipe(browser.stream());
 });
 

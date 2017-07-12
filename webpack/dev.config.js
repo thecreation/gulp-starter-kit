@@ -3,7 +3,7 @@ import webpackMerge from 'webpack-merge';
 import webpackCommon from './common.config';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 
-export default webpackMerge(webpackCommon, {
+module.exports = webpackMerge(webpackCommon, {
   devtool: 'inline-source-map',
 
   plugins: [

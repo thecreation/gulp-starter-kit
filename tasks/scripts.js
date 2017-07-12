@@ -11,13 +11,17 @@ import webpack from "webpack";
 import cache from 'gulp-memory-cache';
 import browser from './browser';
 import gutil from "gulp-util";
-import webpackConfig from "../webpack.config";
+import notify from 'gulp-notify';
+
+const webpackConfig = config.production
+  ? require("../webpack/prod.config.js")
+  : require("../webpack/dev.config.js");
 
 // SCRIPTS
 // ------------------
 gulp.task('lint:scripts', () => {
   return gulp
-    .src(`${config.assets.source}/scripts/scripts.js`, {
+    .src(`${config.scripts.source}/scripts.js`, {
       base: './',
       since: gulp.lastRun('lint:scripts')
     })
@@ -27,7 +31,7 @@ gulp.task('lint:scripts', () => {
 });
 
 // compiles / concatenates javascript & minifies it (production)
-gulp.task('make:scripts', (cb) => {
+gulp.task('make:scripts', (callback) => {
   if (config.enable.webpack) {
     webpack(webpackConfig).run((err, stats) => {
       if (err) throw new gutil.PluginError("webpack", err);
@@ -35,25 +39,31 @@ gulp.task('make:scripts', (cb) => {
       gutil.log(
         "[webpack]",
         stats.toString({
+          assets: true,
+          chunks: false,
+          chunkModules: false,
           colors: true,
-          chunks: false
+          hash: false,
+          timings: true,
+          version: false
         })
       );
 
       browser.reload();
-      if (typeof cb === "function") cb();
+      if (typeof callback === "function") callback();
     });
   } else {
     return gulp
-      .src(`${config.assets.source}/scripts/*.js`, {
+      .src(`${config.scripts.source}/*.js`, {
         since: cache.lastMtime('concatJS')
       })
+      .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
       .pipe(cache('concatJS'))
       .pipe(concat('scripts.js'))
-      .pipe(gulpif(!config.envDev, uglify()))
+      .pipe(gulpif(config.production, uglify()))
       .pipe(size({ gzip: true, showFiles: true }))
       .pipe(plumber.stop())
-      .pipe(gulp.dest(`${config.assets.build}/scripts`))
+      .pipe(gulp.dest(`${config.scripts.dest}`))
       .pipe(browser.stream());
   }
 });

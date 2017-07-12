@@ -3,10 +3,13 @@ import config   from '../config';
 import prettier from 'gulp-nf-prettier';
 import changed  from 'gulp-changed';
 import size     from 'gulp-size';
+import plumber  from 'gulp-plumber';
+import notify   from 'gulp-notify';
 
 gulp.task('prettier', () => {
-  return gulp.src(`${config.assets.source}/scripts/**/*.js`, { base: './' })
-    .pipe(changed(`${config.assets.source}/scripts`))
+  return gulp.src(`${config.scripts.source}/**/*.js`, { base: './' })
+    .pipe(changed(`${config.scripts.source}`))
+    .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
     .pipe(prettier({
       parser: 'flow',
       tabWidth: 2,
@@ -16,5 +19,6 @@ gulp.task('prettier', () => {
       bracketSpacing: true
     }))
     .pipe(size({showFiles: true}))
+    .pipe(plumber.stop())
     .pipe(gulp.dest('./'))
 });

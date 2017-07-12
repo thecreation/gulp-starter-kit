@@ -7,8 +7,8 @@ import browser from './browser';
 // ------------------
 gulp.task('fonts', () => {
   return gulp
-    .src(`${config.assets.source}/fonts/**/*`)
-    .pipe(changed(`${config.assets.build}/fonts`))
-    .pipe(gulp.dest(`${config.assets.build}/fonts`))
+    .src(`${config.fonts.source}/**/*.+(woff2|woff|eot|ttf|svg)`)
+    .pipe(changed(`${config.fonts.build}`))
+    .pipe(gulp.dest(`${config.fonts.build}`))
     .pipe(browser.stream());
 });
