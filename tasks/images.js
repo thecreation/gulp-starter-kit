@@ -5,6 +5,7 @@ import pngquant from 'imagemin-pngquant';
 import size from 'gulp-size';
 import changed from 'gulp-changed';
 import browser from './browser';
+import plumber from 'gulp-plumber';
 
 // IMAGES
 // ------------------
@@ -13,6 +14,7 @@ gulp.task('images', () => {
   return gulp
     .src(`${config.assets.source}/images/**/*.+(png|jpg|jpeg|gif|svg)`)
     .pipe(changed(`${config.assets.build}/images`))
+    .pipe(plumber())
     .pipe(
       imagemin({
         progressive: true,
@@ -20,6 +22,7 @@ gulp.task('images', () => {
       })
     )
     .pipe(size({ showFiles: true }))
+    .pipe(plumber.stop())
     .pipe(gulp.dest(`${config.assets.build}/images`))
     .pipe(browser.stream());
 });

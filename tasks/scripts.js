@@ -52,6 +52,7 @@ gulp.task('make:scripts', (cb) => {
       .pipe(concat('scripts.js'))
       .pipe(gulpif(!config.envDev, uglify()))
       .pipe(size({ gzip: true, showFiles: true }))
+      .pipe(plumber.stop())
       .pipe(gulp.dest(`${config.assets.build}/scripts`))
       .pipe(browser.stream());
   }

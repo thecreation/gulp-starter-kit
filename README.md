@@ -5,6 +5,7 @@
 ## Features
 This starter also features a number of great software (in the words of their creators):
 - [Lanyon](http://lanyon.getpoole.com/) - a content-first, sliding sidebar theme (originally) for Jekyll (by [mdo](http://mdo.fm))
+- [Gulp](http://gulpjs.com/) - a task automation tool
 - [Browsersync](https://www.browsersync.io/) - time-saving synchronised browser testing (once you go live-reload, you'll never come back)
 - [Sass](http://sass-lang.com/) - CSS with superpowers
 - [PostCSS](https://github.com/postcss/postcss) - a tool for transforming styles with JS plugins
@@ -15,6 +16,7 @@ This starter also features a number of great software (in the words of their cre
 - [svgo](https://github.com/svg/svgo) - a Nodejs-based tool for optimizing SVG vector graphics files.
 - [Favicons](https://github.com/evilebottnawi/favicons) - a Node.js module for generating favicons and their associated files. 
 - [EditorConfig](http://editorconfig.org/)
+- [imagemin](https://github.com/imagemin/imagemin) - a Node.js module for minify images seamlessly
 
 ## Lint
 - [ESLint](http://eslint.org/) - the pluggable linting utility for JavaScript and JSX (with preconfigured ruleset by [Google](https://github.com/google/eslint-config-google))
@@ -87,6 +89,7 @@ Task name          | Description
 `clean`            | remove `dist` folder
 `favicons`         | generate favicons to `dist/assets/favicons` path
 `images`           | optimize and copies images in `./src/images` to `dist/assets/images`
+`watch`            | watchs for changes in `src/` path and rebuilds parts of the site as necessary
 
 All available tasks are placed in a folder `tasks`. 
 
@@ -110,6 +113,30 @@ Everything's ready to get started right away:
 
 ### Configuration
 Global variables and site metadata can be found inside `config.js`. Metalsmith's build process resides in `metalsmith.js`. Static assets such as (S)CSS or JS files as well as fonts and images are located inside `src`, pages in their respective folders inside `src/html`. If something doesn't suit your needs, just make it so, and if you stumble across something worth sharing, then think about ..
+
+## Structure
+
+```bash
+├── README.md               # Important information related
+├── package.json            # The node.js modules dependencies file
+├── .gitignore              # Git ignore rules
+├── webpack.config.js       # Controls javascript bundling
+├── gulpfile.babel.js       # The Gulp task manager configuration
+├── tasks/                  # Gulp tasks definations
+├── dist/                   # Gulp builds the static site into this directory
+└── src/                    # The source code of the application
+    ├── assets/             # Assets files copy to dist
+    ├── data/               # Metadata associated with the site.
+    ├── styles/             # Stylesheets
+    ├── scripts/            # Javascript scripts
+    ├── fonts/              # Font files
+    ├── images/             # Images files
+    ├── svgs                # SVGs
+    ├── favicons            # Favicon image
+    ├── layouts/            # Handlebars HTML layouts that are based on.
+    ├── partials/           # Handlebars HTML partials that are included / extended
+    └── html/               # Handlebars HTML files, one per page on the site.
+```
 
 ### Credit
 - [Gulp v4 - Metalsmith - Starter](https://github.com/S1SYPHOS/Gulp4-Metalsmith-Starter)

@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "Gulp - Metalsmith - Starter",
   "author": "amazingSurge <amazingSurge@gmail.com>",
-  "main": "metalsmith.js",
+  "private": true,
   "repository": {
     "type": "git",
     "url": "https://github.com/amazingSurge/gulp-metalsmith-starter"

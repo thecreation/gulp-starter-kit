@@ -49,6 +49,7 @@ gulp.task('make:styles', () => {
     .pipe(postcss())
     .pipe(gulpif(!config.envDev, minify()))
     .pipe(size({ gzip: true, showFiles: true }))
+    .pipe(plumber.stop())
     .pipe(gulp.dest(`${config.assets.build}/styles`))
     .pipe(browser.stream());
 });
