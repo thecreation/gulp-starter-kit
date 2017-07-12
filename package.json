@@ -1,6 +1,6 @@
 {
   "name": "gulp-metalsmith-starter",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Gulp - Metalsmith - Starter",
   "author": "amazingSurge <amazingSurge@gmail.com>",
   "private": true,
@@ -21,6 +21,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
+    "argv": "^0.0.2",
     "autoprefixer": "^7.1.2",
     "babel-cli": "^6.24.1",
     "babel-core": "^6.25.0",
@@ -59,6 +60,7 @@
     "gulp-uglify": "^3.0.0",
     "gulp-usemin": "^0.3.28",
     "gulp-util": "^3.0.8",
+    "gulp-zip": "^4.0.0",
     "handlebars": "^4.0.10",
     "handlebars-helpers": "^0.9.3",
     "handlebars-layouts": "^3.1.4",
@@ -78,9 +80,12 @@
     "metalsmith-permalinks": "^0.5.0",
     "metalsmith-register-helpers": "^0.3.0",
     "metalsmith-rootpath": "^1.0.4",
+    "node-notifier": "^5.1.2",
     "postcss-reporter": "^4.0.0",
     "postcss-scss": "^1.0.2",
     "prettier": "^1.5.2",
+    "release-it": "^2.8.0",
+    "require-dir": "^0.3.2",
     "stylelint": "^7.13.0",
     "stylelint-config-sass-guidelines": "^2.2.0",
     "vinyl-named": "^1.1.0",

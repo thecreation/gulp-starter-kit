@@ -7,15 +7,16 @@ import named from 'vinyl-named';
 import plumber from 'gulp-plumber';
 import concat from 'gulp-concat';
 import uglify from 'gulp-uglify';
-import webpack from "webpack";
+import webpack from 'webpack';
 import cache from 'gulp-memory-cache';
 import browser from './browser';
-import gutil from "gulp-util";
+import gutil from 'gulp-util';
 import notify from 'gulp-notify';
+import notifier from 'node-notifier';
 
 const webpackConfig = config.production
-  ? require("../webpack/prod.config.js")
-  : require("../webpack/dev.config.js");
+  ? require('../webpack/prod.config.js')
+  : require('../webpack/dev.config.js');
 
 // SCRIPTS
 // ------------------
@@ -31,13 +32,13 @@ gulp.task('lint:scripts', () => {
 });
 
 // compiles / concatenates javascript & minifies it (production)
-gulp.task('make:scripts', (callback) => {
-  if (config.enable.webpack) {
+if (config.enable.webpack) {
+  gulp.task('make:scripts', done => {
     webpack(webpackConfig).run((err, stats) => {
-      if (err) throw new gutil.PluginError("webpack", err);
+      if (err) throw new gutil.PluginError('webpack', err);
 
       gutil.log(
-        "[webpack]",
+        '[webpack]',
         stats.toString({
           assets: true,
           chunks: false,
@@ -50,14 +51,18 @@ gulp.task('make:scripts', (callback) => {
       );
 
       browser.reload();
-      if (typeof callback === "function") callback();
+      done();
     });
-  } else {
+  });
+} else {
+  gulp.task('make:scripts', done => {
     return gulp
       .src(`${config.scripts.source}/*.js`, {
         since: cache.lastMtime('concatJS')
       })
-      .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
+      .pipe(
+        plumber({ errorHandler: notify.onError('Error: <%= error.message %>') })
+      )
       .pipe(cache('concatJS'))
       .pipe(concat('scripts.js'))
       .pipe(gulpif(config.production, uglify()))
@@ -65,7 +70,16 @@ gulp.task('make:scripts', (callback) => {
       .pipe(plumber.stop())
       .pipe(gulp.dest(`${config.scripts.dest}`))
       .pipe(browser.stream());
-  }
-});
+  });
+}
 
-gulp.task('scripts', gulp.series('lint:scripts', 'make:scripts'));
+gulp.task('scripts', gulp.series('lint:scripts', 'make:scripts', (done) => {
+  if(config.enable.notify) {
+    notifier.notify({
+      title: config.notify.title,
+      message: 'Scripts task complete'
+    });
+  }
+
+  done();
+}));

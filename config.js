@@ -21,7 +21,8 @@ export default {
   },
 
   enable: {
-    webpack: true
+    webpack: true,
+    notify: true
   },
 
   server: {
@@ -83,7 +84,16 @@ export default {
       minifyJS: true,
       collapseBooleanAttributes: true,
       removeAttributeQuotes: true
-    }
+    },
+  },
+
+  archive: {
+    source: 'dest/**/*',
+    build: 'archives'
+  },
+
+  notify: {
+    title: pkg.name
   },
 
   env: 'development',

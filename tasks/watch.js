@@ -6,19 +6,19 @@ import browser from './browser';
 // ------------------
 // watches for changes, recompiles & injects html + assets
 gulp.task('watch:styles', () => {
-  gulp.watch(`${config.assets.source}/styles/**/*.scss`, gulp.series('styles'));
+  gulp.watch(`${config.styles.source}/**/*.scss`, gulp.series('styles'));
 });
 
 gulp.task('watch:scripts', () => {
-  gulp.watch(`${config.assets.source}/scripts/**/*.js`, gulp.series('scripts'));
+  gulp.watch(`${config.scripts.source}/**/*.js`, gulp.series('scripts'));
 });
 
 gulp.task('watch:images', () => {
-  gulp.watch(`${config.assets.source}/images/**/*`, gulp.series('images'));
+  gulp.watch(`${config.images.source}/**/*`, gulp.series('images'));
 });
 
 gulp.task('watch:svgs', () => {
-  gulp.watch(`${config.assets.source}/svgs/**/*`, gulp.series('svgs'));
+  gulp.watch(`${config.svgs.source}/**/*`, gulp.series('svgs'));
 });
 
 gulp.task('watch:html', () => {

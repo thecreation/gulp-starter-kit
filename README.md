@@ -78,13 +78,13 @@ Task name          | Description
 ### Other tasks
 Task name          | Description                                                      
 :------------------|:----------------------------------
-`styles`           | compile .scss to .css. 
-`scripts`          | compile .js sources into bundle file
+`styles`           | compile `.scss` to `.css`. 
+`scripts`          | compile `.js` sources into bundle file
 `copy`             | copy files from `src/assets` path to `dist/assets` path
-`html`             | compile .hbs to .html
+`html`             | compile `.hbs` to `.html`
 `svgs`             | optimize svg files
 `fonts`            | copy files from `src/fonts` path to `dist/fonts` path
-`prettier`         | prettify js files
+`prettier`         | beautify js files
 `server`           | start a BrowserSync instance.
 `clean`            | remove `dist` folder
 `favicons`         | generate favicons to `dist/assets/favicons` path
@@ -122,21 +122,33 @@ Global variables and site metadata can be found inside `config.js`. Metalsmith's
 ├── .gitignore              # Git ignore rules
 ├── webpack.config.js       # Controls javascript bundling
 ├── gulpfile.babel.js       # The Gulp task manager configuration
-├── tasks/                  # Gulp tasks definations
-├── dist/                   # Gulp builds the static site into this directory
-└── src/                    # The source code of the application
-    ├── assets/             # Assets files copy to dist
-    ├── data/               # Metadata associated with the site.
-    ├── styles/             # Stylesheets
-    ├── scripts/            # Javascript scripts
-    ├── fonts/              # Font files
-    ├── images/             # Images files
-    ├── svgs                # SVGs
-    ├── favicons            # Favicon image
-    ├── layouts/            # Handlebars HTML layouts that are based on.
-    ├── partials/           # Handlebars HTML partials that are included / extended
-    └── html/               # Handlebars HTML files, one per page on the site.
+├── /tasks/                 # Gulp tasks definitions
+├── /dist/                  # Minified, optimized and compiled files
+│   ├── /assets/            # Assets folder
+│   │   ├── /styles/        # CSS files
+│   │   ├── /scripts/       # JS files
+│   │   ├── /fonts/         # Fonts folder
+│   │   ├── /images/        # Images folder
+│   │   ├── /svgs/          # Svg files
+│   │   └── /favicons/      # Favicons files
+│   └── *.html              # Rendered and compiled HTMLs from hbs
+└── /src/                   # The source code of the application
+    ├── /assets/            # Static assets files copy to dist
+    ├── /data/              # Metadata associated with the site.
+    ├── /styles/            # Stylesheets source
+    ├── /scripts/           # Javascript source
+    ├── /fonts/             # Font files
+    ├── /images/            # Non compressed image files
+    ├── /svgs/              # Non compressed svg files
+    ├── /favicons/          # Favicon image
+    ├── /layouts/           # Handlebars HTML layouts that are based on
+    ├── /partials/          # Handlebars HTML partials that are included / extended
+    └── /html/              # Handlebars HTML files, one per page on the site
 ```
+
+## License
+
+The code is available under the [MIT](https://github.com/amazingSurge/gulp-metalsmith-starter/blob/master/LICENSE) license.
 
 ### Credit
 - [Gulp v4 - Metalsmith - Starter](https://github.com/S1SYPHOS/Gulp4-Metalsmith-Starter)

@@ -1,42 +1,56 @@
 import gulp from 'gulp';
 import changed from 'gulp-changed';
-import favicons from "gulp-favicons";
-import gutil from "gulp-util";
+import favicons from 'gulp-favicons';
+import gutil from 'gulp-util';
 import config from '../config';
 import browser from './browser';
+import gulpif from 'gulp-if';
+import notify from 'gulp-notify';
 
-gulp.task("favicons", () => {
-  return gulp.src(`${config.favicons.source}/favicon.png`)
+gulp.task('favicons', () => {
+  return gulp
+    .src(`${config.favicons.source}/favicon.png`)
     .pipe(changed(`${config.favicons.build}`))
-    .pipe(favicons({
-      appName: config.name,
-      appDescription: config.description,
-      developerName: null,
-      developerURL: null,
-      background: 'transparent',
-      path: config.favicons.path,
-      display: 'standalone',
-      orientation: 'portrait',
-      version: config.version,
-      logging: false,
-      online: false,
-      icons: {
-        android: true,
-        appleIcon: true,
-        appleStartup: true,
-        coast: true,
-        favicons: true,
-        firefox: true,
-        opengraph: false,
-        twitter: false,
-        windows: true,
-        yandex: true
-      },
-      html: config.favicons.html,
-      replace: true
-    }))
-    .on("error", gutil.log)
+    .pipe(
+      favicons({
+        appName: config.name,
+        appDescription: config.description,
+        developerName: null,
+        developerURL: null,
+        background: 'transparent',
+        path: config.favicons.path,
+        display: 'standalone',
+        orientation: 'portrait',
+        version: config.version,
+        logging: false,
+        online: false,
+        icons: {
+          android: true,
+          appleIcon: true,
+          appleStartup: true,
+          coast: true,
+          favicons: true,
+          firefox: true,
+          opengraph: false,
+          twitter: false,
+          windows: true,
+          yandex: true
+        },
+        html: config.favicons.html,
+        replace: true
+      })
+    )
+    .on('error', gutil.log)
     .pipe(gulp.dest(`${config.favicons.build}`))
-    .pipe(browser.stream());
+    .pipe(browser.stream())
+    .pipe(
+      gulpif(
+        config.enable.notify,
+        notify({
+          title: config.notify.title,
+          message: 'Favicons task complete',
+          onLast: true
+        })
+      )
+    );
 });
-

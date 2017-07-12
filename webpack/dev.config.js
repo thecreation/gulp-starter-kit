@@ -1,9 +1,9 @@
 import webpack from 'webpack';
 import webpackMerge from 'webpack-merge';
-import webpackCommon from './common.config';
+import webpackBase from './base.config';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 
-module.exports = webpackMerge(webpackCommon, {
+module.exports = webpackMerge(webpackBase, {
   devtool: 'inline-source-map',
 
   plugins: [

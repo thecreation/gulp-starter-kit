@@ -1,0 +1,12 @@
+{
+  "verbose": false,
+  "force": false,
+  "pkgFiles": ["package.json", "bower.json"],
+  "increment": "patch",
+  "commitMessage": "Release v%s",
+  "tagName": "v%s",
+  "tagAnnotation": "Release v%s",
+  "npm": {
+    "publish": true
+  }
+}

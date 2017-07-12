@@ -11,6 +11,7 @@ import reporter from 'postcss-reporter';
 import minify from 'gulp-clean-css';
 import browser from './browser';
 import notify from 'gulp-notify';
+import notifier from 'node-notifier';
 
 // STYLES
 // ------------------
@@ -35,7 +36,9 @@ gulp.task('lint:styles', () => {
 gulp.task('make:styles', () => {
   return gulp
     .src(`${config.styles.source}/*.scss`)
-    .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
+    .pipe(
+      plumber({ errorHandler: notify.onError('Error: <%= error.message %>') })
+    )
     .pipe(
       sass({
         precision: 10, // https://github.com/sass/sass/issues/1122
@@ -50,4 +53,13 @@ gulp.task('make:styles', () => {
     .pipe(browser.stream());
 });
 
-gulp.task('styles', gulp.series('lint:styles', 'make:styles'));
+gulp.task('styles', gulp.series('lint:styles', 'make:styles', (done) => {
+  if(config.enable.notify) {
+    notifier.notify({
+      title: config.notify.title,
+      message: 'Styles task complete'
+    });
+  }
+
+  done();
+}));
