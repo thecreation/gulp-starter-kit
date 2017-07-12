@@ -13,13 +13,14 @@ This starter also features a number of great software (in the words of their cre
 - [handlebars](https://github.com/wycats/handlebars.js) - a javascript template engine.
 - [handlebars-layouts](https://github.com/shannonmoeller/handlebars-layouts) - a handlebars helpers which implement layout blocks.
 - [svgo](https://github.com/svg/svgo) - a Nodejs-based tool for optimizing SVG vector graphics files.
+- [Favicons](https://github.com/evilebottnawi/favicons) - a Node.js module for generating favicons and their associated files. 
+- [EditorConfig](http://editorconfig.org/)
 
 ## Lint
 - [ESLint](http://eslint.org/) - the pluggable linting utility for JavaScript and JSX (with preconfigured ruleset by [Google](https://github.com/google/eslint-config-google))
 - [Stylelint](http://stylelint.io/) - a mighty, modern CSS linter (with preconfigured ruleset by [Hugo Giraudel](https://sass-guidelin.es/))
 
 ## Metalsmith plugins
-- [metalsmith-webpack](https://github.com/christophercliff/metalsmith-webpack)
 - [metalsmith-drafts](https://github.com/segmentio/metalsmith-drafts) - A metalsmith plugin to hide drafts.
 - [metalsmith-data](https://github.com/elcontraption/metalsmith-data) - a metalsmith plugin to add namespaced global data objects from files.
 - [metalsmith-metallic](https://github.com/weswigham/metalsmith-metallic) - a metalsmith plugin to highlight code in Markdown files.
@@ -30,6 +31,14 @@ This starter also features a number of great software (in the words of their cre
 - [metalsmith-collections](https://github.com/segmentio/metalsmith-collections) - a metalsmith plugin that groups files together into collections.
 - [metalsmith-register-helpers](https://github.com/losttype/metalsmith-register-helpers) -  a Metalsmith plugin for registering Handlebars helpers.
 - [metalsmith-rootpath](https://github.com/amazingsurge/metalsmith-rootpath) - a Metalsmith plugin for add relative path to the root directory.
+
+## Webpack plugins
+- [DefinePlugin](https://webpack.js.org/plugins/define-plugin/)
+- [ProvidePlugin](https://webpack.js.org/plugins/provide-plugin/)
+- [CommonsChunkPlugin](https://webpack.js.org/plugins/commons-chunk-plugin/)
+- [NoEmitOnErrorsPlugin](https://webpack.js.org/plugins/no-emit-on-errors-plugin/)
+- [LoaderOptionsPlugin](https://webpack.js.org/plugins/loader-options-plugin/)
+- [UglifyJsPlugin](https://webpack.js.org/plugins/uglifyjs-webpack-plugin/)
 
 ## Getting started
 Make sure [Node.js](http://nodejs.org/) is installed on your system, then clone this repository and install its dependencies via [NPM](https://npmjs.org/):
@@ -62,26 +71,27 @@ Almost all tasks also have watch mode - `gulp watch:[task_name]`, but you don't 
 Task name          | Description                                                      
 :------------------|:----------------------------------
 `default`          | will start all tasks required by project in dev mode: initial build, watch files, run server with livereload
-`build:dev`        | build dev version of project (without code optimizations)
-`build`            | build production-ready project (with code optimizations)
+`build`            | builds all content and assets from `src` to `dist`.
 
 ### Other tasks
 Task name          | Description                                                      
 :------------------|:----------------------------------
 `styles`           | compile .scss to .css. 
-`webpack`          | compile .js sources into bundle file
-`copy`             | copy files from `./src/assets` path to `./dist/assets` path
+`scripts`          | compile .js sources into bundle file
+`copy`             | copy files from `src/assets` path to `dist/assets` path
 `html`             | compile .hbs to .html
 `svgs`             | optimize svg files
-`fonts`            | copy files from `./src/fonts` path to `./dist/fonts` path
+`fonts`            | copy files from `src/fonts` path to `dist/fonts` path
 `prettier`         | prettify js files
-`server`           | run dev-server powered by [BrowserSync](https://www.browsersync.io/)
-`clean`            | delete `./dist` folder
+`server`           | start a BrowserSync instance.
+`clean`            | remove `dist` folder
+`favicons`         | generate favicons to `dist/assets/favicons` path
+`images`           | optimize and copies images in `./src/images` to `dist/assets/images`
 
-All available tasks are placed in a folder `./tasks`. 
+All available tasks are placed in a folder `tasks`. 
 
 ## Flags
-* `gulp [task_name] --prod` or `gulp [task_name] --production` - run task in production mode. Some of the tasks (like, sass or js compilation) have additional settings for production mode (such as code minification), so with this flag you can force production mode. 
+* `gulp [task_name] --prod` or `gulp [task_name] --production` - run task in production mode.
 
 ### Workflow
 Everything's ready to get started right away:

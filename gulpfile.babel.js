@@ -1,6 +1,6 @@
 import config from './config';
 import gulp from 'gulp';
-
+import gutil from "gulp-util";
 import browser from './tasks/browser';
 import clean from './tasks/clean';
 import copy from './tasks/copy';
@@ -16,6 +16,14 @@ import svgs from './tasks/svgs';
 import usemin from './tasks/usemin';
 import watch from './tasks/watch';
 import prettier from './tasks/prettier';
+
+gutil.log(gutil.colors.bold(`ℹ  ${config.name} v${config.version}`));
+
+if (config.production) {
+  gutil.log(gutil.colors.bold.green('🚚  Production Mode'));
+} else {
+  gutil.log(gutil.colors.bold.green('🔧  Development Mode'));
+}
 
 // GENERAL TASKS
 // ------------------

@@ -9,7 +9,7 @@ gulp.task("favicons", () => {
   return gulp.src(`${config.assets.source}/favicons/favicon.png`)
     .pipe(changed(`${config.assets.build}/favicons`))
     .pipe(favicons({
-      appName: config.title,
+      appName: config.name,
       appDescription: config.description,
       developerName: null,
       developerURL: null,

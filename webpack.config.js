@@ -30,6 +30,11 @@ function createConfig(env) {
     },
     devtool: isProduction ? '#source-map' : '#cheap-module-eval-source-map',
     plugins: [
+      new webpack.DefinePlugin({
+        'process.env': {
+          NODE_ENV: JSON.stringify(isProduction ? 'production' : 'development')
+        }
+      }),
       // new webpack.optimize.CommonsChunkPlugin({
       //     name: 'vendor',
       //     filename: '[name].js',
@@ -38,7 +43,7 @@ function createConfig(env) {
       // uncomment in case of emergency code formatter need
       // new PrettierPlugin({
       //     printWidth: 80,
-      //     tabWidth: 4
+      //     tabWidth: 2
       // }),
       new webpack.ProvidePlugin({
         $: 'jquery',
