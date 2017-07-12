@@ -11,7 +11,7 @@ import webpack from "webpack";
 import cache from 'gulp-memory-cache';
 import browser from './browser';
 import gutil from "gulp-util";
-import { createConfig as webpackConfig } from "../webpack.config";
+import webpackConfig from "../webpack.config";
 
 // SCRIPTS
 // ------------------
@@ -29,7 +29,7 @@ gulp.task('lint:scripts', () => {
 // compiles / concatenates javascript & minifies it (production)
 gulp.task('make:scripts', (cb) => {
   if (config.enable.webpack) {
-    webpack(webpackConfig(config.env)).run((err, stats) => {
+    webpack(webpackConfig).run((err, stats) => {
       if (err) throw new gutil.PluginError("webpack", err);
 
       gutil.log(

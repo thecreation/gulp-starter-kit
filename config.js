@@ -13,6 +13,7 @@ export default {
   description: pkg.description,
   author: pkg.author,
 
+  root: __dirname,
   paths: {
     source: './src/html',
     build: 'dest'

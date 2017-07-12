@@ -1,6 +1,6 @@
 # Gulp - Metalsmith - Starter
 
-> A starter template for [Metalsmith](https://github.com/segmentio/metalsmith) + [Gulp](https://github.com/gulpjs/gulp)
+> A starter template for Metalsmith, Gulp, ECMAScript(latest), webpack3, sass and postcss.
 
 ## Features
 This starter also features a number of great software (in the words of their creators):
