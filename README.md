@@ -12,6 +12,7 @@ This starter also features a number of great software (in the words of their cre
 - [Webpack](https://webpack.github.io/) - a bundler for javascript and friends
 - [handlebars](https://github.com/wycats/handlebars.js) - a javascript template engine.
 - [handlebars-layouts](https://github.com/shannonmoeller/handlebars-layouts) - a handlebars helpers which implement layout blocks.
+- [svgo](https://github.com/svg/svgo) - a Nodejs-based tool for optimizing SVG vector graphics files.
 
 ## Lint
 - [ESLint](http://eslint.org/) - the pluggable linting utility for JavaScript and JSX (with preconfigured ruleset by [Google](https://github.com/google/eslint-config-google))
@@ -52,8 +53,38 @@ start the build/watch process with this command:
    $ gulp
    ```
 
+## List of Gulp tasks
+
+To run separate task type in command line `gulp [task_name]`.
+Almost all tasks also have watch mode - `gulp watch:[task_name]`, but you don't need to use it directly.
+
+### Main tasks
+Task name          | Description                                                      
+:------------------|:----------------------------------
+`default`          | will start all tasks required by project in dev mode: initial build, watch files, run server with livereload
+`build:dev`        | build dev version of project (without code optimizations)
+`build`            | build production-ready project (with code optimizations)
+
+### Other tasks
+Task name          | Description                                                      
+:------------------|:----------------------------------
+`styles`           | compile .scss to .css. 
+`webpack`          | compile .js sources into bundle file
+`copy`             | copy files from `./src/assets` path to `./dist/assets` path
+`html`             | compile .hbs to .html
+`svgs`             | optimize svg files
+`fonts`            | copy files from `./src/fonts` path to `./dist/fonts` path
+`prettier`         | compile iconfonts from svg sources
+`server`           | run dev-server powered by [BrowserSync](https://www.browsersync.io/)
+`clean`            | delete `./dist` folder
+
+All available tasks are placed in a folder `./tasks`. 
+
+## Flags
+* `gulp [task_name] --prod` or `gulp [task_name] --production` - run task in production mode. Some of the tasks (like, sass or js compilation) have additional settings for production mode (such as code minification), so with this flag you can force production mode. 
+
 ### Workflow
-Everything's ready to get started right away - here's my Gulp workflow:
+Everything's ready to get started right away:
 
 `npm start` - Compiles assets & html, launches development server:
 - compiles styles & scripts are being compiled & concatenated

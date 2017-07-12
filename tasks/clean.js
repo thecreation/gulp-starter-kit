@@ -1,6 +1,6 @@
-import gulp   from 'gulp';
+import gulp from 'gulp';
 import config from '../config';
-import del    from 'del';
+import del from 'del';
 
 // Clean dest files
 gulp.task('clean', () => {

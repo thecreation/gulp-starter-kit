@@ -1,6 +1,6 @@
-import gulp    from 'gulp';
+import gulp from 'gulp';
 import browser from './browser';
-import config  from '../config';
+import config from '../config';
 
 // SERVER
 // ------------------
@@ -8,10 +8,10 @@ import config  from '../config';
 gulp.task('server', () => {
   browser.init({
     server: {
-      baseDir: config.paths.build,
+      baseDir: config.paths.build
     },
     port: config.server.port,
     notify: config.server.notify,
-    open: config.server.open,
+    open: config.server.open
   });
 });

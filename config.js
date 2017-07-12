@@ -1,41 +1,50 @@
-const envDev = ((process.env.NODE_ENV || '').trim().toLowerCase() !== 'production');
 import pkg from './package';
+import util from 'gulp-util';
+
+const production = util.env.production || util.env.prod || false;
 
 export default {
   metadata: {
-    envDev,
+    production,
     pkg
   },
   paths: {
     source: './src/html',
-    build: 'dest',
+    build: 'dest'
   },
   assets: {
     source: 'src',
-    build: 'dest/assets',
+    build: 'dest/assets'
   },
   enable: {
-    webpack: false,
+    webpack: false
   },
   server: {
     port: 4000,
     notify: true,
-    open: true,
+    open: true
   },
-  envDev,
+  env: 'development',
+  production: production,
+  setEnv: function(env) {
+    if (typeof env !== 'string') return;
+    this.env = env;
+    this.production = env === 'production';
+    process.env.NODE_ENV = env;
+  },
   styles: {
     include: [
       // 'node_modules',
       // 'bower_components'
-    ],
+    ]
   },
   scripts: {
     webpack: {
-      watch: false,
+      watch: false
       // entry: {},
       // output: {},
       // plugins: []
-    },
+    }
   },
   html: {
     minify: {
@@ -47,7 +56,7 @@ export default {
       minifyCSS: true,
       minifyJS: true,
       collapseBooleanAttributes: true,
-      removeAttributeQuotes: true,
-    },
-  },
+      removeAttributeQuotes: true
+    }
+  }
 };
