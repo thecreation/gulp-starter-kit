@@ -74,7 +74,7 @@ Task name          | Description
 `html`             | compile .hbs to .html
 `svgs`             | optimize svg files
 `fonts`            | copy files from `./src/fonts` path to `./dist/fonts` path
-`prettier`         | compile iconfonts from svg sources
+`prettier`         | prettify js files
 `server`           | run dev-server powered by [BrowserSync](https://www.browsersync.io/)
 `clean`            | delete `./dist` folder
 

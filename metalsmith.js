@@ -91,6 +91,5 @@ export default function(callback, clean) {
     })
   );
   if (config.production) metalsmith.use(htmlmin(config.html.minify));
-  console.info(config.production);
   return metalsmith.build(callback);
 }

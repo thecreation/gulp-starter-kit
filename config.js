@@ -17,7 +17,7 @@ export default {
     build: 'dest/assets'
   },
   enable: {
-    webpack: false
+    webpack: true
   },
   server: {
     port: 4000,

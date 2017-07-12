@@ -7,10 +7,11 @@ import named from 'vinyl-named';
 import plumber from 'gulp-plumber';
 import concat from 'gulp-concat';
 import uglify from 'gulp-uglify';
-import webpack from 'webpack-stream';
-import wp from 'webpack';
+import webpack from "webpack";
 import cache from 'gulp-memory-cache';
 import browser from './browser';
+import gutil from "gulp-util";
+import { createConfig as webpackConfig } from "../webpack.config";
 
 // SCRIPTS
 // ------------------
@@ -26,19 +27,22 @@ gulp.task('lint:scripts', () => {
 });
 
 // compiles / concatenates javascript & minifies it (production)
-gulp.task('make:scripts', () => {
+gulp.task('make:scripts', (cb) => {
   if (config.enable.webpack) {
-    // Array of used webpack plugins
-    const webpackPlugins = [];
+    webpack(webpackConfig(config.env)).run((err, stats) => {
+      if (err) throw new gutil.PluginError("webpack", err);
 
-    return gulp
-      .src(`${config.assets.source}/scripts/scripts.js`)
-      .pipe(named())
-      .pipe(webpack(config.scripts.webpack))
-      .pipe(gulpif(!config.metadata.envDev, uglify()))
-      .pipe(size({ gzip: true, showFiles: true }))
-      .pipe(gulp.dest(`${config.assets.build}/scripts`))
-      .pipe(browser.stream());
+      gutil.log(
+        "[webpack]",
+        stats.toString({
+          colors: true,
+          chunks: false
+        })
+      );
+
+      browser.reload();
+      if (typeof cb === "function") cb();
+    });
   } else {
     return gulp
       .src(`${config.assets.source}/scripts/*.js`, {
