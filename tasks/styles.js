@@ -8,7 +8,6 @@ import stylelint from 'stylelint';
 import postcss from 'gulp-postcss';
 import syntaxScss from 'postcss-scss';
 import reporter from 'postcss-reporter';
-import minify from 'gulp-clean-css';
 import browser from './browser';
 import notify from 'gulp-notify';
 import notifier from 'node-notifier';
@@ -46,7 +45,6 @@ gulp.task('make:styles', () => {
       })
     )
     .pipe(postcss())
-    .pipe(gulpif(config.production, minify()))
     .pipe(size({ gzip: true, showFiles: true }))
     .pipe(plumber.stop())
     .pipe(gulp.dest(`${config.styles.build}`))

@@ -7,20 +7,31 @@ This starter also features a number of great software (in the words of their cre
 - [Lanyon](http://lanyon.getpoole.com/) - a content-first, sliding sidebar theme (originally) for Jekyll (by [mdo](http://mdo.fm))
 - [Gulp](http://gulpjs.com/) - a task automation tool
 - [Browsersync](https://www.browsersync.io/) - time-saving synchronised browser testing (once you go live-reload, you'll never come back)
+- [EditorConfig](http://editorconfig.org/) - a config file for maintaining  consistent coding styles.
+
+### Assets
+- [svgo](https://github.com/svg/svgo) - a Node.js module for optimizing SVG vector graphics files.
+- [Favicons](https://github.com/evilebottnawi/favicons) - a Node.js module for generating favicons and their associated files. 
+- [imagemin](https://github.com/imagemin/imagemin) - a Node.js module for minify images seamlessly
+
+### JavaScript
+- [Babel](http://babeljs.io/) - a JavaScript compiler for es5 to es6/7.
+- [Webpack](https://webpack.github.io/) - a bundler for JavaScript.
+
+### StyleSheet
 - [Sass](http://sass-lang.com/) - CSS with superpowers
 - [PostCSS](https://github.com/postcss/postcss) - a tool for transforming styles with JS plugins
 - [Autoprefixer](https://github.com/postcss/autoprefixer) - adding vendor prefixes by the rules of [Can I Use](http://caniuse.com/)
-- [Webpack](https://webpack.github.io/) - a bundler for javascript and friends
-- [handlebars](https://github.com/wycats/handlebars.js) - a javascript template engine.
-- [handlebars-layouts](https://github.com/shannonmoeller/handlebars-layouts) - a handlebars helpers which implement layout blocks.
-- [svgo](https://github.com/svg/svgo) - a Nodejs-based tool for optimizing SVG vector graphics files.
-- [Favicons](https://github.com/evilebottnawi/favicons) - a Node.js module for generating favicons and their associated files. 
-- [EditorConfig](http://editorconfig.org/)
-- [imagemin](https://github.com/imagemin/imagemin) - a Node.js module for minify images seamlessly
+- [csso](https://github.com/css/csso) - a CSS minifier with structural optimizations.
 
-## Lint
+### Lint
 - [ESLint](http://eslint.org/) - the pluggable linting utility for JavaScript and JSX (with preconfigured ruleset by [Google](https://github.com/google/eslint-config-google))
 - [Stylelint](http://stylelint.io/) - a mighty, modern CSS linter (with preconfigured ruleset by [Hugo Giraudel](https://sass-guidelin.es/))
+
+### Html
+- [Metalsmith](http://www.metalsmith.io/) - a simple, pluggable static site generator.
+- [handlebars](https://github.com/wycats/handlebars.js) - a javascript template engine.
+- [handlebars-layouts](https://github.com/shannonmoeller/handlebars-layouts) - a handlebars helpers which implement layout blocks.
 
 ## Metalsmith plugins
 - [metalsmith-drafts](https://github.com/segmentio/metalsmith-drafts) - A metalsmith plugin to hide drafts.
@@ -42,27 +53,60 @@ This starter also features a number of great software (in the words of their cre
 - [LoaderOptionsPlugin](https://webpack.js.org/plugins/loader-options-plugin/)
 - [UglifyJsPlugin](https://webpack.js.org/plugins/uglifyjs-webpack-plugin/)
 
+## Installation
+
+### Node version manager
+
+Install [NVM](https://github.com/creationix/nvm)
+
+Use the latest version of NodeJS.
+
+```
+nvm install node
+nvm use node
+```
+
+### Install Sass
+
+Go to [sass-lang.com/install](http://sass-lang.com/install) for installation in command line.
+
+```
+gem install sass
+```
+
+Before install sass, you should [install Ruby](https://www.ruby-lang.org/en/documentation/installation/) and [install Gem](https://rubygems.org/pages/download).
+
+### Install Yarn
+
+[Install Yarn globally](https://yarnpkg.com/docs/install/)
+
+```
+npm install --global yarn
+```
+
+### Install Babel
+
+[Install Babel globally](https://babeljs.io/docs/usage/cli/#installation).
+
+```
+npm install --global babel-cli
+```
+
+### Install Gulp
+[Install Gulp globally](http://gulpjs.com/).
+
+```
+npm install --global gulp-cli
+```
+
 ## Getting started
-Make sure [Node.js](http://nodejs.org/) is installed on your system, then clone this repository and install its dependencies via [NPM](https://npmjs.org/):
 
-1. Clone gulp-metalsmith-starter
-
-   ```
-   $ git clone https://github.com/amazingsurge/metalsmith-gulp-boilerplate.git new-metalsmith-project
-   ```
-
-2. Run the following command within your new project directory:
-
-   ```
-   $ npm install
-   ```
-
-3. Assuming you have [installed Gulp globally](https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md#1-install-gulp-globally) and [installed Babel globally](https://babeljs.io/docs/usage/cli/#installation),
-start the build/watch process with this command:
-
-   ```
-   $ gulp
-   ```
+```
+$ git clone https://github.com/amazingsurge/metalsmith-gulp-boilerplate.git <your-project-name>
+cd <your-project-name>
+npm install
+gulp
+```
 
 ## List of Gulp tasks
 
@@ -80,15 +124,15 @@ Task name          | Description
 :------------------|:----------------------------------
 `styles`           | compile `.scss` to `.css`. 
 `scripts`          | compile `.js` sources into bundle file
-`copy`             | copy files from `src/assets` path to `dist/assets` path
 `html`             | compile `.hbs` to `.html`
 `svgs`             | optimize svg files
 `fonts`            | copy files from `src/fonts` path to `dist/fonts` path
-`prettier`         | beautify js files
-`server`           | start a BrowserSync instance.
-`clean`            | remove `dist` folder
 `favicons`         | generate favicons to `dist/assets/favicons` path
 `images`           | optimize and copies images in `./src/images` to `dist/assets/images`
+`prettier`         | beautify js files
+`copy`             | copy files from `src/assets` path to `dist/assets` path
+`clean`            | remove `dist` folder
+`server`           | start a BrowserSync instance.
 `watch`            | watchs for changes in `src/` path and rebuilds parts of the site as necessary
 
 All available tasks are placed in a folder `tasks`. 
@@ -112,7 +156,7 @@ Everything's ready to get started right away:
 `npm run deploy` - Same as above, plus everything's being pushed to your repositories' `gh-pages` branch
 
 ### Configuration
-Global variables and site metadata can be found inside `config.js`. Metalsmith's build process resides in `metalsmith.js`. Static assets such as (S)CSS or JS files as well as fonts and images are located inside `src`, pages in their respective folders inside `src/html`. If something doesn't suit your needs, just make it so, and if you stumble across something worth sharing, then think about ..
+Global variables and site metadata can be found inside `config.js`. Your can make some modification in the file.
 
 ## Structure
 
@@ -149,6 +193,3 @@ Global variables and site metadata can be found inside `config.js`. Metalsmith's
 ## License
 
 The code is available under the [MIT](https://github.com/amazingSurge/gulp-metalsmith-starter/blob/master/LICENSE) license.
-
-### Credit
-- [Gulp v4 - Metalsmith - Starter](https://github.com/S1SYPHOS/Gulp4-Metalsmith-Starter)

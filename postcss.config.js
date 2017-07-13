@@ -9,6 +9,10 @@ module.exports = {
         'last 3 versions',
         'IE >= 9'
       ]
+    }),
+    require('postcss-csso')({
+      restructure: false,
+      debug: true
     })
   ]
 };
