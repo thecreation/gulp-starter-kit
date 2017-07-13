@@ -1,16 +1,16 @@
 {
-  "name": "gulp-metalsmith-starter",
-  "version": "0.1.1",
-  "description": "Gulp - Metalsmith - Starter",
+  "name": "web-starter-kit",
+  "version": "0.1.0",
+  "description": "Template for starting to build modern websites.",
   "author": "amazingSurge <amazingSurge@gmail.com>",
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/amazingSurge/gulp-metalsmith-starter"
+    "url": "https://github.com/amazingSurge/web-starter-kit"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/amazingSurge/gulp-metalsmith-starter/issues"
+    "url": "https://github.com/amazingSurge/web-starter-kit/issues"
   },
   "scripts": {
     "start": "gulp",

@@ -3,7 +3,7 @@ title: About
 layout: page.hbs
 ---
 <p class="message">
-  The gulp-metalsmith-starter's default theme is Lanyon, originally developed as [Jekyll](http://jekyllrb.com) theme by [@mdo](https://twitter.com/mdo), that I ported over for use with [Metalsmith](http://metalsmith.io).
+  The web-starter-kit's default theme is Lanyon, originally developed as [Jekyll](http://jekyllrb.com) theme by [@mdo](https://twitter.com/mdo), that I ported over for use with [Metalsmith](http://metalsmith.io).
 </p>
 
 It comes with many great features, including:

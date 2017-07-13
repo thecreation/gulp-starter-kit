@@ -1,4 +1,4 @@
-# Gulp - Metalsmith - Starter
+# Template for starting to build modern websites.
 
 > A starter template for Metalsmith, Gulp, ECMAScript(latest), webpack3, sass and postcss.
 
@@ -192,4 +192,4 @@ Global variables and site metadata can be found inside `config.js`. Your can mak
 
 ## License
 
-The code is available under the [MIT](https://github.com/amazingSurge/gulp-metalsmith-starter/blob/master/LICENSE) license.
+The code is available under the [MIT](https://github.com/amazingSurge/web-starter-kit/blob/master/LICENSE) license.
