@@ -8,7 +8,7 @@ export default {
   watch: false, // dynamically changed by gulp
   context: path.join(config.root, config.scripts.source),
   entry: {
-    // vendor: ['jquery'],
+    vendor: ['jquery'],
     scripts: './scripts.js'
   },
   output: {
@@ -16,12 +16,15 @@ export default {
     filename: '[name].js',
     publicPath: 'js/'
   },
+  // externals: [
+  //   'jquery'
+  // ],
   plugins: [
-    // new webpack.optimize.CommonsChunkPlugin({
-    //     name: 'vendor',
-    //     filename: '[name].js',
-    //     minChunks: Infinity
-    // }),
+    new webpack.optimize.CommonsChunkPlugin({
+        name: 'vendor',
+        filename: '[name].js',
+        minChunks: Infinity
+    }),
     // uncomment in case of emergency code formatter need
     // new PrettierPlugin({
     //     printWidth: 80,
@@ -35,10 +38,10 @@ export default {
     new webpack.NoEmitOnErrorsPlugin()
   ],
   resolve: {
-    extensions: ['.js']
-    // alias: {
-    //     "jquery": path.resolve('node_modules', 'jquery/dist/jquery.js')
-    // }
+    extensions: ['.js'],
+    alias: {
+      "jquery": path.resolve('node_modules', 'jquery/dist/jquery.js')
+    }
   },
   module: {
     rules: [
@@ -46,6 +49,16 @@ export default {
         test: /\.js$/,
         loader: 'babel-loader',
         exclude: [path.resolve(config.root, 'node_modules')]
+      },
+      {
+        test: require.resolve('jquery'),
+        use: [{
+            loader: 'expose-loader',
+            options: 'jQuery'
+        },{
+            loader: 'expose-loader',
+            options: '$'
+        }]
       }
     ]
   }

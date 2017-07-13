@@ -61,6 +61,7 @@ This starter also features a number of great software (in the words of their cre
 - [NoEmitOnErrorsPlugin](https://webpack.js.org/plugins/no-emit-on-errors-plugin/)
 - [LoaderOptionsPlugin](https://webpack.js.org/plugins/loader-options-plugin/)
 - [UglifyJsPlugin](https://webpack.js.org/plugins/uglifyjs-webpack-plugin/)
+- [expose-loader](https://webpack.js.org/loaders/expose-loader/)
 
 ## Installation
 
