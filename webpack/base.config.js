@@ -5,6 +5,7 @@ import config from '../config';
 // import PrettierPlugin from 'prettier-webpack-plugin';
 
 export default {
+  watch: false, // dynamically changed by gulp
   context: path.join(config.root, config.scripts.source),
   entry: {
     // vendor: ['jquery'],

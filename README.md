@@ -1,37 +1,36 @@
-# Template for starting to build modern websites.
+# Web Starter Kit
 
 > A starter template for Metalsmith, Gulp, ECMAScript(latest), webpack3, sass and postcss.
 
 ## Features
 This starter also features a number of great software (in the words of their creators):
-- [Lanyon](http://lanyon.getpoole.com/) - a content-first, sliding sidebar theme (originally) for Jekyll (by [mdo](http://mdo.fm))
-- [Gulp](http://gulpjs.com/) - a task automation tool
-- [Browsersync](https://www.browsersync.io/) - time-saving synchronised browser testing (once you go live-reload, you'll never come back)
+- [Lanyon](http://lanyon.getpoole.com/) - a content-first, sliding sidebar theme (originally) for Jekyll (by [mdo](http://mdo.fm)).
+- [Gulp](http://gulpjs.com/) - a task automation tool.
+- [Browsersync](https://www.browsersync.io/) - time-saving synchronised browser testing, keep multiple browsers & devices in sync when editing files.
 - [EditorConfig](http://editorconfig.org/) - a config file for maintaining  consistent coding styles.
 
 ### Assets
 - [svgo](https://github.com/svg/svgo) - a Node.js module for optimizing SVG vector graphics files.
 - [Favicons](https://github.com/evilebottnawi/favicons) - a Node.js module for generating favicons and their associated files. 
-- [imagemin](https://github.com/imagemin/imagemin) - a Node.js module for minify images seamlessly
+- [imagemin](https://github.com/imagemin/imagemin) - a Node.js module for minify images seamlessly.
 
 ### JavaScript
 - [Babel](http://babeljs.io/) - a JavaScript compiler for es5 to es6/7.
 - [Webpack](https://webpack.github.io/) - a bundler for JavaScript.
-
+- [ESLint](http://eslint.org/) - the pluggable linting utility for JavaScript and JSX (with preconfigured ruleset by [Google](https://github.com/google/eslint-config-google)).
+- 
 ### StyleSheet
-- [Sass](http://sass-lang.com/) - CSS with superpowers
-- [PostCSS](https://github.com/postcss/postcss) - a tool for transforming styles with JS plugins
-- [Autoprefixer](https://github.com/postcss/autoprefixer) - adding vendor prefixes by the rules of [Can I Use](http://caniuse.com/)
+- [Sass](http://sass-lang.com/) - CSS with superpowers.
+- [PostCSS](https://github.com/postcss/postcss) - a tool for transforming styles with JS plugins.
+- [Autoprefixer](https://github.com/postcss/autoprefixer) - adding vendor prefixes by the rules of [Can I Use](http://caniuse.com/).
 - [csso](https://github.com/css/csso) - a CSS minifier with structural optimizations.
-
-### Lint
-- [ESLint](http://eslint.org/) - the pluggable linting utility for JavaScript and JSX (with preconfigured ruleset by [Google](https://github.com/google/eslint-config-google))
-- [Stylelint](http://stylelint.io/) - a mighty, modern CSS linter (with preconfigured ruleset by [Hugo Giraudel](https://sass-guidelin.es/))
+- [Stylelint](http://stylelint.io/) - a mighty, modern CSS linter (with preconfigured ruleset by [Hugo Giraudel](https://sass-guidelin.es/)).
 
 ### Html
 - [Metalsmith](http://www.metalsmith.io/) - a simple, pluggable static site generator.
 - [handlebars](https://github.com/wycats/handlebars.js) - a javascript template engine.
 - [handlebars-layouts](https://github.com/shannonmoeller/handlebars-layouts) - a handlebars helpers which implement layout blocks.
+- [HTMLHint](https://github.com/yaniswang/HTMLHint) - a Static Code Analysis Tool for HTML.
 
 ## Metalsmith plugins
 - [metalsmith-drafts](https://github.com/segmentio/metalsmith-drafts) - A metalsmith plugin to hide drafts.
@@ -57,9 +56,7 @@ This starter also features a number of great software (in the words of their cre
 
 ### Node version manager
 
-Install [NVM](https://github.com/creationix/nvm)
-
-Use the latest version of NodeJS.
+Install [NVM](https://github.com/creationix/nvm). And use the latest version of NodeJS.
 
 ```
 nvm install node
@@ -104,7 +101,7 @@ npm install --global gulp-cli
 ```
 $ git clone https://github.com/amazingsurge/metalsmith-gulp-boilerplate.git <your-project-name>
 cd <your-project-name>
-npm install
+yarn # npm install
 gulp
 ```
 
@@ -118,27 +115,28 @@ Task name          | Description
 :------------------|:----------------------------------
 `default`          | will start all tasks required by project in dev mode: initial build, watch files, run server with livereload
 `build`            | builds all content and assets from `src` to `dist`.
+`dev`              | builds your project without optimization.
 
 ### Other tasks
 Task name          | Description                                                      
 :------------------|:----------------------------------
-`styles`           | compile `.scss` to `.css`. 
-`scripts`          | compile `.js` sources into bundle file
-`html`             | compile `.hbs` to `.html`
-`svgs`             | optimize svg files
-`fonts`            | copy files from `src/fonts` path to `dist/fonts` path
-`favicons`         | generate favicons to `dist/assets/favicons` path
-`images`           | optimize and copies images in `./src/images` to `dist/assets/images`
-`prettier`         | beautify js files
+`styles`           | compile all scss from `src/styles` to `dist/assets/styles` folder. 
+`scripts`          | compile all js from `src/scripts` to `dist/assets/scripts` folder. 
+`html`             | compile all hbs files to html files.
+`svgs`             | optimize svg files.
+`fonts`            | copy files from `src/fonts` path to `dist/fonts` path.
+`favicons`         | generate favicons to `dist/assets/favicons` path.
+`images`           | optimize and copies images in `src/images` to `dist/assets/images`
+`prettier`         | beautify your source files in `src/js`.
 `copy`             | copy files from `src/assets` path to `dist/assets` path
-`clean`            | remove `dist` folder
+`clean`            | remove `dist` folder.
 `server`           | start a BrowserSync instance.
-`watch`            | watchs for changes in `src/` path and rebuilds parts of the site as necessary
+`watch`            | watchs for changes in `src/` path and rebuilds parts of the site as necessary.
 
 All available tasks are placed in a folder `tasks`. 
 
 ## Flags
-* `gulp [task_name] --prod` or `gulp [task_name] --production` - run task in production mode.
+* `gulp [task_name] --prod` or `gulp [task_name] --production` to run task in production mode.
 
 ### Workflow
 Everything's ready to get started right away:
@@ -185,9 +183,10 @@ Global variables and site metadata can be found inside `config.js`. Your can mak
     ├── /images/            # Non compressed image files
     ├── /svgs/              # Non compressed svg files
     ├── /favicons/          # Favicon image
-    ├── /layouts/           # Handlebars HTML layouts that are based on
-    ├── /partials/          # Handlebars HTML partials that are included / extended
-    └── /html/              # Handlebars HTML files, one per page on the site
+    ├── /helpers/           # Handlebars helpers
+    ├── /layouts/           # Handlebars layouts that are based on
+    ├── /partials/          # Handlebars partials that are included / extended
+    └── /html/              # Handlebars pages, one per page on the site
 ```
 
 ## License
