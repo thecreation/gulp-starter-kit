@@ -56,13 +56,16 @@ gulp.task('make:styles', () => {
     .pipe(browser.stream());
 });
 
-gulp.task('styles', gulp.series('lint:styles', 'make:styles', (done) => {
-  if(config.enable.notify) {
-    notifier.notify({
-      title: config.notify.title,
-      message: 'Styles task complete'
-    });
-  }
+gulp.task(
+  'styles',
+  gulp.series('lint:styles', 'make:styles', done => {
+    if (config.enable.notify) {
+      notifier.notify({
+        title: config.notify.title,
+        message: 'Styles task complete'
+      });
+    }
 
-  done();
-}));
+    done();
+  })
+);

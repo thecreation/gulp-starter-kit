@@ -14,7 +14,7 @@ let postcssConfig = {
   ]
 };
 
-if(config.production) {
+if (config.production) {
   postcssConfig.plugins.push(
     require('postcss-csso')({
       restructure: false,

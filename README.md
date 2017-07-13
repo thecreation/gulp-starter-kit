@@ -148,19 +148,28 @@ Task name          | Description
 `build`            | builds all content and assets from `src` to `dist`.
 `dev`              | builds your project without optimization.
 
-### Other tasks
+### Core tasks
 Task name          | Description                                                      
 :------------------|:----------------------------------
 `styles`           | compile all scss from `src/styles` to `dist/assets/styles` folder. 
 `scripts`          | compile all js from `src/scripts` to `dist/assets/scripts` folder. 
 `html`             | compile all hbs files to html files.
+`usemin`           | replaces references to non-optimized scripts or stylesheets into a set of HTML files
+
+### Assets related tasks
+Task name          | Description                                                      
+:------------------|:----------------------------------
+`copy`             | copy files from `src/assets` path to `dist/assets` path
 `svgs`             | optimize svg files.
 `fonts`            | copy files from `src/fonts` path to `dist/fonts` path.
 `favicons`         | generate favicons to `dist/assets/favicons` path.
 `images`           | optimize and copies images in `src/images` to `dist/assets/images`
-`prettier`         | beautify your source files in `src/js`.
-`copy`             | copy files from `src/assets` path to `dist/assets` path
+
+### Dev tasks
+Task name          | Description                                                      
+:------------------|:----------------------------------
 `clean`            | remove `dist` folder.
+`prettier`         | beautify your source files in `src/js`.
 `server`           | start a BrowserSync instance.
 `watch`            | watchs for changes in `src/` path and rebuilds parts of the site as necessary.
 
@@ -168,9 +177,9 @@ Task name          | Description
 
 Task name          | Description                                                      
 :------------------|:----------------------------------
-`version:major`    | MAJOR ("major") version when you make incompatible API changes
-`version:minor`    | MINOR ("minor") version when you add functionality in a backwards-compatible manner
-`version:patch`    | PATCH ("patch") version when you make backwards-compatible bug fixes.
+`version:major`    | MAJOR version when you make incompatible API changes
+`version:minor`    | MINOR version when you add functionality in a backwards-compatible manner
+`version:patch`    | PATCH version when you make backwards-compatible bug fixes.
 `version`          | alias to `version:path`.
 
 All available tasks are placed in a folder `tasks`. 

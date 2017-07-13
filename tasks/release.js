@@ -44,11 +44,11 @@ argv.option([
   }
 ]);
 
-gulp.task('release', (done) => {
+gulp.task('release', done => {
   let args = argv.run();
 
   releaseIt.execute(args.options).catch(handleErrors).finally(function() {
-    if(config.enable.notify) {
+    if (config.enable.notify) {
       notifier.notify({
         title: config.notify.title,
         message: 'Release task complete'

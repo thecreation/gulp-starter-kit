@@ -18,7 +18,7 @@ gulp.task('lint:html', () => {
 });
 
 // runs the Metalsmith build script to build the site
-gulp.task('make:html', (done) => {
+gulp.task('make:html', done => {
   metalsmith(function(err) {
     if (err) throw err;
     browser.reload();
@@ -27,13 +27,16 @@ gulp.task('make:html', (done) => {
   });
 });
 
-gulp.task('html', gulp.series('make:html', 'lint:html', (done) => {
-  if(config.enable.notify) {
-    notifier.notify({
-      title: config.notify.title,
-      message: 'Html task complete'
-    });
-  }
+gulp.task(
+  'html',
+  gulp.series('make:html', 'lint:html', done => {
+    if (config.enable.notify) {
+      notifier.notify({
+        title: config.notify.title,
+        message: 'Html task complete'
+      });
+    }
 
-  done();
-}));
+    done();
+  })
+);

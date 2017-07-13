@@ -72,13 +72,16 @@ if (config.enable.webpack) {
   });
 }
 
-gulp.task('scripts', gulp.series('lint:scripts', 'make:scripts', (done) => {
-  if(config.enable.notify) {
-    notifier.notify({
-      title: config.notify.title,
-      message: 'Scripts task complete'
-    });
-  }
+gulp.task(
+  'scripts',
+  gulp.series('lint:scripts', 'make:scripts', done => {
+    if (config.enable.notify) {
+      notifier.notify({
+        title: config.notify.title,
+        message: 'Scripts task complete'
+      });
+    }
 
-  done();
-}));
+    done();
+  })
+);

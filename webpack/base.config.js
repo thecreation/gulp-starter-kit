@@ -21,9 +21,9 @@ export default {
   // ],
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({
-        name: 'vendor',
-        filename: '[name].js',
-        minChunks: Infinity
+      name: 'vendor',
+      filename: '[name].js',
+      minChunks: Infinity
     }),
     // uncomment in case of emergency code formatter need
     // new PrettierPlugin({
@@ -40,7 +40,7 @@ export default {
   resolve: {
     extensions: ['.js'],
     alias: {
-      "jquery": path.resolve('node_modules', 'jquery/dist/jquery.js')
+      jquery: path.resolve('node_modules', 'jquery/dist/jquery.js')
     }
   },
   module: {
@@ -52,13 +52,16 @@ export default {
       },
       {
         test: require.resolve('jquery'),
-        use: [{
+        use: [
+          {
             loader: 'expose-loader',
             options: 'jQuery'
-        },{
+          },
+          {
             loader: 'expose-loader',
             options: '$'
-        }]
+          }
+        ]
       }
     ]
   }

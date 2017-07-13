@@ -84,7 +84,7 @@ export default {
       minifyJS: true,
       collapseBooleanAttributes: true,
       removeAttributeQuotes: true
-    },
+    }
   },
 
   archive: {
