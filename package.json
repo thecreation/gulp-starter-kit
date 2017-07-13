@@ -3,6 +3,7 @@
   "version": "0.1.2",
   "description": "Template for starting to build modern websites.",
   "author": "amazingSurge <amazingSurge@gmail.com>",
+  "homepage": "https://github.com/amazingSurge/web-starter-kit",
   "private": true,
   "repository": {
     "type": "git",
@@ -50,6 +51,7 @@
     "gulp-favicons": "^2.2.7",
     "gulp-flatmap": "^1.0.0",
     "gulp-gh-pages": "^0.5.4",
+    "gulp-header": "^1.8.8",
     "gulp-htmlhint": "^0.3.1",
     "gulp-if": "^2.0.2",
     "gulp-imagemin": "^3.3.0",

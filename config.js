@@ -8,6 +8,14 @@ export default {
   version: pkg.version,
   description: pkg.description,
   author: pkg.author,
+  banner: `/**
+* ${pkg.name} v${pkg.version}
+* ${pkg.homepage}
+*
+* Copyright (c) ${pkg.author}
+* Released under the ${pkg.license} license
+*/
+`,
 
   root: __dirname,
   paths: {
@@ -39,7 +47,7 @@ export default {
   },
 
   scripts: {
-    bundler: 'default', // rollup, webpack, default
+    bundler: 'webpack', // rollup, webpack, default
     source: 'src/scripts',
     build: 'dest/assets/scripts'
   },

@@ -11,6 +11,7 @@ import reporter from 'postcss-reporter';
 import browser from './browser';
 import notify from 'gulp-notify';
 import notifier from 'node-notifier';
+import header from 'gulp-header';
 
 // STYLES
 // ------------------
@@ -50,6 +51,7 @@ gulp.task('make:styles', () => {
       })
     )
     .pipe(postcss())
+    .pipe(gulpif(config.production, header(config.banner)))
     .pipe(size({ gzip: true, showFiles: true }))
     .pipe(plumber.stop())
     .pipe(gulp.dest(`${config.styles.build}`))

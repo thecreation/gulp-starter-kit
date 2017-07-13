@@ -1,6 +1,7 @@
 import webpack from 'webpack';
 import webpackMerge from 'webpack-merge';
 import webpackBase from './base.config';
+import config from '../config';
 
 module.exports = webpackMerge(webpackBase, {
   devtool: 'source-map',
@@ -33,6 +34,10 @@ module.exports = webpackMerge(webpackBase, {
       output: {
         comments: false
       }
+    }),
+    new webpack.BannerPlugin({
+      banner: config.banner,
+      raw: true
     })
   ]
 });

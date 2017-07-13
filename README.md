@@ -70,6 +70,7 @@ This starter also features a number of great software (in the words of their cre
 - [LoaderOptionsPlugin](https://webpack.js.org/plugins/loader-options-plugin/)
 - [UglifyJsPlugin](https://webpack.js.org/plugins/uglifyjs-webpack-plugin/)
 - [expose-loader](https://webpack.js.org/loaders/expose-loader/)
+- [BannerPlugin](https://webpack.js.org/plugins/banner-plugin/)
 
 ## Installation
 

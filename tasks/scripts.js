@@ -17,6 +17,7 @@ import include from 'gulp-include';
 import babel from 'gulp-babel';
 import handleErrors from './utils/handleErrors';
 import rollup from 'gulp-rollup';
+import header from 'gulp-header';
 
 // SCRIPTS
 // ------------------
@@ -84,6 +85,7 @@ switch (config.scripts.bundler) {
         .pipe(rollup(rollupConfig))
         .pipe(babel())
         .pipe(gulpif(config.production, uglify()))
+        .pipe(gulpif(config.production, header(config.banner)))
         .pipe(size({ gzip: true, showFiles: true }))
         .pipe(gulp.dest(`${config.scripts.build}`))
         .pipe(browser.stream());
@@ -109,6 +111,7 @@ switch (config.scripts.bundler) {
         )
         .pipe(babel())
         .pipe(gulpif(config.production, uglify()))
+        .pipe(gulpif(config.production, header(config.banner)))
         .pipe(size({ gzip: true, showFiles: true }))
         .pipe(plumber.stop())
         .pipe(gulp.dest(`${config.scripts.build}`))
