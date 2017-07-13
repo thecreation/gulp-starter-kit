@@ -2,6 +2,16 @@
 
 > A starter template for Metalsmith, Gulp, ECMAScript(latest), webpack3, sass and postcss.
 
+## Table of Contents
+
+* [Features](#features)
+* [Installation](#installation)
+* [Getting Started](#getting-started)
+* [List of Gulp tasks](#list-of-gulp-tasks)
+* [Configuration](#configuration)
+* [Directory Structure](#directory-structure)
+* [Dockerization](#dockerization)
+
 ## Features
 This starter also features a number of great software (in the words of their creators):
 - [Lanyon](http://lanyon.getpoole.com/) - a content-first, sliding sidebar theme (originally) for Jekyll (by [mdo](http://mdo.fm)).
@@ -32,7 +42,7 @@ This starter also features a number of great software (in the words of their cre
 - [handlebars-layouts](https://github.com/shannonmoeller/handlebars-layouts) - a handlebars helpers which implement layout blocks.
 - [HTMLHint](https://github.com/yaniswang/HTMLHint) - a Static Code Analysis Tool for HTML.
 
-## Metalsmith plugins
+### Metalsmith plugins
 - [metalsmith-drafts](https://github.com/segmentio/metalsmith-drafts) - A metalsmith plugin to hide drafts.
 - [metalsmith-data](https://github.com/elcontraption/metalsmith-data) - a metalsmith plugin to add namespaced global data objects from files.
 - [metalsmith-metallic](https://github.com/weswigham/metalsmith-metallic) - a metalsmith plugin to highlight code in Markdown files.
@@ -44,7 +54,7 @@ This starter also features a number of great software (in the words of their cre
 - [metalsmith-register-helpers](https://github.com/losttype/metalsmith-register-helpers) -  a Metalsmith plugin for registering Handlebars helpers.
 - [metalsmith-rootpath](https://github.com/amazingsurge/metalsmith-rootpath) - a Metalsmith plugin for add relative path to the root directory.
 
-## Webpack plugins
+### Webpack plugins
 - [DefinePlugin](https://webpack.js.org/plugins/define-plugin/)
 - [ProvidePlugin](https://webpack.js.org/plugins/provide-plugin/)
 - [CommonsChunkPlugin](https://webpack.js.org/plugins/commons-chunk-plugin/)
@@ -98,11 +108,30 @@ npm install --global gulp-cli
 
 ## Getting started
 
+1. Clone this Boilerplate
+
+```bash
+$ git clone https://github.com/amazingsurge/web-starter-kit.git <PROJECT_NAME>
+$ cd <PROJECT_NAME>
 ```
-$ git clone https://github.com/amazingsurge/metalsmith-gulp-boilerplate.git <your-project-name>
-cd <your-project-name>
-yarn # npm install
-gulp
+
+2. Install Dependencies
+
+```bash
+$ yarn install
+```
+
+3. Build the project
+
+```bash
+$ gulp
+```
+
+4. Stay up-to-date
+
+```bash
+$ git remote add upstream https://github.com/amazingsurge/web-starter-kit.git
+$ git pull upstream master
 ```
 
 ## List of Gulp tasks
@@ -135,7 +164,7 @@ Task name          | Description
 
 All available tasks are placed in a folder `tasks`. 
 
-## Flags
+### Flags
 * `gulp [task_name] --prod` or `gulp [task_name] --production` to run task in production mode.
 
 ### Workflow
@@ -143,7 +172,7 @@ Everything's ready to get started right away:
 
 `npm start` - Compiles assets & html, launches development server:
 - compiles styles & scripts are being compiled & concatenated
-- compresses images
+- compresses images & svgs
 - builds the site & opens it in your default browser
 - watches for changes and injects them right away
 
@@ -151,12 +180,10 @@ Everything's ready to get started right away:
 - compiles & builds everything
 - minifies & compresses everything
 
-`npm run deploy` - Same as above, plus everything's being pushed to your repositories' `gh-pages` branch
-
-### Configuration
+## Configuration
 Global variables and site metadata can be found inside `config.js`. Your can make some modification in the file.
 
-## Structure
+## Directory Structure
 
 ```bash
 ├── README.md               # Important information related
@@ -187,6 +214,26 @@ Global variables and site metadata can be found inside `config.js`. Your can mak
     ├── /layouts/           # Handlebars layouts that are based on
     ├── /partials/          # Handlebars partials that are included / extended
     └── /html/              # Handlebars pages, one per page on the site
+```
+
+## Dockerization
+
+1. Build and run the Container
+
+```bash
+$ docker-compose up
+```
+
+2. Run a command in a running container
+
+```bash
+$ docker-compose exec app <COMMAND>
+```
+
+3. Remove the old container before creating the new one
+
+```bash
+$ docker-compose rm -fs
 ```
 
 ## License
