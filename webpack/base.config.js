@@ -8,7 +8,7 @@ export default {
   watch: false, // dynamically changed by gulp
   context: path.join(config.root, config.scripts.source),
   entry: {
-    vendor: ['jquery'],
+    vendors: ['jquery'],
     scripts: './scripts.js'
   },
   output: {
@@ -21,7 +21,7 @@ export default {
   // ],
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor',
+      name: 'vendors',
       filename: '[name].js',
       minChunks: Infinity
     }),

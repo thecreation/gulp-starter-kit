@@ -28,7 +28,7 @@ module.exports = webpackMerge(webpackBase, {
         warnings: false // Disable warnings. Set to true when checking for issues
       },
       mangle: {
-        except: ['$super', '$', 'exports', 'require']
+        reserved: ['$super', '$', 'exports', 'require']
       },
       output: {
         comments: false

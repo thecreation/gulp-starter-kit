@@ -5,7 +5,8 @@ import gulpif from 'gulp-if';
 import size from 'gulp-size';
 import named from 'vinyl-named';
 import plumber from 'gulp-plumber';
-import uglify from 'gulp-uglify';
+import uglifyjs from 'uglify-js';
+import composer from 'gulp-uglify/composer';
 import webpack from 'webpack';
 import cache from 'gulp-memory-cache';
 import browser from './browser';
@@ -30,8 +31,10 @@ gulp.task('lint:scripts', () => {
     .pipe(gulp.dest('.'));
 });
 
+const uglify = composer(uglifyjs, console);
+
 // compiles / concatenates javascript & minifies it (production)
-switch(config.scripts.bundler) {
+switch (config.scripts.bundler) {
   case 'webpack':
     const webpackConfig = config.production
       ? require('../webpack/prod.config.js')
@@ -74,10 +77,14 @@ switch(config.scripts.bundler) {
         .src(`${config.scripts.source}/**/*.js`)
         .on('error', handleErrors)
         .pipe(
-          plumber({ errorHandler: notify.onError('Error: <%= error.message %>') })
+          plumber({
+            errorHandler: notify.onError('Error: <%= error.message %>')
+          })
         )
         .pipe(rollup(rollupConfig))
         .pipe(babel())
+        .pipe(gulpif(config.production, uglify()))
+        .pipe(size({ gzip: true, showFiles: true }))
         .pipe(gulp.dest(`${config.scripts.build}`))
         .pipe(browser.stream());
     });
@@ -87,9 +94,19 @@ switch(config.scripts.bundler) {
       return gulp
         .src(`${config.scripts.source}/*.js`)
         .pipe(
-          plumber({ errorHandler: notify.onError('Error: <%= error.message %>') })
+          plumber({
+            errorHandler: notify.onError('Error: <%= error.message %>')
+          })
         )
-        .pipe(include()) // see https://www.npmjs.com/package/gulp-include
+        .pipe(
+          include({
+            // see https://www.npmjs.com/package/gulp-include
+            includePaths: [
+              config.root + '/node_modules',
+              config.root + '/src/scripts'
+            ]
+          })
+        )
         .pipe(babel())
         .pipe(gulpif(config.production, uglify()))
         .pipe(size({ gzip: true, showFiles: true }))
@@ -112,4 +129,3 @@ gulp.task(
     done();
   })
 );
-

@@ -34,13 +34,12 @@ export default {
     source: 'src/styles',
     build: 'dest/assets/styles',
     include: [
-      // 'node_modules',
-      // 'bower_components'
+      // 'node_modules'
     ]
   },
 
   scripts: {
-    bundler: 'rollup', // rollup, webpack, default
+    bundler: 'default', // rollup, webpack, default
     source: 'src/scripts',
     build: 'dest/assets/scripts'
   },

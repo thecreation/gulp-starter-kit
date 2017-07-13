@@ -100,6 +100,7 @@
     "rollup-plugin-uglify": "^2.0.1",
     "stylelint": "^7.13.0",
     "stylelint-config-sass-guidelines": "^2.2.0",
+    "uglify-js": "^3.0.24",
     "vinyl-named": "^1.1.0",
     "webpack": "^3.2.0",
     "webpack-bundle-analyzer": "^2.8.2",
@@ -117,7 +118,8 @@
     "env": {
       "browser": true,
       "es6": true,
-      "node": true
+      "node": true,
+      "jquery": true
     },
     "parserOptions": {
       "ecmaVersion": 6,

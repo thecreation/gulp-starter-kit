@@ -5,6 +5,9 @@
   let sidebar = document.querySelector('#sidebar');
   let checkbox = document.querySelector('#sidebar-checkbox');
 
+  $(document).ready(() => {
+    alert('hello world');
+  });
   document.addEventListener(
     'click',
     function(e) {
