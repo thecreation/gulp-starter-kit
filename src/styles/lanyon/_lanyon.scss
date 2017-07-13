@@ -41,13 +41,18 @@ body {
 }
 
 html {
-  font-family: "PT Serif", Georgia, "Times New Roman", serif;
+  font-family: 'PT Serif', Georgia, 'Times New Roman', serif;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: "PT Sans", Helvetica, Arial, sans-serif;
-  font-weight: 400;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: #313131;
+  font-family: 'PT Sans', Helvetica, Arial, sans-serif;
+  font-weight: 400;
   letter-spacing: -.025rem;
 }
 
@@ -75,11 +80,13 @@ h1, h2, h3, h4, h5, h6 {
 .container {
   max-width: 28rem;
 }
+
 @media (min-width: 38em) {
   .container {
     max-width: 32rem;
   }
 }
+
 @media (min-width: 56em) {
   .container {
     max-width: 38rem;
@@ -94,16 +101,16 @@ h1, h2, h3, h4, h5, h6 {
  */
 
 .masthead {
-  padding-top:    1rem;
-  padding-bottom: 1rem;
-  margin-bottom: 3rem;
   border-bottom: 1px solid #eee;
+  margin-bottom: 3rem;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
 }
 
 .masthead-title {
-  margin-top: 0;
-  margin-bottom: 0;
   color: #505050;
+  margin-bottom: 0;
+  margin-top: 0;
 }
 
 .masthead-title a {
@@ -111,9 +118,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .masthead-title small {
+  color: #c0c0c0;
   font-size: 75%;
   font-weight: 400;
-  color: #c0c0c0;
   letter-spacing: 0;
 }
 
@@ -145,30 +152,31 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Style and "hide" the sidebar */
 .sidebar {
+  background-color: #202020;
+  bottom: 0;
+  color: rgba(255, 255, 255, 0.6);
+  font-family: 'PT Sans', Helvetica, Arial, sans-serif;
+  font-size: 0.875rem; /* 15px */
+  left: -14rem;
+  overflow-y: auto;
   position: fixed;
   top: 0;
-  bottom: 0;
-  left: -14rem;
-  width: 14rem;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   visibility: hidden;
-  overflow-y: auto;
-  font-family: "PT Sans", Helvetica, Arial, sans-serif;
-  font-size: .875rem; /* 15px */
-  color: rgba(255,255,255,.6);
-  background-color: #202020;
-  -webkit-transition: all .3s ease-in-out;
-  transition: all .3s ease-in-out;
+  width: 14rem;
 }
+
 @media (min-width: 30em) {
   .sidebar {
-    font-size: .75rem; /* 14px */
+    font-size: 0.75rem; /* 14px */
   }
 }
 
 /* Sidebar content */
 .sidebar a {
-  font-weight: normal;
   color: #fff;
+  font-weight: normal;
 }
 
 .sidebar-item {
@@ -181,21 +189,21 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Sidebar nav */
 .sidebar-nav {
-  border-bottom: 1px solid rgba(255,255,255,.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .sidebar-nav-item {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
   display: block;
-  padding: .5rem 1rem;
-  border-top: 1px solid rgba(255,255,255,.1);
+  padding: 0.5rem 1rem;
 }
 
 .sidebar-nav-item.active,
 a.sidebar-nav-item:hover,
 a.sidebar-nav-item:focus {
-  text-decoration: none;
-  background-color: rgba(255,255,255,.1);
+  background-color: rgba(255, 255, 255, 0.1);
   border-color: transparent;
+  text-decoration: none;
 }
 
 @media (min-width: 48em) {
@@ -204,15 +212,15 @@ a.sidebar-nav-item:focus {
   }
 
   .sidebar-nav-item {
-    padding-left:  1.5rem;
+    padding-left: 1.5rem;
     padding-right: 1.5rem;
   }
 }
 
 /* Hide the sidebar checkbox that we toggle with `.sidebar-toggle` */
 .sidebar-checkbox {
-  position: absolute;
   opacity: 0;
+  position: absolute;
   -webkit-user-select: none;
   -moz-user-select: none;
   user-select: none;
@@ -220,42 +228,42 @@ a.sidebar-nav-item:focus {
 
 /* Style the `label` that we use to target the `.sidebar-checkbox` */
 .sidebar-toggle {
-  position: absolute;
-  top:  .8rem;
-  left: 1rem;
-  display: block;
-  padding: .25rem .75rem;
-  color: #505050;
   background-color: #fff;
-  border-radius: .25rem;
+  border-radius: 0.25rem;
+  color: #505050;
   cursor: pointer;
+  display: block;
+  left: 1rem;
+  padding: 0.25rem 0.75rem;
+  position: absolute;
+  top: 0.8rem;
 }
 
 .sidebar-toggle:before {
-  display: inline-block;
-  width: 1rem;
-  height: .75rem;
-  content: "";
   background-image: -webkit-linear-gradient(to bottom, #555, #555 20%, #fff 20%, #fff 40%, #555 40%, #555 60%, #fff 60%, #fff 80%, #555 80%, #555 100%);
-  background-image:    -moz-linear-gradient(to bottom, #555, #555 20%, #fff 20%, #fff 40%, #555 40%, #555 60%, #fff 60%, #fff 80%, #555 80%, #555 100%);
-  background-image:     -ms-linear-gradient(to bottom, #555, #555 20%, #fff 20%, #fff 40%, #555 40%, #555 60%, #fff 60%, #fff 80%, #555 80%, #555 100%);
-  background-image:         linear-gradient(to bottom, #555, #555 20%, #fff 20%, #fff 40%, #555 40%, #555 60%, #fff 60%, #fff 80%, #555 80%, #555 100%);
+  background-image: -moz-linear-gradient(to bottom, #555, #555 20%, #fff 20%, #fff 40%, #555 40%, #555 60%, #fff 60%, #fff 80%, #555 80%, #555 100%);
+  background-image: -ms-linear-gradient(to bottom, #555, #555 20%, #fff 20%, #fff 40%, #555 40%, #555 60%, #fff 60%, #fff 80%, #555 80%, #555 100%);
+  background-image: linear-gradient(to bottom, #555, #555 20%, #fff 20%, #fff 40%, #555 40%, #555 60%, #fff 60%, #fff 80%, #555 80%, #555 100%);
+  content: '';
+  display: inline-block;
+  height: 0.75rem;
+  width: 1rem;
 }
 
 .sidebar-toggle:active,
 #sidebar-checkbox:focus ~ .sidebar-toggle,
 #sidebar-checkbox:checked ~ .sidebar-toggle {
-  color: #fff;
   background-color: #555;
+  color: #fff;
 }
 
 .sidebar-toggle:active:before,
 #sidebar-checkbox:focus ~ .sidebar-toggle:before,
 #sidebar-checkbox:checked ~ .sidebar-toggle:before {
   background-image: -webkit-linear-gradient(to bottom, #fff, #fff 20%, #555 20%, #555 40%, #fff 40%, #fff 60%, #555 60%, #555 80%, #fff 80%, #fff 100%);
-  background-image:    -moz-linear-gradient(to bottom, #fff, #fff 20%, #555 20%, #555 40%, #fff 40%, #fff 60%, #555 60%, #555 80%, #fff 80%, #fff 100%);
-  background-image:     -ms-linear-gradient(to bottom, #fff, #fff 20%, #555 20%, #555 40%, #fff 40%, #fff 60%, #555 60%, #555 80%, #fff 80%, #fff 100%);
-  background-image:         linear-gradient(to bottom, #fff, #fff 20%, #555 20%, #555 40%, #fff 40%, #fff 60%, #555 60%, #555 80%, #fff 80%, #fff 100%);
+  background-image: -moz-linear-gradient(to bottom, #fff, #fff 20%, #555 20%, #555 40%, #fff 40%, #fff 60%, #555 60%, #555 80%, #fff 80%, #fff 100%);
+  background-image: -ms-linear-gradient(to bottom, #fff, #fff 20%, #555 20%, #555 40%, #fff 40%, #fff 60%, #555 60%, #555 80%, #fff 80%, #fff 100%);
+  background-image: linear-gradient(to bottom, #fff, #fff 20%, #555 20%, #555 40%, #fff 40%, #fff 60%, #555 60%, #555 80%, #fff 80%, #fff 100%);
 }
 
 @media (min-width: 30.1em) {
@@ -293,13 +301,13 @@ a.sidebar-nav-item:focus {
 
 .wrap,
 .sidebar-toggle {
-  -webkit-transition: -webkit-transform .3s ease-in-out;
-  transition: transform .3s ease-in-out;
+  -webkit-transition: -webkit-transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
 }
 
 #sidebar-checkbox:checked + .sidebar {
-  z-index: 10;
   visibility: visible;
+  z-index: 10;
 }
 
 #sidebar-checkbox:checked ~ .sidebar,
@@ -337,22 +345,22 @@ a.sidebar-nav-item:focus {
 
 /* Meta data line below post title */
 .post-date {
-  display: block;
-  margin-top: -.5rem;
-  margin-bottom: 1rem;
   color: #9a9a9a;
+  display: block;
+  margin-bottom: 1rem;
+  margin-top: -.5rem;
 }
 
 /* Related posts */
 .related {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
   border-top: 1px solid #eee;
+  padding-bottom: 2rem;
+  padding-top: 2rem;
 }
 
 .related-posts {
-  padding-left: 0;
   list-style: none;
+  padding-left: 0;
 }
 
 .related-posts h3 {
@@ -360,8 +368,8 @@ a.sidebar-nav-item:focus {
 }
 
 .related-posts li small {
-  font-size: 75%;
   color: #999;
+  font-size: 75%;
 }
 
 .related-posts li a:hover {
@@ -382,19 +390,19 @@ a.sidebar-nav-item:focus {
  */
 
 .pagination {
-  overflow: hidden; /* clearfix */
+  color: #ccc;
+  font-family: 'PT Sans', Helvetica, Arial, sans-serif;
   margin-left: -1rem;
   margin-right: -1rem;
-  font-family: "PT Sans", Helvetica, Arial, sans-serif;
-  color: #ccc;
+  overflow: hidden; /* clearfix */
   text-align: center;
 }
 
 /* Pagination items can be `span`s or `a`s */
 .pagination-item {
+  border: 1px solid #eee;
   display: block;
   padding: 1rem;
-  border: 1px solid #eee;
 }
 
 .pagination-item:first-child {
@@ -417,15 +425,15 @@ a.pagination-item:hover {
   }
 
   .pagination-item:first-child {
-    margin-bottom: 0;
-    border-top-left-radius:    4px;
     border-bottom-left-radius: 4px;
+    border-top-left-radius: 4px;
+    margin-bottom: 0;
   }
 
   .pagination-item:last-child {
-    margin-left: -1px;
-    border-top-right-radius:    4px;
     border-bottom-right-radius: 4px;
+    border-top-right-radius: 4px;
+    margin-left: -1px;
   }
 }
 
@@ -582,14 +590,14 @@ a.pagination-item:hover {
 }
 
 .sidebar-overlay #sidebar-checkbox:checked ~ .sidebar-toggle {
-  box-shadow: 0 0 0 .25rem #fff;
+  box-shadow: 0 0 0 0.25rem #fff;
 }
 
 .sidebar-overlay #sidebar-checkbox:checked ~ .sidebar {
-  box-shadow: .25rem 0 .5rem rgba(0,0,0,.1);
+  box-shadow: 0.25rem 0 0.5rem rgba(0, 0, 0, 0.1);
 }
 
 /* Only one tweak for a reverse layout */
 .layout-reverse.sidebar-overlay #sidebar-checkbox:checked ~ .sidebar {
-  box-shadow: -.25rem 0 .5rem rgba(0,0,0,.1);
+  box-shadow: -.25rem 0 0.5rem rgba(0, 0, 0, 0.1);
 }

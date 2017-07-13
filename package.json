@@ -17,7 +17,6 @@
     "build": "gulp build --production",
     "deploy": "gulp build && gulp deploy --production",
     "stage": "gulp --production",
-    "devel": "gulp build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
@@ -97,7 +96,7 @@
     "rollup": "^0.45.2",
     "rollup-plugin-commonjs": "^8.0.2",
     "rollup-plugin-node-resolve": "^3.0.0",
-    "rollup-plugin-uglify": "^2.0.1",
+    "stylefmt": "^6.0.0",
     "stylelint": "^7.13.0",
     "stylelint-config-sass-guidelines": "^2.2.0",
     "uglify-js": "^3.0.24",

@@ -175,7 +175,7 @@ Task name          | Description
 Task name          | Description                                                      
 :------------------|:----------------------------------
 `clean`            | remove `dist` folder.
-`prettier`         | beautify your source files in `src/js`.
+`beautify`         | beautify your source files in `src/styles` and `src/scripts`.
 `server`           | start a BrowserSync instance.
 `watch`            | watchs for changes in `src/` path and rebuilds parts of the site as necessary.
 

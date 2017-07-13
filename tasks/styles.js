@@ -28,7 +28,7 @@ gulp.task('lint:styles', () => {
             fix: true,
             syntax: 'scss'
           }), // see http://stylelint.io/user-guide/example-config/
-          reporter({ clearMessages: true })
+          reporter({ clearMessages: true, clearReportedMessages: true })
         ],
         { syntax: syntaxScss }
       )
