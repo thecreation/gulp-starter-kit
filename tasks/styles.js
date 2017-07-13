@@ -18,17 +18,22 @@ import notifier from 'node-notifier';
 gulp.task('lint:styles', () => {
   return gulp
     .src(`${config.styles.source}/**/*.scss`, {
+      base: './',
       since: gulp.lastRun('lint:styles')
     })
     .pipe(
       postcss(
         [
-          stylelint(), // see http://stylelint.io/user-guide/example-config/
+          stylelint({
+            fix: true,
+            syntax: 'scss'
+          }), // see http://stylelint.io/user-guide/example-config/
           reporter({ clearMessages: true })
         ],
         { syntax: syntaxScss }
       )
-    );
+    )
+    .pipe(gulp.dest('./'));
 });
 
 // Compiles sass into css & minifies it (production)

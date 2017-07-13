@@ -5,7 +5,6 @@ import gulpif from 'gulp-if';
 import size from 'gulp-size';
 import named from 'vinyl-named';
 import plumber from 'gulp-plumber';
-import concat from 'gulp-concat';
 import uglify from 'gulp-uglify';
 import webpack from 'webpack';
 import cache from 'gulp-memory-cache';
@@ -13,6 +12,8 @@ import browser from './browser';
 import gutil from 'gulp-util';
 import notify from 'gulp-notify';
 import notifier from 'node-notifier';
+import include from 'gulp-include';
+import babel from 'gulp-babel';
 
 const webpackConfig = config.production
   ? require('../webpack/prod.config.js')
@@ -26,7 +27,7 @@ gulp.task('lint:scripts', () => {
       base: './',
       since: gulp.lastRun('lint:scripts')
     })
-    .pipe(eslint({ fix: false })) // see http://eslint.org/docs/rules/
+    .pipe(eslint({ fix: true })) // see http://eslint.org/docs/rules/
     .pipe(eslint.format())
     .pipe(gulp.dest('.'));
 });
@@ -57,18 +58,16 @@ if (config.enable.webpack) {
 } else {
   gulp.task('make:scripts', done => {
     return gulp
-      .src(`${config.scripts.source}/*.js`, {
-        since: cache.lastMtime('concatJS')
-      })
+      .src(`${config.scripts.source}/*.js`)
       .pipe(
         plumber({ errorHandler: notify.onError('Error: <%= error.message %>') })
       )
-      .pipe(cache('concatJS'))
-      .pipe(concat('scripts.js'))
+      .pipe(include()) // see https://www.npmjs.com/package/gulp-include
+      .pipe(babel())
       .pipe(gulpif(config.production, uglify()))
       .pipe(size({ gzip: true, showFiles: true }))
       .pipe(plumber.stop())
-      .pipe(gulp.dest(`${config.scripts.dest}`))
+      .pipe(gulp.dest(`${config.scripts.build}`))
       .pipe(browser.stream());
   });
 }

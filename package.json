@@ -1,6 +1,6 @@
 {
   "name": "web-starter-kit",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "Template for starting to build modern websites.",
   "author": "amazingSurge <amazingSurge@gmail.com>",
   "private": true,
@@ -36,6 +36,7 @@
     "eslint-config-google": "^0.9.1",
     "glob": "^7.1.2",
     "gulp": "github:gulpjs/gulp#4.0",
+    "gulp-bump": "^2.7.0",
     "gulp-cached": "^1.1.1",
     "gulp-changed": "^3.1.0",
     "gulp-concat": "^2.6.1",
@@ -61,6 +62,9 @@
     "gulp-usemin": "^0.3.28",
     "gulp-util": "^3.0.8",
     "gulp-zip": "^4.0.0",
+    "expose-loader": "^0.7.3",
+    "gulp-babel": "^6.1.2",
+    "gulp-include": "^2.3.1",
     "handlebars": "^4.0.10",
     "handlebars-helpers": "^0.9.3",
     "handlebars-layouts": "^3.1.4",
@@ -119,7 +123,6 @@
     "npm": ">= 5"
   },
   "dependencies": {
-    "expose-loader": "^0.7.3",
     "jquery": "^3.2.1"
   }
 }

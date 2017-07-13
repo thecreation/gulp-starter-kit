@@ -1,12 +1,12 @@
 (function(document) {
-  var toggle = document.querySelector('.sidebar-toggle');
-  var sidebar = document.querySelector('#sidebar');
-  var checkbox = document.querySelector('#sidebar-checkbox');
+  let toggle = document.querySelector('.sidebar-toggle');
+  let sidebar = document.querySelector('#sidebar');
+  let checkbox = document.querySelector('#sidebar-checkbox');
 
   document.addEventListener(
     'click',
     function(e) {
-      var target = e.target;
+      let target = e.target;
       if (
         !checkbox.checked ||
         sidebar.contains(target) ||

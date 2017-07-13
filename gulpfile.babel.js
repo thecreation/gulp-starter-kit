@@ -27,4 +27,5 @@ gulp.task('default', gulp.series('dev'));
 
 // DEPLOY TASKS
 // ------------------
+gulp.task('version', gulp.series('version:patch'));
 gulp.task('deploy', gulp.series('archive'));

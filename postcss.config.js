@@ -1,6 +1,7 @@
-// See: https://github.com/postcss/postcss-loader#usage
+let config = require('./config');
 
-module.exports = {
+// See: https://github.com/postcss/postcss-loader#usage
+let postcssConfig = {
   plugins: [
     require('autoprefixer')({
       browsers: [
@@ -9,10 +10,17 @@ module.exports = {
         'last 3 versions',
         'IE >= 9'
       ]
-    }),
+    })
+  ]
+};
+
+if(config.production) {
+  postcssConfig.plugins.push(
     require('postcss-csso')({
       restructure: false,
       debug: true
     })
-  ]
-};
+  );
+}
+
+module.exports = postcssConfig;

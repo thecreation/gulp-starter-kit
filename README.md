@@ -27,8 +27,9 @@ This starter also features a number of great software (in the words of their cre
 ### JavaScript
 - [Babel](http://babeljs.io/) - a JavaScript compiler for es5 to es6/7.
 - [Webpack](https://webpack.github.io/) - a bundler for JavaScript.
-- [ESLint](http://eslint.org/) - the pluggable linting utility for JavaScript and JSX (with preconfigured ruleset by [Google](https://github.com/google/eslint-config-google)).
-- 
+- [ESLint](http://eslint.org/) - the pluggable linting utility for JavaScript and JSX (with preconfigured ruleset by [Google](https://github.com/google/eslint-config-google).
+- [UglifyJS](https://github.com/mishoo/UglifyJS2) – A JavaScript parser, minifier, compressor or beautifier toolkit.
+
 ### StyleSheet
 - [Sass](http://sass-lang.com/) - CSS with superpowers.
 - [PostCSS](https://github.com/postcss/postcss) - a tool for transforming styles with JS plugins.
@@ -163,6 +164,15 @@ Task name          | Description
 `server`           | start a BrowserSync instance.
 `watch`            | watchs for changes in `src/` path and rebuilds parts of the site as necessary.
 
+### Version tasks
+
+Task name          | Description                                                      
+:------------------|:----------------------------------
+`version:major`    | MAJOR ("major") version when you make incompatible API changes
+`version:minor`    | MINOR ("minor") version when you add functionality in a backwards-compatible manner
+`version:patch`    | PATCH ("patch") version when you make backwards-compatible bug fixes.
+`version`          | alias to `version:path`.
+
 All available tasks are placed in a folder `tasks`. 
 
 ### Flags
@@ -186,13 +196,24 @@ Global variables and site metadata can be found inside `config.js`. Your can mak
 
 ## Directory Structure
 
+The `source` directory contains your entire application code, including CSS, JavaScript, HTML.
+
+The rest of the folders and files only exist to make your life easier, and should not need to be touched.
+
+Below you can find full details about significant files and folders.
+
 ```bash
-├── README.md               # Important information related
-├── package.json            # The node.js modules dependencies file
+├── README.md               # Readme file
+├── package.json            # Dependencies for node.js
+├── LICENSE                 # License
+├── .babelrc                # Babel config file
 ├── .gitignore              # Git ignore rules
-├── webpack.config.js       # Controls javascript bundling
+├── .htmlhintrc             # Settings for HTMLHint
+├── postcss.config.js       # PostCSS config
 ├── gulpfile.babel.js       # The Gulp task manager configuration
+├── /webpack/               # Webpack config
 ├── /tasks/                 # Gulp tasks definitions
+├── /archives/              # Folder with zip archives
 ├── /dist/                  # Minified, optimized and compiled files
 │   ├── /assets/            # Assets folder
 │   │   ├── /styles/        # CSS files

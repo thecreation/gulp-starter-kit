@@ -21,7 +21,7 @@ export default {
   },
 
   enable: {
-    webpack: true,
+    webpack: false,
     notify: true
   },
 
