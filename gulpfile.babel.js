@@ -10,10 +10,11 @@ if (config.production) {
 } else {
   gutil.log(gutil.colors.bold.green('🔧  Development Mode'));
 }
-requiredir('./tasks'); // GENERAL TASKS // ------------------
+requiredir('./tasks');
+
 gulp.task(
   'assets',
-  gulp.parallel('copy', 'styles', 'scripts', 'images', 'svgs', 'favicons')
+  gulp.parallel('copy', 'vendor', 'styles', 'scripts', 'images', 'svgs', 'favicons')
 );
 gulp.task('build', gulp.series('clean', 'assets', 'html', 'usemin'));
 gulp.task('dev', gulp.series('build', gulp.parallel('server', 'watch')));

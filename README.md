@@ -23,6 +23,7 @@ This starter also features a number of great software (in the words of their cre
 - [svgo](https://github.com/svg/svgo) - a Node.js module for optimizing SVG vector graphics files.
 - [Favicons](https://github.com/evilebottnawi/favicons) - a Node.js module for generating favicons and their associated files. 
 - [imagemin](https://github.com/imagemin/imagemin) - a Node.js module for minify images seamlessly.
+- [assets-manager](https://github.com/amazingsurge/assets-manager) - a Node.js module for transfer the required files from your registry distributions to the target.
 
 ### JavaScript
 - [Babel](http://babeljs.io/) - a JavaScript compiler for es5 to es6/7.
@@ -165,11 +166,12 @@ Task name          | Description
 ### Assets related tasks
 Task name          | Description                                                      
 :------------------|:----------------------------------
-`copy`             | copy files from `src/assets` path to `dist/assets` path
+`copy`             | copy files from `src/assets` path to `dist/assets` path.
+`vendor`           | copy vendor files from registry distributions to `dist/assets/vendor` path.
 `svgs`             | optimize svg files.
 `fonts`            | copy files from `src/fonts` path to `dist/fonts` path.
 `favicons`         | generate favicons to `dist/assets/favicons` path.
-`images`           | optimize and copies images in `src/images` to `dist/assets/images`
+`images`           | optimize and copies images in `src/images` to `dist/assets/images`.
 
 ### Dev tasks
 Task name          | Description                                                      

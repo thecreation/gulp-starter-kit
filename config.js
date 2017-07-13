@@ -44,6 +44,26 @@ export default {
     build: 'dest/assets/scripts'
   },
 
+  html: {
+    source: 'src/html',
+    build: 'dest',
+    metadata: {
+      production,
+      pkg
+    },
+    minify: {
+      // For more options, see https://github.com/kangax/html-minifier
+      removeComments: true,
+      collapseWhitespace: true,
+      removeRedundantAttributes: true,
+      keepClosingSlash: true,
+      minifyCSS: true,
+      minifyJS: true,
+      collapseBooleanAttributes: true,
+      removeAttributeQuotes: true
+    }
+  },
+
   fonts: {
     source: 'src/fonts',
     build: 'dest/assets/fonts'
@@ -66,23 +86,14 @@ export default {
     html: 'src/partials/favicons.hbs'
   },
 
-  html: {
-    source: 'src/html',
-    build: 'dest',
-    metadata: {
-      production,
-      pkg
-    },
-    minify: {
-      // For more options, see https://github.com/kangax/html-minifier
-      removeComments: true,
-      collapseWhitespace: true,
-      removeRedundantAttributes: true,
-      keepClosingSlash: true,
-      minifyCSS: true,
-      minifyJS: true,
-      collapseBooleanAttributes: true,
-      removeAttributeQuotes: true
+  vendor: {
+    manifest: 'manifest.json',
+    dest: 'dest/assets/vendor',
+    flattenPackages: false,
+    paths: {
+      css: '${dest}/${package}/${file}',
+      js: '${dest}/${package}/${file}',
+      fonts: '${dest}/${package}/${file}'
     }
   },
 
