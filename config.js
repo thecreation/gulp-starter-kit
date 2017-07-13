@@ -21,7 +21,6 @@ export default {
   },
 
   enable: {
-    webpack: false,
     notify: true
   },
 
@@ -41,6 +40,7 @@ export default {
   },
 
   scripts: {
+    bundler: 'rollup', // rollup, webpack, default
     source: 'src/scripts',
     build: 'dest/assets/scripts'
   },

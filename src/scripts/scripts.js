@@ -1,3 +1,5 @@
+// import $ from 'jquery';
+
 (function(document) {
   let toggle = document.querySelector('.sidebar-toggle');
   let sidebar = document.querySelector('#sidebar');

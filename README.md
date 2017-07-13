@@ -26,6 +26,7 @@ This starter also features a number of great software (in the words of their cre
 
 ### JavaScript
 - [Babel](http://babeljs.io/) - a JavaScript compiler for es5 to es6/7.
+- [rollup](https://rollupjs.org/) - a module bundler for JavaScript.
 - [Webpack](https://webpack.github.io/) - a bundler for JavaScript.
 - [ESLint](http://eslint.org/) - the pluggable linting utility for JavaScript and JSX (with preconfigured ruleset by [Google](https://github.com/google/eslint-config-google).
 - [UglifyJS](https://github.com/mishoo/UglifyJS2) – A JavaScript parser, minifier, compressor or beautifier toolkit.
@@ -54,6 +55,11 @@ This starter also features a number of great software (in the words of their cre
 - [metalsmith-collections](https://github.com/segmentio/metalsmith-collections) - a metalsmith plugin that groups files together into collections.
 - [metalsmith-register-helpers](https://github.com/losttype/metalsmith-register-helpers) -  a Metalsmith plugin for registering Handlebars helpers.
 - [metalsmith-rootpath](https://github.com/amazingsurge/metalsmith-rootpath) - a Metalsmith plugin for add relative path to the root directory.
+
+### Rollup plugins
+- [rollup-plugin-node-resolve](https://github.com/rollup/rollup-plugin-node-resolve) - Use the Node.js resolution algorithm with Rollup.
+- [rollup-plugin-commonjs](https://github.com/rollup/rollup-plugin-commonjs) - Convert CommonJS modules to ES2015.
+- [rollup-plugin-uglify](https://github.com/TrySound/rollup-plugin-uglify) - Rollup plugin to minify generated bundle.
 
 ### Webpack plugins
 - [DefinePlugin](https://webpack.js.org/plugins/define-plugin/)

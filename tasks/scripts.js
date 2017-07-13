@@ -14,10 +14,8 @@ import notify from 'gulp-notify';
 import notifier from 'node-notifier';
 import include from 'gulp-include';
 import babel from 'gulp-babel';
-
-const webpackConfig = config.production
-  ? require('../webpack/prod.config.js')
-  : require('../webpack/dev.config.js');
+import handleErrors from './utils/handleErrors';
+import rollup from 'gulp-rollup';
 
 // SCRIPTS
 // ------------------
@@ -33,43 +31,72 @@ gulp.task('lint:scripts', () => {
 });
 
 // compiles / concatenates javascript & minifies it (production)
-if (config.enable.webpack) {
-  gulp.task('make:scripts', done => {
-    webpack(webpackConfig).run((err, stats) => {
-      if (err) throw new gutil.PluginError('webpack', err);
+switch(config.scripts.bundler) {
+  case 'webpack':
+    const webpackConfig = config.production
+      ? require('../webpack/prod.config.js')
+      : require('../webpack/dev.config.js');
 
-      gutil.log(
-        '[webpack]',
-        stats.toString({
-          assets: true,
-          chunks: false,
-          chunkModules: false,
-          colors: true,
-          hash: false,
-          timings: true,
-          version: false
-        })
-      );
+    gulp.task('make:scripts', done => {
+      webpack(webpackConfig).run((err, stats) => {
+        if (err) throw new gutil.PluginError('webpack', err);
 
-      browser.reload();
-      done();
+        gutil.log(
+          '[webpack]',
+          stats.toString({
+            assets: true,
+            chunks: false,
+            chunkModules: false,
+            colors: true,
+            hash: false,
+            timings: true,
+            version: false
+          })
+        );
+
+        browser.reload();
+        done();
+      });
     });
-  });
-} else {
-  gulp.task('make:scripts', done => {
-    return gulp
-      .src(`${config.scripts.source}/*.js`)
-      .pipe(
-        plumber({ errorHandler: notify.onError('Error: <%= error.message %>') })
-      )
-      .pipe(include()) // see https://www.npmjs.com/package/gulp-include
-      .pipe(babel())
-      .pipe(gulpif(config.production, uglify()))
-      .pipe(size({ gzip: true, showFiles: true }))
-      .pipe(plumber.stop())
-      .pipe(gulp.dest(`${config.scripts.build}`))
-      .pipe(browser.stream());
-  });
+    break;
+  case 'rollup':
+    let rollupConfig = config.production
+      ? require('../rollup/prod.config.js')
+      : require('../rollup/dev.config.js');
+
+    rollupConfig = Object.assign(rollupConfig, {
+      rollup: require('rollup'),
+      allowRealFiles: true
+    });
+
+    gulp.task('make:scripts', done => {
+      return gulp
+        .src(`${config.scripts.source}/**/*.js`)
+        .on('error', handleErrors)
+        .pipe(
+          plumber({ errorHandler: notify.onError('Error: <%= error.message %>') })
+        )
+        .pipe(rollup(rollupConfig))
+        .pipe(babel())
+        .pipe(gulp.dest(`${config.scripts.build}`))
+        .pipe(browser.stream());
+    });
+    break;
+  default:
+    gulp.task('make:scripts', done => {
+      return gulp
+        .src(`${config.scripts.source}/*.js`)
+        .pipe(
+          plumber({ errorHandler: notify.onError('Error: <%= error.message %>') })
+        )
+        .pipe(include()) // see https://www.npmjs.com/package/gulp-include
+        .pipe(babel())
+        .pipe(gulpif(config.production, uglify()))
+        .pipe(size({ gzip: true, showFiles: true }))
+        .pipe(plumber.stop())
+        .pipe(gulp.dest(`${config.scripts.build}`))
+        .pipe(browser.stream());
+    });
 }
 
 gulp.task(
@@ -85,3 +112,4 @@ gulp.task(
     done();
   })
 );
+
