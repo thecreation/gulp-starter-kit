@@ -110,7 +110,19 @@
   },
   "stylelint": {
     "extends": "stylelint-config-sass-guidelines",
-    "rules": {}
+    "rules": {
+      "selector-max-id": 1,
+      "selector-max-compound-selectors": 4,
+      "selector-no-qualifying-type": [
+        true,
+        {
+          "ignore": [
+            "attribute",
+            "class"
+          ]
+        }
+      ]
+    }
   },
   "eslintConfig": {
     "extends": [
