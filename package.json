@@ -62,6 +62,7 @@
     "gulp-notify": "^3.0.0",
     "gulp-plumber": "^1.1.0",
     "gulp-postcss": "^7.0.0",
+    "gulp-replace": "^0.6.1",
     "gulp-rollup": "^2.14.0",
     "gulp-sass": "^3.1.0",
     "gulp-size": "^2.1.0",
