@@ -1,5 +1,4 @@
 import collections from 'metalsmith-collections';
-import htmlmin from 'metalsmith-html-minifier';
 import inplace from 'metalsmith-in-place';
 import layouts from 'metalsmith-layouts';
 import markdown from 'metalsmith-markdown';
@@ -90,6 +89,5 @@ export default function(callback, clean) {
       html: true
     })
   );
-  // if (config.production) metalsmith.use(htmlmin(config.html.minify));
   return metalsmith.build(callback);
 }

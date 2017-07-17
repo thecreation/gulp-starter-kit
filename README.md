@@ -44,6 +44,7 @@ This starter also features a number of great software (in the words of their cre
 - [handlebars](https://github.com/wycats/handlebars.js) - a javascript template engine.
 - [handlebars-layouts](https://github.com/shannonmoeller/handlebars-layouts) - a handlebars helpers which implement layout blocks.
 - [HTMLHint](https://github.com/yaniswang/HTMLHint) - a Static Code Analysis Tool for HTML.
+- [html-minifier](https://github.com/kangax/html-minifier) - a javascript-based HTML compressor/minifier.
 
 ### Metalsmith plugins
 - [metalsmith-drafts](https://github.com/segmentio/metalsmith-drafts) - A metalsmith plugin to hide drafts.
@@ -52,7 +53,6 @@ This starter also features a number of great software (in the words of their cre
 - [metalsmith-markdown](https://github.com/segmentio/metalsmith-markdown) - a metalsmith plugin to convert markdown files.
 - [metalsmith-layouts](https://github.com/superwolff/metalsmith-layouts) - a metalsmith plugin for layouts.
 - [metalsmith-in-place](https://github.com/superwolff/metalsmith-in-place) - a metalsmith plugin for in-place templating.
-- [metalsmith-html-minifier](https://github.com/whymarrh/metalsmith-html-minifier) - a metalsmith plug-in to minify HTML files.
 - [metalsmith-collections](https://github.com/segmentio/metalsmith-collections) - a metalsmith plugin that groups files together into collections.
 - [metalsmith-register-helpers](https://github.com/losttype/metalsmith-register-helpers) -  a Metalsmith plugin for registering Handlebars helpers.
 - [metalsmith-rootpath](https://github.com/amazingsurge/metalsmith-rootpath) - a Metalsmith plugin for add relative path to the root directory.

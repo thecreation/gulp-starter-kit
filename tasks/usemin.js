@@ -7,6 +7,7 @@ import cssnano from 'gulp-cssnano';
 import uglify from 'gulp-uglify';
 import gulpif from 'gulp-if';
 import notify from 'gulp-notify';
+import htmlmin from 'gulp-htmlmin';
 
 gulp.task('usemin', () => {
   return gulp
@@ -25,7 +26,17 @@ gulp.task('usemin', () => {
               usemin({
                 // see https://www.npmjs.com/package/gulp-usemin
                 css: [cssnano()],
-                js: [uglify()]
+                js: [uglify()],
+                html: [htmlmin({
+                  removeComments: true,
+                  collapseWhitespace: true,
+                  removeRedundantAttributes: true,
+                  keepClosingSlash: true,
+                  minifyCSS: true,
+                  minifyJS: true,
+                  collapseBooleanAttributes: true,
+                  removeAttributeQuotes: true
+                })]
               })
             )
           )

@@ -58,17 +58,6 @@ export default {
     metadata: {
       production,
       pkg
-    },
-    minify: {
-      // For more options, see https://github.com/kangax/html-minifier
-      removeComments: true,
-      collapseWhitespace: true,
-      removeRedundantAttributes: true,
-      keepClosingSlash: true,
-      minifyCSS: true,
-      minifyJS: true,
-      collapseBooleanAttributes: true,
-      removeAttributeQuotes: true
     }
   },
 

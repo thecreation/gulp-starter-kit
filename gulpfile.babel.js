@@ -18,6 +18,7 @@ gulp.task(
 );
 gulp.task('build', gulp.series('clean', 'assets', 'html', 'usemin'));
 gulp.task('dev', gulp.series('build', gulp.parallel('server', 'watch')));
-gulp.task('default', gulp.series('dev')); // DEPLOY TASKS // ------------------
+gulp.task('default', gulp.series('dev'));
+
 gulp.task('version', gulp.series('version:patch'));
 gulp.task('deploy', gulp.series('archive'));
