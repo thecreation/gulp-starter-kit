@@ -1,2 +1,3 @@
 import helpers from 'handlebars-helpers';
-export default helpers.comparison();
+
+module.exports = helpers.misc()

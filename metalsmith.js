@@ -16,11 +16,6 @@ import glob from 'glob';
 import rootPath from 'metalsmith-rootpath';
 import config from './config';
 
-glob.sync('src/helpers/*.js').forEach(fileName => {
-  const helper = fileName.split('/').pop().replace('.js', '');
-
-  handlebars.registerHelper(helper, require(`./${fileName}`));
-});
 handlebars.registerHelper(handlebarsLayouts(handlebars));
 
 export default function(callback, clean) {
@@ -31,6 +26,11 @@ export default function(callback, clean) {
   metalsmith.destination(config.html.build);
   metalsmith.clean(false);
   metalsmith.use(drafts());
+  metalsmith.use(
+    helpers({
+      directory: 'src/helpers'
+    })
+  );
   metalsmith.use(
     data({
       site: 'src/data/site.yml',
@@ -90,6 +90,6 @@ export default function(callback, clean) {
       html: true
     })
   );
-  if (config.production) metalsmith.use(htmlmin(config.html.minify));
+  // if (config.production) metalsmith.use(htmlmin(config.html.minify));
   return metalsmith.build(callback);
 }
