@@ -8,9 +8,9 @@ import gulpif from 'gulp-if';
 import notify from 'gulp-notify';
 import replace from 'gulp-replace';
 import plumber from 'gulp-plumber';
-import notifier from 'node-notifier';
+import filter from 'gulp-filter';
 
-gulp.task('make:favicons', () => {
+gulp.task('favicons', () => {
   return gulp
     .src(`${config.favicons.source}/favicon.png`)
     .pipe(changed(`${config.favicons.build}`))
@@ -45,30 +45,15 @@ gulp.task('make:favicons', () => {
     )
     .on('error', gutil.log)
     .pipe(gulp.dest(`${config.favicons.build}`))
-    .pipe(browser.stream());
-});
-
-gulp.task('favicons:fix', () => {
-  return gulp
-    .src(`${config.favicons.build}/*.{xml,json,webapp}`)
-    .on('error', gutil.log)
-    .pipe(
-      plumber({ errorHandler: notify.onError('Error: <%= error.message %>') })
-    )
+    .pipe(filter('**/*.{xml,json,webapp}'))
     .pipe(replace('{{rootPath}}', '/'))
-    .pipe(gulp.dest(`${config.favicons.build}`));
-});
-
-gulp.task(
-  'favicons',
-  gulp.series('make:favicons', 'favicons:fix', done => {
-    if (config.enable.notify) {
-      notifier.notify({
+    .pipe(gulp.dest(`${config.favicons.build}`))
+    .pipe(browser.stream())
+    .pipe(
+      notify({
         title: config.notify.title,
-        message: 'Favicons task complete'
-      });
-    }
-
-    done();
-  })
-);
+        message: 'Favicons task complete',
+        onLast: true
+      })
+    );
+});
