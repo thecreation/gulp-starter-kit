@@ -10,7 +10,8 @@ let postcssConfig = {
         'last 3 versions',
         'IE >= 9'
       ]
-    })
+    }),
+    require('stylefmt')
   ]
 };
 

@@ -20,18 +20,18 @@ gulp.task('lint:styles', () => {
   return gulp
     .src(`${config.styles.source}/**/*.scss`, {
       base: './',
-      since: gulp.lastRun('lint:styles')
+      since: gulp.lastRun('lint:styles'),
     })
     .pipe(
       postcss(
         [
           stylelint({
             fix: true,
-            syntax: 'scss'
+            syntax: 'scss',
           }), // see http://stylelint.io/user-guide/example-config/
-          reporter({ clearMessages: true, clearReportedMessages: true })
+          reporter({clearMessages: true, clearReportedMessages: true}),
         ],
-        { syntax: syntaxScss }
+        {syntax: syntaxScss}
       )
     )
     .pipe(gulp.dest('./'));
@@ -42,17 +42,17 @@ gulp.task('make:styles', () => {
   return gulp
     .src(`${config.styles.source}/*.scss`)
     .pipe(
-      plumber({ errorHandler: notify.onError('Error: <%= error.message %>') })
+      plumber({errorHandler: notify.onError('Error: <%= error.message %>')})
     )
     .pipe(
       sass({
         precision: 10, // https://github.com/sass/sass/issues/1122
-        includePaths: config.styles.include
+        includePaths: config.styles.include,
       })
     )
     .pipe(postcss())
     .pipe(gulpif(config.production, header(config.banner)))
-    .pipe(size({ gzip: true, showFiles: true }))
+    .pipe(size({gzip: true, showFiles: true}))
     .pipe(plumber.stop())
     .pipe(gulp.dest(`${config.styles.build}`))
     .pipe(browser.stream());
@@ -60,11 +60,11 @@ gulp.task('make:styles', () => {
 
 gulp.task(
   'styles',
-  gulp.series('lint:styles', 'make:styles', done => {
+  gulp.series('lint:styles', 'make:styles', (done) => {
     if (config.enable.notify) {
       notifier.notify({
         title: config.notify.title,
-        message: 'Styles task complete'
+        message: 'Styles task complete',
       });
     }
 

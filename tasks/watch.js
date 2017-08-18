@@ -22,15 +22,12 @@ gulp.task('watch:svgs', () => {
 });
 
 gulp.task('watch:html', () => {
-  // https://github.com/BrowserSync/browser-sync/issues/711
-  function reload(done) {
-    browser.reload();
-    done();
-  }
-
   gulp.watch(
     ['src/html/**/*', 'src/layouts/**/*', 'src/partials/**/*', 'config.js'],
-    gulp.series('html', reload)
+    gulp.series('html', function(done) {
+      browser.reload();
+      done();
+    })
   );
 });
 

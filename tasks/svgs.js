@@ -12,24 +12,24 @@ gulp.task('svgs', () => {
     .src(`${config.svgs.source}/**/*`)
     .pipe(changed(`${config.svgs.build}`))
     .pipe(
-      plumber({ errorHandler: notify.onError('Error: <%= error.message %>') })
+      plumber({errorHandler: notify.onError('Error: <%= error.message %>')})
     )
     .pipe(
       svgmin({
         js2svg: {
-          pretty: true
+          pretty: true,
         },
         plugins: [
           {
-            removeDesc: true
+            removeDesc: true,
           },
           {
-            cleanupIDs: true
+            cleanupIDs: true,
           },
           {
-            mergePaths: false
-          }
-        ]
+            mergePaths: false,
+          },
+        ],
       })
     )
     .pipe(plumber.stop())
@@ -41,7 +41,7 @@ gulp.task('svgs', () => {
         notify({
           title: config.notify.title,
           message: 'Svgs task complete',
-          onLast: true
+          onLast: true,
         })
       )
     );

@@ -17,15 +17,15 @@ gulp.task('images', () => {
     .src(`${config.images.source}/**/*.+(png|jpg|jpeg|gif|svg)`)
     .pipe(changed(`${config.images.build}`))
     .pipe(
-      plumber({ errorHandler: notify.onError('Error: <%= error.message %>') })
+      plumber({errorHandler: notify.onError('Error: <%= error.message %>')})
     )
     .pipe(
       imagemin({
         progressive: true,
-        use: [pngquant()]
+        use: [pngquant()],
       })
     )
-    .pipe(size({ showFiles: true }))
+    .pipe(size({showFiles: true}))
     .pipe(plumber.stop())
     .pipe(gulp.dest(`${config.images.build}`))
     .pipe(browser.stream())
@@ -35,7 +35,7 @@ gulp.task('images', () => {
         notify({
           title: config.notify.title,
           message: 'Images task complete',
-          onLast: true
+          onLast: true,
         })
       )
     );

@@ -9,11 +9,11 @@ module.exports = webpackMerge(webpackBase, {
   plugins: [
     new webpack.DefinePlugin({
       'process.env': {
-        NODE_ENV: "'production'"
-      }
+        NODE_ENV: '\'production\'',
+      },
     }),
     new webpack.LoaderOptionsPlugin({
-      minimize: true
+      minimize: true,
     }),
     new webpack.optimize.UglifyJsPlugin({
       sourceMap: false,
@@ -26,18 +26,18 @@ module.exports = webpackMerge(webpackBase, {
         if_return: true,
         join_vars: true,
         drop_console: true,
-        warnings: false // Disable warnings. Set to true when checking for issues
+        warnings: false,
       },
       mangle: {
-        reserved: ['$super', '$', 'exports', 'require']
+        reserved: ['$super', '$', 'exports', 'require'],
       },
       output: {
-        comments: false
-      }
+        comments: false,
+      },
     }),
     new webpack.BannerPlugin({
       banner: config.banner,
-      raw: true
-    })
-  ]
+      raw: true,
+    }),
+  ],
 });

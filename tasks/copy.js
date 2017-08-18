@@ -16,7 +16,7 @@ gulp.task('copy', () => {
         notify({
           title: config.notify.title,
           message: 'Copy task complete',
-          onLast: true
+          onLast: true,
         })
       )
     );

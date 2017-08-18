@@ -4,10 +4,8 @@ import favicons from 'gulp-favicons';
 import gutil from 'gulp-util';
 import config from '../config';
 import browser from './browser';
-import gulpif from 'gulp-if';
 import notify from 'gulp-notify';
 import replace from 'gulp-replace';
-import plumber from 'gulp-plumber';
 import filter from 'gulp-filter';
 
 gulp.task('favicons', () => {
@@ -37,10 +35,10 @@ gulp.task('favicons', () => {
           opengraph: false,
           twitter: false,
           windows: true,
-          yandex: false
+          yandex: false,
         },
         html: config.favicons.html,
-        replace: true
+        replace: true,
       })
     )
     .on('error', gutil.log)
@@ -53,7 +51,7 @@ gulp.task('favicons', () => {
       notify({
         title: config.notify.title,
         message: 'Favicons task complete',
-        onLast: true
+        onLast: true,
       })
     );
 });

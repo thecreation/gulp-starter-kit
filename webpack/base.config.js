@@ -9,12 +9,12 @@ export default {
   context: path.join(config.root, config.scripts.source),
   entry: {
     vendors: ['jquery'],
-    scripts: './scripts.js'
+    scripts: './scripts.js',
   },
   output: {
     path: path.join(config.root, config.scripts.build),
     filename: '[name].js',
-    publicPath: 'js/'
+    publicPath: 'js/',
   },
   // externals: [
   //   'jquery'
@@ -23,7 +23,7 @@ export default {
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendors',
       filename: '[name].js',
-      minChunks: Infinity
+      minChunks: Infinity,
     }),
     // uncomment in case of emergency code formatter need
     // new PrettierPlugin({
@@ -31,38 +31,38 @@ export default {
     //     tabWidth: 2
     // }),
     new webpack.ProvidePlugin({
-      $: 'jquery',
-      jQuery: 'jquery',
-      'window.jQuery': 'jquery'
+      '$': 'jquery',
+      'jQuery': 'jquery',
+      'window.jQuery': 'jquery',
     }),
-    new webpack.NoEmitOnErrorsPlugin()
+    new webpack.NoEmitOnErrorsPlugin(),
   ],
   resolve: {
     extensions: ['.js'],
     alias: {
-      jquery: path.resolve('node_modules', 'jquery/dist/jquery.js')
-    }
+      jquery: path.resolve('node_modules', 'jquery/dist/jquery.js'),
+    },
   },
   module: {
     rules: [
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        exclude: [path.resolve(config.root, 'node_modules')]
+        exclude: [path.resolve(config.root, 'node_modules')],
       },
       {
         test: require.resolve('jquery'),
         use: [
           {
             loader: 'expose-loader',
-            options: 'jQuery'
+            options: 'jQuery',
           },
           {
             loader: 'expose-loader',
-            options: '$'
-          }
-        ]
-      }
-    ]
-  }
+            options: '$',
+          },
+        ],
+      },
+    ],
+  },
 };

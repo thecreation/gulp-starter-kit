@@ -12,10 +12,12 @@ import stylefmt from 'stylefmt';
 
 gulp.task('beautify:scripts', () => {
   return gulp
-    .src(`${config.scripts.source}/**/*.js`, { base: './', since: gulp.lastRun('beautify:scripts') })
+    .src(`${config.scripts.source}/**/*.js`, {
+      base: './', since: gulp.lastRun('beautify:scripts'),
+    })
     .pipe(changed(`${config.scripts.source}`))
     .pipe(
-      plumber({ errorHandler: notify.onError('Error: <%= error.message %>') })
+      plumber({errorHandler: notify.onError('Error: <%= error.message %>')})
     )
     .pipe(
       prettier({
@@ -24,10 +26,10 @@ gulp.task('beautify:scripts', () => {
         useTabs: false,
         semi: true,
         singleQuote: true,
-        bracketSpacing: true
+        bracketSpacing: true,
       })
     )
-    .pipe(size({ showFiles: true }))
+    .pipe(size({showFiles: true}))
     .pipe(plumber.stop())
     .pipe(gulp.dest('./'))
     .pipe(
@@ -36,7 +38,7 @@ gulp.task('beautify:scripts', () => {
         notify({
           title: config.notify.title,
           message: 'Beautify js task complete',
-          onLast: true
+          onLast: true,
         })
       )
     );
@@ -46,14 +48,14 @@ gulp.task('beautify:styles', () => {
   return gulp
     .src(`${config.styles.source}/**/*.scss`, {
       base: './',
-      since: gulp.lastRun('beautify:styles')
+      since: gulp.lastRun('beautify:styles'),
     })
     .pipe(changed(`${config.styles.source}`))
     .pipe(
-      plumber({ errorHandler: notify.onError('Error: <%= error.message %>') })
+      plumber({errorHandler: notify.onError('Error: <%= error.message %>')})
     )
-    .pipe(postcss([stylefmt()], { syntax: syntaxScss }))
-    .pipe(size({ showFiles: true }))
+    .pipe(postcss([stylefmt()], {syntax: syntaxScss}))
+    .pipe(size({showFiles: true}))
     .pipe(plumber.stop())
     .pipe(gulp.dest('./'))
     .pipe(
@@ -62,7 +64,7 @@ gulp.task('beautify:styles', () => {
         notify({
           title: config.notify.title,
           message: 'Beautify css task complete',
-          onLast: true
+          onLast: true,
         })
       )
     );

@@ -14,7 +14,7 @@ gulp.task('archive', () => {
         config.enable.notify,
         notify({
           title: config.notify.title,
-          message: 'Archive task complete'
+          message: 'Archive task complete',
         })
       )
     );

@@ -96,7 +96,6 @@
     "postcss-reporter": "^5.0.0",
     "postcss-scss": "^1.0.2",
     "prettier": "^1.5.3",
-    "release-it": "^2.8.5",
     "require-dir": "^0.3.2",
     "rollup": "^0.47.6",
     "rollup-plugin-commonjs": "^8.1.0",
@@ -141,7 +140,9 @@
       "ecmaVersion": 6,
       "sourceType": "module"
     },
-    "rules": {}
+    "rules": {
+      "require-jsdoc": "off"
+    }
   },
   "engines": {
     "node": ">= 8",

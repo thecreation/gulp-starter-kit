@@ -10,27 +10,27 @@ gulp.task('server', () => {
   browser.init(
     {
       server: {
-        baseDir: config.paths.build
+        baseDir: config.paths.build,
       },
       port: config.server.port,
       notify: config.server.notify,
-      open: config.server.open
+      open: config.server.open,
     },
     () => {
       notifier.notify({
         title: config.notify.title,
-        message: 'Browser starting'
+        message: 'Browser starting',
       });
     }
   );
 });
 
-gulp.task('reload', done => {
+gulp.task('reload', (done) => {
   browser.reload();
 
   notifier.notify({
     title: config.notify.title,
-    message: 'Browser reloaded'
+    message: 'Browser reloaded',
   });
 
   done();

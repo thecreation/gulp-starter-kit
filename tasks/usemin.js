@@ -13,11 +13,11 @@ gulp.task('usemin', () => {
   return gulp
     .src(`${config.html.build}/**/*.html`)
     .pipe(
-      flatmap(stream => {
+      flatmap((stream) => {
         return stream
           .pipe(
             plumber({
-              errorHandler: notify.onError('Error: <%= error.message %>')
+              errorHandler: notify.onError('Error: <%= error.message %>'),
             })
           )
           .pipe(
@@ -35,8 +35,8 @@ gulp.task('usemin', () => {
                   minifyCSS: true,
                   minifyJS: true,
                   collapseBooleanAttributes: true,
-                  removeAttributeQuotes: true
-                })]
+                  removeAttributeQuotes: true,
+                })],
               })
             )
           )
@@ -49,7 +49,7 @@ gulp.task('usemin', () => {
         notify({
           title: config.notify.title,
           message: 'Usemin task complete',
-          onLast: true
+          onLast: true,
         })
       )
     );

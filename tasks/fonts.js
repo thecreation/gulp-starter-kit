@@ -19,7 +19,7 @@ gulp.task('fonts', () => {
         notify({
           title: config.notify.title,
           message: 'Fonts task complete',
-          onLast: true
+          onLast: true,
         })
       )
     );

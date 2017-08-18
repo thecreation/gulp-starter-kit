@@ -4,11 +4,11 @@ import notifier from 'node-notifier';
 
 export default function(error) {
   // Send error to notification center with gulp-notify
-  if(config.enable.notify) {
+  if (config.enable.notify) {
     notifier.notify({
       title: config.notify.title,
       subtitle: 'Failure!',
-      message: error.message
+      message: error.message,
     });
   }
 
