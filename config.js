@@ -1,7 +1,6 @@
 import pkg from './package';
-import util from 'gulp-util';
-
-const production = util.env.production || util.env.prod || false;
+import {argv} from 'yargs';
+const production = argv.production || argv.prod || false;
 
 export default {
   name: pkg.name,

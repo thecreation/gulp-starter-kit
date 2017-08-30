@@ -107,7 +107,8 @@
     "vinyl-named": "^1.1.0",
     "webpack": "^3.5.5",
     "webpack-bundle-analyzer": "^2.9.0",
-    "webpack-merge": "^4.1.0"
+    "webpack-merge": "^4.1.0",
+    "yargs": "^8.0.2"
   },
   "stylelint": {
     "extends": "stylelint-config-sass-guidelines",
