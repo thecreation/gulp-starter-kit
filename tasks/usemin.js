@@ -35,7 +35,7 @@ gulp.task('usemin', () => {
                   minifyCSS: true,
                   minifyJS: true,
                   collapseBooleanAttributes: true,
-                  removeAttributeQuotes: true,
+                  removeAttributeQuotes: false,
                 })],
               })
             )
