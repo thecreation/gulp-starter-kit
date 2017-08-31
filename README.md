@@ -21,6 +21,7 @@ This starter also features a number of great software (in the words of their cre
 
 ### Assets
 - [svgo](https://github.com/svg/svgo) - a Node.js module for optimizing SVG vector graphics files.
+- [svg-sprite](https://github.com/jkphl/svg-sprite) - a Node.js module for takes a bunch of SVG files, optimizes them and bakes them into SVG sprites.
 - [Favicons](https://github.com/evilebottnawi/favicons) - a Node.js module for generating favicons and their associated files. 
 - [imagemin](https://github.com/imagemin/imagemin) - a Node.js module for minify images seamlessly.
 - [assets-manager](https://github.com/amazingsurge/assets-manager) - a Node.js module for transfer the required files from your registry distributions to the target.

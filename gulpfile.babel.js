@@ -14,11 +14,12 @@ requiredir('./tasks');
 
 gulp.task(
   'assets',
-  gulp.parallel('copy', 'vendor', 'styles', 'scripts', 'images', 'svgs', 'favicons')
+  gulp.parallel('copy', 'vendor', 'styles', 'scripts', 'images', 'sprite', 'svgs', 'favicons')
 );
 gulp.task('build', gulp.series('clean', 'assets', 'html', 'usemin'));
 gulp.task('dev', gulp.series('build', gulp.parallel('server', 'watch')));
 gulp.task('default', gulp.series('dev'));
 
 gulp.task('version', gulp.series('version:patch'));
-gulp.task('deploy', gulp.series('archive'));
+gulp.task('publish', gulp.series('archive'));
+gulp.task('deploy', gulp.series('pages'));

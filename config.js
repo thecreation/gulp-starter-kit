@@ -65,6 +65,12 @@ export default {
     build: 'dest/assets/fonts'
   },
 
+  sprite: {
+    name: 'sprite.svg',
+    source: 'src/sprite',
+    build: 'dest/assets/svgs'
+  },
+
   svgs: {
     source: 'src/svgs',
     build: 'dest/assets/svgs'
