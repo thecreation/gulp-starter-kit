@@ -171,6 +171,7 @@ Task name          | Description
 `copy`             | copy files from `src/assets` path to `dist/assets` path.
 `vendor`           | copy vendor files from registry distributions to `dist/assets/vendor` path.
 `svgs`             | optimize svg files.
+`sprite`           | generate svg sprite.
 `fonts`            | copy files from `src/fonts` path to `dist/fonts` path.
 `favicons`         | generate favicons to `dist/assets/favicons` path.
 `images`           | optimize and copies images in `src/images` to `dist/assets/images`.
