@@ -23,7 +23,7 @@ export default {
   },
 
   assets: {
-    source: 'src',
+    source: 'src/assets',
     build: 'dest/assets'
   },
 

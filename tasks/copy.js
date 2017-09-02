@@ -7,7 +7,7 @@ import notify from 'gulp-notify';
 // Copy assets to dist on build task
 gulp.task('copy', () => {
   return gulp
-    .src(`${config.assets.source}/assets/**/*`)
+    .src(`${config.assets.source}/**/*`)
     .pipe(gulp.dest(`${config.assets.build}`))
     .pipe(browser.stream())
     .pipe(
