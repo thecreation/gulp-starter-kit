@@ -46,7 +46,7 @@ export default {
   },
 
   scripts: {
-    bundler: 'webpack', // rollup, webpack, default
+    bundler: 'rollup', // rollup, webpack, default
     source: 'src/scripts',
     build: 'dist/assets/scripts'
   },

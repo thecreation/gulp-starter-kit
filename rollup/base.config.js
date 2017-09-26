@@ -18,7 +18,7 @@ external.forEach((plugin) => {
 });
 
 export default {
-  entry: [path.join(config.scripts.source, 'scripts.js')],
+  input: [path.join(config.scripts.source, 'scripts.js')],
   // external: external,
   // globals,
   format: 'es',
@@ -36,5 +36,5 @@ export default {
     }),
   ],
 
-  sourceMap: false,
+  sourcemap: false,
 };

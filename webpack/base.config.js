@@ -41,7 +41,7 @@ export default {
     extensions: ['.js'],
     alias: {
       jquery: path.resolve('node_modules', 'jquery/dist/jquery.js'),
-    },
+    }
   },
   module: {
     rules: [
