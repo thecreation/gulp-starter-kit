@@ -30,7 +30,7 @@
     "babel-plugin-external-helpers": "^6.22.0",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-polyfill": "^6.26.0",
-    "babel-preset-env": "^1.6.0",
+    "babel-preset-env": "^1.6.1",
     "babel-register": "^6.26.0",
     "browser-sync": "^2.18.13",
     "deepmerge": "^2.0.0",
@@ -73,7 +73,7 @@
     "gulp-usemin": "^0.3.28",
     "gulp-util": "^3.0.8",
     "gulp-zip": "^4.0.0",
-    "handlebars": "^4.0.10",
+    "handlebars": "^4.0.11",
     "handlebars-helpers": "^0.9.8",
     "handlebars-layouts": "^3.1.4",
     "imagemin-pngquant": "^5.0.1",
@@ -89,43 +89,30 @@
     "metalsmith-markdown": "^0.2.1",
     "metalsmith-metallic": "^2.0.2",
     "metalsmith-permalinks": "^0.5.0",
-    "metalsmith-register-helpers": "^0.3.0",
+    "metalsmith-register-helpers": "^0.4.0",
     "metalsmith-rootpath": "^1.0.4",
     "node-notifier": "^5.1.2",
     "postcss-csso": "^3.0.0",
     "postcss-reporter": "^5.0.0",
     "postcss-scss": "^1.0.2",
     "prettier": "^1.7.4",
-    "release-it": "^3.1.1",
+    "release-it": "^3.1.2",
     "require-dir": "^0.3.2",
     "rollup": "^0.50.0",
-    "rollup-plugin-commonjs": "^8.2.1",
+    "rollup-plugin-commonjs": "^8.2.3",
     "rollup-plugin-node-resolve": "^3.0.0",
     "stylefmt": "^6.0.0",
     "stylelint": "^8.2.0",
-    "stylelint-config-sass-guidelines": "^3.1.0",
+    "stylelint-config-recommended-scss": "^2.0.0",
+    "stylelint-config-standard": "^17.0.0",
+    "stylelint-order": "^0.7.0",
+    "stylelint-scss": "^2.1.0",
     "uglify-js": "^3.1.4",
     "vinyl-named": "^1.1.0",
-    "webpack": "^3.7.1",
+    "webpack": "^3.8.1",
     "webpack-bundle-analyzer": "^2.9.0",
     "webpack-merge": "^4.1.0",
     "yargs": "^9.0.1"
-  },
-  "stylelint": {
-    "extends": "stylelint-config-sass-guidelines",
-    "rules": {
-      "selector-max-id": 1,
-      "selector-max-compound-selectors": 4,
-      "selector-no-qualifying-type": [
-        true,
-        {
-          "ignore": [
-            "attribute",
-            "class"
-          ]
-        }
-      ]
-    }
   },
   "eslintConfig": {
     "extends": [
