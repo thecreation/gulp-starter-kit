@@ -1,9 +1,12 @@
 import gulp from 'gulp';
 import config from '../config';
-import metalsmith from '../metalsmith';
+import hb from 'gulp-hb';
+import frontMatter from 'gulp-front-matter';
+import plumber from 'gulp-plumber';
 import browser from './browser';
 import notifier from 'node-notifier';
 import htmlhint from 'gulp-htmlhint';
+import rename from 'gulp-rename';
 
 // HTML
 // ------------------
@@ -17,14 +20,34 @@ gulp.task('lint:html', () => {
     .pipe(htmlhint.reporter());
 });
 
-// runs the Metalsmith build script to build the site
+// build the site
 gulp.task('make:html', (done) => {
-  metalsmith(function(err) {
-    if (err) throw err;
-    browser.reload();
+  let hbStream = hb({
+      debug: true
+    })
+    // Partials
+    .partials(config.html.partials + '/**/*.hbs')
+    .partials(config.html.layouts + '/**/*.hbs')
 
-    done();
-  });
+    // Data
+    .data(config.html.data + '/**/*.{js,json}')
+    .data(config.html.metadata)
+
+    // Helpers
+    .helpers(require('handlebars-layouts'))
+    .helpers(require('handlebars-helpers')(['comparison','markdown']))
+    .helpers(config.html.helpers + '/*.js');
+
+  return gulp.src(config.html.pages + '/**/*.hbs')
+    //.pipe(plumber())
+    .pipe(frontMatter({
+      property: 'data.frontMatter'
+    }))
+    .pipe(hbStream)
+    .pipe(rename({
+      extname: ".html"
+    }))
+    .pipe(gulp.dest(config.html.build));
 });
 
 gulp.task(
@@ -40,3 +63,4 @@ gulp.task(
     done();
   })
 );
+

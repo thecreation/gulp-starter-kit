@@ -1,6 +1,6 @@
 # Web Starter Kit
 
-> A starter template for Metalsmith, Gulp, ECMAScript(latest), webpack3, sass and postcss.
+> A starter template for Handlebar, Gulp, ECMAScript(latest), webpack3, sass and postcss.
 
 ## Table of Contents
 
@@ -41,22 +41,12 @@ This starter also features a number of great software (in the words of their cre
 - [Stylelint](http://stylelint.io/) - a mighty, modern CSS linter (with preconfigured ruleset by [Hugo Giraudel](https://sass-guidelin.es/)).
 
 ### Html
-- [Metalsmith](http://www.metalsmith.io/) - a simple, pluggable static site generator.
 - [handlebars](https://github.com/wycats/handlebars.js) - a javascript template engine.
+- [handlebars-wax](https://github.com/shannonmoeller/handlebars-wax) - Effortless registration of data, partials, helpers, and decorators using file-system globs, modules, and plain-old JavaScript objects.
 - [handlebars-layouts](https://github.com/shannonmoeller/handlebars-layouts) - a handlebars helpers which implement layout blocks.
+- [handlebars-helpers](https://github.com/helpers/handlebars-helpers) - More than 180 Handlebars helpers in ~20 categories.
 - [HTMLHint](https://github.com/yaniswang/HTMLHint) - a Static Code Analysis Tool for HTML.
 - [html-minifier](https://github.com/kangax/html-minifier) - a javascript-based HTML compressor/minifier.
-
-### Metalsmith plugins
-- [metalsmith-drafts](https://github.com/segmentio/metalsmith-drafts) - A metalsmith plugin to hide drafts.
-- [metalsmith-data](https://github.com/elcontraption/metalsmith-data) - a metalsmith plugin to add namespaced global data objects from files.
-- [metalsmith-metallic](https://github.com/weswigham/metalsmith-metallic) - a metalsmith plugin to highlight code in Markdown files.
-- [metalsmith-markdown](https://github.com/segmentio/metalsmith-markdown) - a metalsmith plugin to convert markdown files.
-- [metalsmith-layouts](https://github.com/superwolff/metalsmith-layouts) - a metalsmith plugin for layouts.
-- [metalsmith-in-place](https://github.com/superwolff/metalsmith-in-place) - a metalsmith plugin for in-place templating.
-- [metalsmith-collections](https://github.com/segmentio/metalsmith-collections) - a metalsmith plugin that groups files together into collections.
-- [metalsmith-register-helpers](https://github.com/losttype/metalsmith-register-helpers) -  a Metalsmith plugin for registering Handlebars helpers.
-- [metalsmith-rootpath](https://github.com/amazingsurge/metalsmith-rootpath) - a Metalsmith plugin for add relative path to the root directory.
 
 ### Rollup plugins
 - [rollup-plugin-node-resolve](https://github.com/rollup/rollup-plugin-node-resolve) - Use the Node.js resolution algorithm with Rollup.

@@ -44,7 +44,7 @@ gulp.task('favicons', () => {
     .on('error', gutil.log)
     .pipe(gulp.dest(`${config.favicons.build}`))
     .pipe(filter('**/*.{xml,json,webapp}'))
-    .pipe(replace('{{rootPath}}', '/'))
+    .pipe(replace('{{root}}', '/'))
     .pipe(gulp.dest(`${config.favicons.build}`))
     .pipe(browser.stream())
     .pipe(

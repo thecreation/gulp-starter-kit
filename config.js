@@ -52,7 +52,11 @@ export default {
   },
 
   html: {
-    source: 'src/html',
+    pages: 'src/pages',
+    data: "src/data",
+    helpers: "src/helpers",
+    layouts: "src/layouts",
+    partials: "src/partials",
     build: 'dist',
     metadata: {
       production,
@@ -82,7 +86,7 @@ export default {
   },
 
   favicons: {
-    path: '{{rootPath}}assets/favicons/',
+    path: '{{root}}assets/favicons/',
     source: 'src/favicons',
     build: 'dist/assets/favicons',
     html: 'src/partials/favicons.hbs'

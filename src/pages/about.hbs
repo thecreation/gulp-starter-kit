@@ -1,11 +1,14 @@
 ---
 title: About
-layout: page.hbs
 ---
-<p class="message">
-  The web-starter-kit's default theme is Lanyon, originally developed as [Jekyll](http://jekyllrb.com) theme by [@mdo](https://twitter.com/mdo), that I ported over for use with [Metalsmith](http://metalsmith.io).
-</p>
-
+{{#extend "layout-default"}}
+  {{#content "main"}}
+    <div class="page">
+      <h1 class="page-title">{{ @local.frontMatter.title }}</h1>
+      <p class="message">
+        The web-starter-kit's default theme is Lanyon, originally developed as [Jekyll](http://jekyllrb.com) theme by [@mdo](https://twitter.com/mdo).
+      </p>
+{{#markdown}}
 It comes with many great features, including:
 
 - Mobile friendly design and development
@@ -18,3 +21,7 @@ Find out more about Lanyon by [visiting the project on GitHub](https://github.co
 ### Browser support
 
 Lanyon is by preference a forward-thinking project. In addition to the latest versions of Chrome, Safari (mobile and desktop), and Firefox, it is only compatible with Internet Explorer 9 and above.
+{{/markdown}}
+    </div>
+  {{/content}}
+{{/extend}}

@@ -4,18 +4,13 @@
 <!-- Toggleable sidebar -->
 <div class="sidebar" id="sidebar">
   <div class="sidebar-item">
-    <p>{{ data.site.tagline }}</p>
+    <p>{{ site.tagline }}</p>
   </div>
 
   <nav class="sidebar-nav">
-    <a class="sidebar-nav-item{{#is title "Home"}} active{{/is}}" href="{{ rootPath }}">Home</a>
-
-    {{#each collections.pages}}
-      {{#isnt title null}}
-        <a class="sidebar-nav-item{{#is ../path path}} active{{/is}}" href="{{ rootPath }}{{ path }}">{{ title }}</a>
-      {{/isnt}}
-    {{/each}}
-
+    <a class="sidebar-nav-item{{#active 'index.hbs'}} active{{/active}}" href="{{dest 'index.html'}}">Home</a>
+    <a class="sidebar-nav-item{{#active 'about.hbs'}} active{{/active}}" href="{{dest 'about.html'}}">About</a>
+    
     <span class="sidebar-nav-item">Currently v{{ pkg.version }}</span>
   </nav>
 

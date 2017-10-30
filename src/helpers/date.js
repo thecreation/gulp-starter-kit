@@ -1,6 +1,5 @@
-/**
- * Parse and format a date value using Moment.js.
- *
- * @api public
- */
-module.exports = require('helper-date');
+import date from 'helper-date';
+
+module.exports.register = function (Handlebars) {
+  Handlebars.registerHelper("date", date);
+};

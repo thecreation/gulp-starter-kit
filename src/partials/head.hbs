@@ -4,16 +4,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
 <title>
-  {{#is title "Home"}}
-    {{data.site.title}} &middot; {{data.site.tagline}}
+  {{#is @local.frontMatter.title "Home"}}
+    {{site.title}} &middot; {{site.tagline}}
   {{else}}
-    {{title}} &middot; {{data.site.title}}
+    {{@local.frontMatter.title}} &middot; {{site.title}}
   {{/is}}
 </title>
-<meta name="author" content="{{data.site.author}}">
 
-{{#block "styles"}}{{>styles}}{{/block}}
+<meta name="author" content="{{site.author}}">
+
+{{#block "styles"}}{{> styles}}{{/block}}
 
 {{> favicons}}
-
-
