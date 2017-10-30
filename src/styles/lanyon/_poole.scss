@@ -41,8 +41,8 @@
 
 html,
 body {
-  margin: 0;
   padding: 0;
+  margin: 0;
 }
 
 html {
@@ -58,8 +58,8 @@ html {
 }
 
 body {
-  background-color: #fff;
   color: #515151;
+  background-color: #fff;
   text-size-adjust: 100%;
 }
 
@@ -72,6 +72,7 @@ a {
 a strong {
   color: inherit;
 }
+
 /* `:focus` is linked to `:hover` for basic accessibility */
 a:hover,
 a:focus {
@@ -85,10 +86,10 @@ h3,
 h4,
 h5,
 h6 {
-  color: #313131;
+  margin-bottom: 0.5rem;
   font-weight: bold;
   line-height: 1.25;
-  margin-bottom: 0.5rem;
+  color: #313131;
   text-rendering: optimizeLegibility;
 }
 
@@ -97,26 +98,26 @@ h1 {
 }
 
 h2 {
-  font-size: 1.5rem;
   margin-top: 1rem;
+  font-size: 1.5rem;
 }
 
 h3 {
-  font-size: 1.25rem;
   margin-top: 1.5rem;
+  font-size: 1.25rem;
 }
 
 h4,
 h5,
 h6 {
-  font-size: 1rem;
   margin-top: 1rem;
+  font-size: 1rem;
 }
 
 /* Body text */
 p {
-  margin-bottom: 1rem;
   margin-top: 0;
+  margin-bottom: 1rem;
 }
 
 strong {
@@ -128,8 +129,8 @@ strong {
 ul,
 ol,
 dl {
-  margin-bottom: 1rem;
   margin-top: 0;
+  margin-bottom: 1rem;
 }
 
 dt {
@@ -142,23 +143,23 @@ dd {
 
 /* Misc */
 hr {
-  border: 0;
-  border-bottom: 1px solid #fff;
-  border-top: 1px solid #eee;
-  margin: 1.5rem 0;
   position: relative;
+  margin: 1.5rem 0;
+  border: 0;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #fff;
 }
 
 abbr {
-  color: #555;
   font-size: 85%;
   font-weight: bold;
+  color: #555;
   text-transform: uppercase;
 }
 
 abbr[title] {
-  border-bottom: 1px dotted #e5e5e5;
   cursor: help;
+  border-bottom: 1px dotted #e5e5e5;
 }
 
 /* Code */
@@ -168,38 +169,38 @@ pre {
 }
 
 code {
+  padding: 0.25em 0.5em;
+  font-size: 85%;
+  color: #bf616a;
   background-color: #f9f9f9;
   border-radius: 3px;
-  color: #bf616a;
-  font-size: 85%;
-  padding: 0.25em 0.5em;
 }
 
 pre {
-  background-color: #f9f9f9;
   display: block;
+  padding: 1rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
   font-size: 0.8rem;
   line-height: 1.4;
-  margin-bottom: 1rem;
-  margin-top: 0;
-  padding: 1rem;
-  white-space: pre;
-  white-space: pre-wrap;
   word-break: break-all;
   word-wrap: break-word;
+  white-space: pre;
+  white-space: pre-wrap;
+  background-color: #f9f9f9;
 }
 
 pre code {
-  background-color: transparent;
-  color: inherit;
-  font-size: 100%;
   padding: 0;
+  font-size: 100%;
+  color: inherit;
+  background-color: transparent;
 }
 
 /* Pygments via Jekyll */
 .highlight {
-  border-radius: 4px;
   margin-bottom: 1rem;
+  border-radius: 4px;
 }
 
 .highlight pre {
@@ -216,8 +217,8 @@ pre code {
 }
 
 .gist pre {
-  background-color: transparent;
   padding: 0;
+  background-color: transparent;
 }
 
 .gist .gist-file .gist-data {
@@ -226,18 +227,18 @@ pre code {
 }
 
 .gist code {
+  padding: 0;
+  color: inherit;
   background-color: transparent;
   border-radius: 0;
-  color: inherit;
-  padding: 0;
 }
 
 /* Quotes */
 blockquote {
-  border-left: 0.25rem solid #e5e5e5;
-  color: #7a7a7a;
-  margin: 0.8rem 0;
   padding: 0.5rem 1rem;
+  margin: 0.8rem 0;
+  color: #7a7a7a;
+  border-left: 0.25rem solid #e5e5e5;
 }
 
 blockquote p:last-child {
@@ -246,30 +247,30 @@ blockquote p:last-child {
 
 @media (min-width: 30em) {
   blockquote {
-    padding-left: 1.25rem;
     padding-right: 5rem;
+    padding-left: 1.25rem;
   }
 }
 
 img {
-  border-radius: 5px;
   display: block;
-  margin: 0 0 1rem;
   max-width: 100%;
+  margin: 0 0 1rem;
+  border-radius: 5px;
 }
 
 /* Tables */
 table {
-  border: 1px solid #e5e5e5;
-  border-collapse: collapse;
-  margin-bottom: 1rem;
   width: 100%;
+  margin-bottom: 1rem;
+  border-collapse: collapse;
+  border: 1px solid #e5e5e5;
 }
 
 td,
 th {
-  border: 1px solid #e5e5e5;
   padding: 0.25rem 0.5rem;
+  border: 1px solid #e5e5e5;
 }
 
 tbody tr:nth-child(odd) td,
@@ -298,10 +299,10 @@ tbody tr:nth-child(odd) th {
  */
 
 .message {
-  background-color: #f9f9f9;
-  color: #717171;
-  margin-bottom: 1rem;
   padding: 1rem;
+  margin-bottom: 1rem;
+  color: #717171;
+  background-color: #f9f9f9;
 }
 
 
@@ -312,11 +313,11 @@ tbody tr:nth-child(odd) th {
  */
 
 .container {
-  margin-left: auto;
-  margin-right: auto;
   max-width: 38rem;
-  padding-left: 1rem;
   padding-right: 1rem;
+  padding-left: 1rem;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 
@@ -327,15 +328,15 @@ tbody tr:nth-child(odd) th {
  */
 
 .masthead {
-  margin-bottom: 3rem;
-  padding-bottom: 1rem;
   padding-top: 1rem;
+  padding-bottom: 1rem;
+  margin-bottom: 3rem;
 }
 
 .masthead-title {
-  color: #505050;
-  margin-bottom: 0;
   margin-top: 0;
+  margin-bottom: 0;
+  color: #505050;
 }
 
 .masthead-title a {
@@ -343,9 +344,9 @@ tbody tr:nth-child(odd) th {
 }
 
 .masthead-title small {
-  color: #c0c0c0;
   font-size: 75%;
   font-weight: 400;
+  color: #c0c0c0;
   letter-spacing: 0;
 }
 
@@ -376,22 +377,22 @@ tbody tr:nth-child(odd) th {
 
 /* Meta data line below post title */
 .post-date {
-  color: #9a9a9a;
   display: block;
-  margin-bottom: 1rem;
   margin-top: -0.5rem;
+  margin-bottom: 1rem;
+  color: #9a9a9a;
 }
 
 /* Related posts */
 .related {
-  border-top: 1px solid #eee;
-  padding-bottom: 2rem;
   padding-top: 2rem;
+  padding-bottom: 2rem;
+  border-top: 1px solid #eee;
 }
 
 .related-posts {
-  list-style: none;
   padding-left: 0;
+  list-style: none;
 }
 
 .related-posts h3 {
@@ -399,8 +400,8 @@ tbody tr:nth-child(odd) th {
 }
 
 .related-posts li small {
-  color: #999;
   font-size: 75%;
+  color: #999;
 }
 
 .related-posts li a:hover {
@@ -421,19 +422,19 @@ tbody tr:nth-child(odd) th {
  */
 
 .pagination {
-  color: #ccc;
-  font-family: 'PT Sans', Helvetica, Arial, sans-serif;
-  margin-left: -1rem;
   margin-right: -1rem;
+  margin-left: -1rem;
   overflow: hidden; /* clearfix */
+  font-family: 'PT Sans', Helvetica, Arial, sans-serif;
+  color: #ccc;
   text-align: center;
 }
 
 /* Pagination items can be `span`s or `a`s */
 .pagination-item {
-  border: 1px solid #eee;
   display: block;
   padding: 1rem;
+  border: 1px solid #eee;
 }
 
 .pagination-item:first-child {
@@ -456,14 +457,14 @@ a.pagination-item:hover {
   }
 
   .pagination-item:first-child {
-    border-bottom-left-radius: 4px;
-    border-top-left-radius: 4px;
     margin-bottom: 0;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
   }
 
   .pagination-item:last-child {
-    border-bottom-right-radius: 4px;
-    border-top-right-radius: 4px;
     margin-left: -1px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
   }
 }

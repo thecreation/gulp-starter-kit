@@ -50,9 +50,9 @@ h3,
 h4,
 h5,
 h6 {
-  color: #313131;
   font-family: 'PT Sans', Helvetica, Arial, sans-serif;
   font-weight: 400;
+  color: #313131;
   letter-spacing: -0.025rem;
 }
 
@@ -101,16 +101,16 @@ h6 {
  */
 
 .masthead {
-  border-bottom: 1px solid #eee;
-  margin-bottom: 3rem;
-  padding-bottom: 1rem;
   padding-top: 1rem;
+  padding-bottom: 1rem;
+  margin-bottom: 3rem;
+  border-bottom: 1px solid #eee;
 }
 
 .masthead-title {
-  color: #505050;
-  margin-bottom: 0;
   margin-top: 0;
+  margin-bottom: 0;
+  color: #505050;
 }
 
 .masthead-title a {
@@ -118,9 +118,9 @@ h6 {
 }
 
 .masthead-title small {
-  color: #c0c0c0;
   font-size: 75%;
   font-weight: 400;
+  color: #c0c0c0;
   letter-spacing: 0;
 }
 
@@ -152,18 +152,18 @@ h6 {
 
 /* Style and "hide" the sidebar */
 .sidebar {
-  background-color: #202020;
-  bottom: 0;
-  color: rgba(255, 255, 255, 0.6);
-  font-family: 'PT Sans', Helvetica, Arial, sans-serif;
-  font-size: 0.875rem; /* 15px */
-  left: -14rem;
-  overflow-y: auto;
   position: fixed;
   top: 0;
-  transition: all 0.3s ease-in-out;
-  visibility: hidden;
+  bottom: 0;
+  left: -14rem;
   width: 14rem;
+  overflow-y: auto;
+  font-family: 'PT Sans', Helvetica, Arial, sans-serif;
+  font-size: 0.875rem; /* 15px */
+  color: rgba(255, 255, 255, 0.6);
+  visibility: hidden;
+  background-color: #202020;
+  transition: all 0.3s ease-in-out;
 }
 
 @media (min-width: 30em) {
@@ -174,8 +174,8 @@ h6 {
 
 /* Sidebar content */
 .sidebar a {
-  color: #fff;
   font-weight: normal;
+  color: #fff;
 }
 
 .sidebar-item {
@@ -192,17 +192,17 @@ h6 {
 }
 
 .sidebar-nav-item {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
   display: block;
   padding: 0.5rem 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .sidebar-nav-item.active,
 a.sidebar-nav-item:hover,
 a.sidebar-nav-item:focus {
+  text-decoration: none;
   background-color: rgba(255, 255, 255, 0.1);
   border-color: transparent;
-  text-decoration: none;
 }
 
 @media (min-width: 48em) {
@@ -211,44 +211,44 @@ a.sidebar-nav-item:focus {
   }
 
   .sidebar-nav-item {
-    padding-left: 1.5rem;
     padding-right: 1.5rem;
+    padding-left: 1.5rem;
   }
 }
 
 /* Hide the sidebar checkbox that we toggle with `.sidebar-toggle` */
 .sidebar-checkbox {
-  opacity: 0;
   position: absolute;
   user-select: none;
+  opacity: 0;
 }
 
 /* Style the `label` that we use to target the `.sidebar-checkbox` */
 .sidebar-toggle {
-  background-color: #fff;
-  border-radius: 0.25rem;
-  color: #505050;
-  cursor: pointer;
-  display: block;
-  left: 1rem;
-  padding: 0.25rem 0.75rem;
   position: absolute;
   top: 0.8rem;
+  left: 1rem;
+  display: block;
+  padding: 0.25rem 0.75rem;
+  color: #505050;
+  cursor: pointer;
+  background-color: #fff;
+  border-radius: 0.25rem;
 }
 
 .sidebar-toggle::before {
-  background-image: linear-gradient(to bottom, #555, #555 20%, #fff 20%, #fff 40%, #555 40%, #555 60%, #fff 60%, #fff 80%, #555 80%, #555 100%);
-  content: '';
   display: inline-block;
-  height: 0.75rem;
   width: 1rem;
+  height: 0.75rem;
+  content: '';
+  background-image: linear-gradient(to bottom, #555, #555 20%, #fff 20%, #fff 40%, #555 40%, #555 60%, #fff 60%, #fff 80%, #555 80%, #555 100%);
 }
 
 .sidebar-toggle:active,
 #sidebar-checkbox:focus ~ .sidebar-toggle,
 #sidebar-checkbox:checked ~ .sidebar-toggle {
-  background-color: #555;
   color: #fff;
+  background-color: #555;
 }
 
 .sidebar-toggle:active::before,
@@ -294,8 +294,8 @@ a.sidebar-nav-item:focus {
 }
 
 #sidebar-checkbox:checked + .sidebar {
-  visibility: visible;
   z-index: 10;
+  visibility: visible;
 }
 
 #sidebar-checkbox:checked ~ .sidebar,
@@ -331,22 +331,22 @@ a.sidebar-nav-item:focus {
 
 /* Meta data line below post title */
 .post-date {
-  color: #9a9a9a;
   display: block;
-  margin-bottom: 1rem;
   margin-top: -0.5rem;
+  margin-bottom: 1rem;
+  color: #9a9a9a;
 }
 
 /* Related posts */
 .related {
-  border-top: 1px solid #eee;
-  padding-bottom: 2rem;
   padding-top: 2rem;
+  padding-bottom: 2rem;
+  border-top: 1px solid #eee;
 }
 
 .related-posts {
-  list-style: none;
   padding-left: 0;
+  list-style: none;
 }
 
 .related-posts h3 {
@@ -354,8 +354,8 @@ a.sidebar-nav-item:focus {
 }
 
 .related-posts li small {
-  color: #999;
   font-size: 75%;
+  color: #999;
 }
 
 .related-posts li a:hover {
@@ -376,19 +376,19 @@ a.sidebar-nav-item:focus {
  */
 
 .pagination {
-  color: #ccc;
-  font-family: 'PT Sans', Helvetica, Arial, sans-serif;
-  margin-left: -1rem;
   margin-right: -1rem;
+  margin-left: -1rem;
   overflow: hidden; /* clearfix */
+  font-family: 'PT Sans', Helvetica, Arial, sans-serif;
+  color: #ccc;
   text-align: center;
 }
 
 /* Pagination items can be `span`s or `a`s */
 .pagination-item {
-  border: 1px solid #eee;
   display: block;
   padding: 1rem;
+  border: 1px solid #eee;
 }
 
 .pagination-item:first-child {
@@ -411,15 +411,15 @@ a.pagination-item:hover {
   }
 
   .pagination-item:first-child {
-    border-bottom-left-radius: 4px;
-    border-top-left-radius: 4px;
     margin-bottom: 0;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
   }
 
   .pagination-item:last-child {
-    border-bottom-right-radius: 4px;
-    border-top-right-radius: 4px;
     margin-left: -1px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
   }
 }
 
@@ -432,13 +432,13 @@ a.pagination-item:hover {
  */
 
 .layout-reverse .sidebar {
-  left: auto;
   right: -14rem;
+  left: auto;
 }
 
 .layout-reverse .sidebar-toggle {
-  left: auto;
   right: 1rem;
+  left: auto;
 }
 
 .layout-reverse #sidebar-checkbox:checked ~ .sidebar,
