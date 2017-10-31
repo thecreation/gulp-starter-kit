@@ -103,6 +103,16 @@
     "webpack-merge": "^4.1.0",
     "yargs": "^10.0.3"
   },
+  "browserslist": [
+    "Chrome >= 45",
+    "Firefox ESR",
+    "Edge >= 12",
+    "Explorer >= 10",
+    "iOS >= 9",
+    "Safari >= 9",
+    "Android >= 4.4",
+    "Opera >= 30"
+  ],
   "eslintConfig": {
     "extends": [
       "eslint:recommended",
