@@ -1,4 +1,4 @@
-import date from 'helper-date';
+import date from 'helper-dateformat';
 
 module.exports.register = function (Handlebars) {
   Handlebars.registerHelper("date", date);

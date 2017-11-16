@@ -17,6 +17,15 @@ export default {
 `,
 
   root: __dirname,
+
+  breakpoints: {
+    xs: 0,
+    sm: 576,
+    md: 768,
+    lg: 992,
+    xl: 1280
+  },
+
   paths: {
     source: 'src',
     build: 'dist'
@@ -41,7 +50,7 @@ export default {
     source: 'src/styles',
     build: 'dist/assets/styles',
     include: [
-      // 'node_modules'
+      'node_modules'
     ]
   },
 

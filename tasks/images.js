@@ -3,11 +3,15 @@ import config from '../config';
 import gulpif from 'gulp-if';
 import notify from 'gulp-notify';
 import imagemin from 'gulp-imagemin';
-import pngquant from 'imagemin-pngquant';
+import mozJpegPlugin from 'imagemin-mozjpeg';
+import gifLossyPlugin from 'imagemin-giflossy';
+import pngquantPlugin from 'imagemin-pngquant';
+import svgoPlugin from 'imagemin-svgo';
 import size from 'gulp-size';
 import changed from 'gulp-changed';
 import browser from './browser';
 import plumber from 'gulp-plumber';
+
 
 // IMAGES
 // ------------------
@@ -20,10 +24,17 @@ gulp.task('images', () => {
       plumber({errorHandler: notify.onError('Error: <%= error.message %>')})
     )
     .pipe(
-      imagemin({
-        progressive: true,
-        use: [pngquant()],
-      })
+      imagemin([
+        mozJpegPlugin({progressive: true}),
+        pngquantPlugin(),
+        gifLossyPlugin(),
+        svgoPlugin({
+          plugins: [
+            {removeViewBox: true},
+            {cleanupIDs: false}
+          ]
+        })
+      ])
     )
     .pipe(size({showFiles: true}))
     .pipe(plumber.stop())

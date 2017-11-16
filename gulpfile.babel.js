@@ -14,10 +14,14 @@ requiredir('./tasks');
 
 gulp.task(
   'assets',
-  gulp.parallel('copy', 'vendor', 'styles', 'scripts', 'images', 'sprite', 'svgs', 'favicons')
+  gulp.series('copy', 'vendor', 'images', 'srcset', 'sprite', 'svgs', 'favicons')
 );
-gulp.task('build', gulp.series('clean', 'assets', 'html', 'usemin'));
-gulp.task('dev', gulp.series('build', gulp.parallel('server', 'watch')));
+gulp.task(
+  'codes',
+  gulp.series('styles', 'scripts', 'html', 'usemin')
+);
+gulp.task('build', gulp.series('clean', 'assets', 'codes'));
+gulp.task('dev', gulp.series('codes', gulp.parallel('server', 'watch')));
 gulp.task('default', gulp.series('dev'));
 
 gulp.task('version', gulp.series('version:patch'));

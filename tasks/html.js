@@ -23,7 +23,7 @@ gulp.task('lint:html', () => {
 // build the site
 gulp.task('make:html', (done) => {
   let hbStream = hb({
-      debug: true
+      debug: false
     })
     // Partials
     .partials(config.html.partials + '/**/*.hbs')

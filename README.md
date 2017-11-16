@@ -165,6 +165,7 @@ Task name          | Description
 `fonts`            | copy files from `src/fonts` path to `dist/fonts` path.
 `favicons`         | generate favicons to `dist/assets/favicons` path.
 `images`           | optimize and copies images in `src/images` to `dist/assets/images`.
+`srcset`           | Generate responsive images to `dist/assets/images`.
 
 ### Dev tasks
 Task name          | Description                                                      

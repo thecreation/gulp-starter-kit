@@ -23,7 +23,7 @@ gulp.task('watch:svgs', () => {
 
 gulp.task('watch:html', () => {
   gulp.watch(
-    ['src/html/**/*', 'src/layouts/**/*', 'src/partials/**/*', 'config.js'],
+    ['src/pages/**/*', 'src/layouts/**/*', 'src/partials/**/*', 'config.js'],
     gulp.series('html', function(done) {
       browser.reload();
       done();

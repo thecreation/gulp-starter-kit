@@ -19,6 +19,7 @@ gulp.task('favicons', () => {
         developerName: null,
         developerURL: null,
         background: 'transparent',
+        theme_color: '#ffffff',
         path: config.favicons.path,
         display: 'standalone',
         orientation: 'portrait',
