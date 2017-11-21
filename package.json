@@ -18,7 +18,8 @@
     "build": "gulp build --production",
     "deploy": "gulp build && gulp deploy --production",
     "stage": "gulp --production",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "precommit": "gulp lint --fail-on-error"
   },
   "devDependencies": {
     "argv": "^0.0.2",
@@ -83,6 +84,7 @@
     "handlebars-helpers": "^0.9.8",
     "handlebars-layouts": "^3.1.4",
     "helper-dateformat": "^1.0.0",
+    "husky": "^0.14.3",
     "imagemin-giflossy": "^5.1.10",
     "imagemin-mozjpeg": "^6.0.0",
     "imagemin-pngquant": "^5.0.1",

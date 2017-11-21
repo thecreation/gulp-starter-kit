@@ -22,6 +22,11 @@ gulp.task('lint:styles', () => {
       base: './',
       since: gulp.lastRun('lint:styles'),
     })
+    .on('error', function() {
+      if(config.failOnError) {
+        process.exit(1)
+      }
+    })
     .pipe(
       postcss(
         [
@@ -29,7 +34,11 @@ gulp.task('lint:styles', () => {
             fix: true,
             syntax: 'scss',
           }), // see http://stylelint.io/user-guide/example-config/
-          reporter({clearMessages: true, clearReportedMessages: true}),
+          reporter({
+            clearMessages: true,
+            clearReportedMessages: true,
+            throwError: config.failOnError
+          }), // see https://github.com/postcss/postcss-reporter
         ],
         {syntax: syntaxScss}
       )

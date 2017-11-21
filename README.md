@@ -63,6 +63,9 @@ This starter also features a number of great software (in the words of their cre
 - [expose-loader](https://webpack.js.org/loaders/expose-loader/)
 - [BannerPlugin](https://webpack.js.org/plugins/banner-plugin/)
 
+### Git Hooks manager
+- [husky](https://github.com/typicode/husky)
+
 ## Installation
 
 ### Node version manager

@@ -41,7 +41,7 @@ body {
 }
 
 html {
-  font-family: 'PT Serif', Georgia, 'Times New Roman', serif;
+  font-family: "PT Serif", Georgia, "Times New Roman", serif;
 }
 
 h1,
@@ -50,10 +50,10 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'PT Sans', Helvetica, Arial, sans-serif;
+  font-family: "PT Sans", Helvetica, Arial, sans-serif;
   font-weight: 400;
   color: #313131;
-  letter-spacing: -0.025rem;
+  letter-spacing: -.025rem;
 }
 
 
@@ -158,23 +158,23 @@ h6 {
   left: -14rem;
   width: 14rem;
   overflow-y: auto;
-  font-family: 'PT Sans', Helvetica, Arial, sans-serif;
-  font-size: 0.875rem; /* 15px */
-  color: rgba(255, 255, 255, 0.6);
+  font-family: "PT Sans", Helvetica, Arial, sans-serif;
+  font-size: .875rem; /* 15px */
+  color: rgba(255, 255, 255, .6);
   visibility: hidden;
   background-color: #202020;
-  transition: all 0.3s ease-in-out;
+  transition: all .3s ease-in-out;
 }
 
 @media (min-width: 30em) {
   .sidebar {
-    font-size: 0.75rem; /* 14px */
+    font-size: .75rem; /* 14px */
   }
 }
 
 /* Sidebar content */
 .sidebar a {
-  font-weight: normal;
+  font-weight: 400;
   color: #fff;
 }
 
@@ -188,20 +188,20 @@ h6 {
 
 /* Sidebar nav */
 .sidebar-nav {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, .1);
 }
 
 .sidebar-nav-item {
   display: block;
-  padding: 0.5rem 1rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: .5rem 1rem;
+  border-top: 1px solid rgba(255, 255, 255, .1);
 }
 
 .sidebar-nav-item.active,
-a.sidebar-nav-item:hover,
-a.sidebar-nav-item:focus {
+.sidebar-nav-item:hover,
+.sidebar-nav-item:focus {
   text-decoration: none;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, .1);
   border-color: transparent;
 }
 
@@ -226,21 +226,21 @@ a.sidebar-nav-item:focus {
 /* Style the `label` that we use to target the `.sidebar-checkbox` */
 .sidebar-toggle {
   position: absolute;
-  top: 0.8rem;
+  top: .8rem;
   left: 1rem;
   display: block;
-  padding: 0.25rem 0.75rem;
+  padding: .25rem .75rem;
   color: #505050;
   cursor: pointer;
   background-color: #fff;
-  border-radius: 0.25rem;
+  border-radius: .25rem;
 }
 
 .sidebar-toggle::before {
   display: inline-block;
   width: 1rem;
-  height: 0.75rem;
-  content: '';
+  height: .75rem;
+  content: "";
   background-image: linear-gradient(to bottom, #555, #555 20%, #fff 20%, #fff 40%, #555 40%, #555 60%, #fff 60%, #fff 80%, #555 80%, #555 100%);
 }
 
@@ -257,7 +257,7 @@ a.sidebar-nav-item:focus {
   background-image: linear-gradient(to bottom, #fff, #fff 20%, #555 20%, #555 40%, #fff 40%, #fff 60%, #555 60%, #555 80%, #fff 80%, #fff 100%);
 }
 
-@media (min-width: 30.1em) {
+@media (min-width: 3.1em) {
   .sidebar-toggle {
     position: fixed;
   }
@@ -290,7 +290,7 @@ a.sidebar-nav-item:focus {
 
 .wrap,
 .sidebar-toggle {
-  transition: transform 0.3s ease-in-out;
+  transition: transform .3s ease-in-out;
 }
 
 #sidebar-checkbox:checked + .sidebar {
@@ -332,7 +332,7 @@ a.sidebar-nav-item:focus {
 /* Meta data line below post title */
 .post-date {
   display: block;
-  margin-top: -0.5rem;
+  margin-top: -.5rem;
   margin-bottom: 1rem;
   color: #9a9a9a;
 }
@@ -353,17 +353,17 @@ a.sidebar-nav-item:focus {
   margin-top: 0;
 }
 
-.related-posts li small {
+.related-posts small {
   font-size: 75%;
   color: #999;
 }
 
-.related-posts li a:hover {
+.related-posts a:hover {
   color: #268bd2;
   text-decoration: none;
 }
 
-.related-posts li a:hover small {
+.related-posts a:hover small {
   color: inherit;
 }
 
@@ -379,7 +379,7 @@ a.sidebar-nav-item:focus {
   margin-right: -1rem;
   margin-left: -1rem;
   overflow: hidden; /* clearfix */
-  font-family: 'PT Sans', Helvetica, Arial, sans-serif;
+  font-family: "PT Sans", Helvetica, Arial, sans-serif;
   color: #ccc;
   text-align: center;
 }
@@ -396,7 +396,7 @@ a.sidebar-nav-item:focus {
 }
 
 /* Only provide a hover state for linked pagination items */
-a.pagination-item:hover {
+.pagination-item:hover {
   background-color: #f5f5f5;
 }
 
@@ -572,14 +572,14 @@ a.pagination-item:hover {
 }
 
 .sidebar-overlay #sidebar-checkbox:checked ~ .sidebar-toggle {
-  box-shadow: 0 0 0 0.25rem #fff;
+  box-shadow: 0 0 0 .25rem #fff;
 }
 
 .sidebar-overlay #sidebar-checkbox:checked ~ .sidebar {
-  box-shadow: 0.25rem 0 0.5rem rgba(0, 0, 0, 0.1);
+  box-shadow: .25rem 0 .5rem rgba(0, 0, 0, .1);
 }
 
 /* Only one tweak for a reverse layout */
 .layout-reverse.sidebar-overlay #sidebar-checkbox:checked ~ .sidebar {
-  box-shadow: -0.25rem 0 0.5rem rgba(0, 0, 0, 0.1);
+  box-shadow: -.25rem 0 .5rem rgba(0, 0, 0, .1);
 }

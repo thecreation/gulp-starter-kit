@@ -27,7 +27,8 @@ gulp.task('lint:scripts', () => {
     })
     .pipe(eslint({fix: true})) // see http://eslint.org/docs/rules/
     .pipe(eslint.format())
-    .pipe(gulp.dest('.'));
+    .pipe(gulp.dest('.'))
+    .pipe(gulpif(config.failOnError, eslint.failAfterError()));
 });
 
 const uglify = composer(uglifyjs, console);

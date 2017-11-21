@@ -20,6 +20,12 @@ gulp.task(
   'codes',
   gulp.series('styles', 'scripts', 'html', 'usemin')
 );
+
+gulp.task(
+  'lint',
+  gulp.series('lint:styles', 'lint:scripts', 'lint:html')
+);
+
 gulp.task('build', gulp.series('clean', 'assets', 'codes'));
 gulp.task('dev', gulp.series('codes', gulp.parallel('server', 'watch')));
 gulp.task('default', gulp.series('dev'));

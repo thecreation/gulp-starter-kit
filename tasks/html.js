@@ -7,6 +7,7 @@ import browser from './browser';
 import notifier from 'node-notifier';
 import htmlhint from 'gulp-htmlhint';
 import rename from 'gulp-rename';
+import gulpif from 'gulp-if';
 
 // HTML
 // ------------------
@@ -17,7 +18,8 @@ gulp.task('lint:html', () => {
       since: gulp.lastRun('lint:html'),
     })
     .pipe(htmlhint('.htmlhintrc'))
-    .pipe(htmlhint.reporter());
+    .pipe(htmlhint.reporter())
+    .pipe(gulpif(config.failOnError, htmlhint.failAfterError()));
 });
 
 // build the site

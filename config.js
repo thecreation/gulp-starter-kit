@@ -1,6 +1,7 @@
 import pkg from './package';
 import {argv} from 'yargs';
 const production = argv.production || argv.prod || false;
+const failOnError = argv.failOnError || false;
 
 export default {
   name: pkg.name,
@@ -120,7 +121,7 @@ export default {
   notify: {
     title: pkg.name
   },
-
+  failOnError: failOnError,
   env: 'development',
   production: production,
   setEnv: function(env) {
