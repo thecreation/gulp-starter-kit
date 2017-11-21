@@ -1,6 +1,6 @@
 import gulp from 'gulp';
 import config from '../config';
-import prettier from 'gulp-nf-prettier';
+import * as prettier from 'gulp-plugin-prettier';
 import changed from 'gulp-changed';
 import size from 'gulp-size';
 import plumber from 'gulp-plumber';
@@ -20,14 +20,7 @@ gulp.task('beautify:scripts', () => {
       plumber({errorHandler: notify.onError('Error: <%= error.message %>')})
     )
     .pipe(
-      prettier({
-        parser: 'flow',
-        tabWidth: 2,
-        useTabs: false,
-        semi: true,
-        singleQuote: true,
-        bracketSpacing: true,
-      })
+      prettier.format()
     )
     .pipe(size({showFiles: true}))
     .pipe(plumber.stop())
@@ -55,14 +48,7 @@ gulp.task('beautify:styles', () => {
       plumber({errorHandler: notify.onError('Error: <%= error.message %>')})
     )
     .pipe(
-      prettier({
-        parser: 'scss',
-        tabWidth: 2,
-        useTabs: false,
-        semi: true,
-        singleQuote: false,
-        bracketSpacing: true,
-      })
+      prettier.format()
     )
     .pipe(size({showFiles: true}))
     .pipe(plumber.stop())

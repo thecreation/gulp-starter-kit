@@ -21,11 +21,15 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "gulp lint --fail-on-error",
     "beautify": "gulp beautify",
-    "precommit": "npm run lint"
+    "precommit": "lint-staged && npm run lint"
   },
   "lint-staged": {
-    "src/**/*.{js,scss}": [
-      "npm run pretty",
+    "src/**/*.js": [
+      "prettier --write",
+      "git add"
+    ],
+    "src/**/*.scss": [
+      "prettier --write",
       "git add"
     ]
   },
@@ -71,8 +75,8 @@
     "gulp-imagemin": "^3.4.0",
     "gulp-include": "^2.3.1",
     "gulp-memory-cache": "^0.3.0",
-    "gulp-nf-prettier": "^2.0.0",
     "gulp-notify": "^3.0.0",
+    "gulp-plugin-prettier": "^1.1.0",
     "gulp-plumber": "^1.1.0",
     "gulp-postcss": "^7.0.0",
     "gulp-rename": "^1.2.2",
@@ -110,7 +114,6 @@
     "rollup-plugin-commonjs": "^8.2.6",
     "rollup-plugin-node-resolve": "^3.0.0",
     "stringify-attributes": "^1.0.0",
-    "stylefmt": "^6.0.0",
     "stylelint": "^8.2.0",
     "stylelint-config-prettier": "^2.0.0",
     "stylelint-config-recommended-scss": "^2.0.0",

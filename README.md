@@ -65,6 +65,7 @@ This starter also features a number of great software (in the words of their cre
 
 ### Git Hooks manager
 - [husky](https://github.com/typicode/husky)
+- [lint-staged](https://github.com/okonet/lint-staged)
 
 ## Installation
 

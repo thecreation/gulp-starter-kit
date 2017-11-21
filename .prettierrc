@@ -1,0 +1,19 @@
+{
+  "tabWidth": 2,
+  "useTabs": false,
+  "semi": true,
+  "singleQuote": true,
+  "bracketSpacing": true,
+  "overrides": [{
+    "files": ["**/*.json"],
+    "options": {
+      "parser": "json"
+    }
+  },{
+    "files": ["**/*.scss"],
+    "options": {
+      "parser": "scss",
+      "singleQuote": false,
+    }
+  }]
+}
