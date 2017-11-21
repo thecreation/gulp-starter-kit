@@ -22,6 +22,11 @@ gulp.task(
 );
 
 gulp.task(
+  'beautify',
+  gulp.series('beautify:styles', 'beautify:scripts')
+);
+
+gulp.task(
   'lint',
   gulp.series('lint:styles', 'lint:scripts', 'lint:html')
 );

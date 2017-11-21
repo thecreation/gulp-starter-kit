@@ -1,7 +1,8 @@
 {
   "extends": [
     "stylelint-config-standard",
-    "stylelint-config-recommended-scss"
+    "stylelint-config-recommended-scss",
+    "stylelint-config-prettier"
   ],
   "plugins": [
     "stylelint-order",
@@ -37,7 +38,7 @@
     "media-feature-range-operator-space-before": "never",
     "no-descending-specificity": null,
     "no-duplicate-selectors": true,
-    "number-leading-zero": "never",
+    "number-leading-zero": "always",
     "order/order": [
       "custom-properties",
       "dollar-variables",

@@ -19,7 +19,15 @@
     "deploy": "gulp build && gulp deploy --production",
     "stage": "gulp --production",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "precommit": "gulp lint --fail-on-error"
+    "lint": "gulp lint --fail-on-error",
+    "beautify": "gulp beautify",
+    "precommit": "npm run lint"
+  },
+  "lint-staged": {
+    "src/**/*.{js,scss}": [
+      "npm run pretty",
+      "git add"
+    ]
   },
   "devDependencies": {
     "argv": "^0.0.2",
@@ -37,6 +45,7 @@
     "browser-sync": "^2.18.13",
     "deepmerge": "^2.0.1",
     "del": "^3.0.0",
+    "eslint-config-prettier": "^2.8.0",
     "eslint-plugin-compat": "^2.1.0",
     "expose-loader": "^0.7.3",
     "glob": "^7.1.2",
@@ -90,6 +99,7 @@
     "imagemin-pngquant": "^5.0.1",
     "imagemin-svgo": "^6.0.0",
     "imagemin-webp": "^4.0.0",
+    "lint-staged": "^5.0.0",
     "node-notifier": "^5.1.2",
     "postcss-csso": "^3.0.0",
     "postcss-reporter": "^5.0.0",
@@ -102,6 +112,7 @@
     "stringify-attributes": "^1.0.0",
     "stylefmt": "^6.0.0",
     "stylelint": "^8.2.0",
+    "stylelint-config-prettier": "^2.0.0",
     "stylelint-config-recommended-scss": "^2.0.0",
     "stylelint-config-standard": "^17.0.0",
     "stylelint-order": "^0.7.0",

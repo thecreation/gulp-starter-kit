@@ -6,7 +6,10 @@
     "es6": true,
     "jquery": true
   },
-  "extends": "eslint:recommended",
+  "extends": [
+    "eslint:recommended",
+    "prettier"
+  ],
   "plugins": ["compat"],
   "parserOptions": {
     "ecmaVersion": 8,

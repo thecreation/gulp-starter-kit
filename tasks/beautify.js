@@ -54,7 +54,16 @@ gulp.task('beautify:styles', () => {
     .pipe(
       plumber({errorHandler: notify.onError('Error: <%= error.message %>')})
     )
-    .pipe(postcss([stylefmt()], {syntax: syntaxScss}))
+    .pipe(
+      prettier({
+        parser: 'scss',
+        tabWidth: 2,
+        useTabs: false,
+        semi: true,
+        singleQuote: false,
+        bracketSpacing: true,
+      })
+    )
     .pipe(size({showFiles: true}))
     .pipe(plumber.stop())
     .pipe(gulp.dest('./'))
