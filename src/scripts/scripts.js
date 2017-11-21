@@ -1,23 +1,23 @@
 // import $ from 'jquery';
 
-(function(document) {
-  let toggle = document.querySelector('.sidebar-toggle');
-  let sidebar = document.querySelector('#sidebar');
-  let checkbox = document.querySelector('#sidebar-checkbox');
+(function (document) {
+  const toggle = document.querySelector('.sidebar-toggle')
+  const sidebar = document.querySelector('#sidebar')
+  const checkbox = document.querySelector('#sidebar-checkbox')
 
   document.addEventListener(
     'click',
-    function(e) {
-      let target = e.target;
+    (e) => {
+      const target = e.target
       if (
         !checkbox.checked ||
         sidebar.contains(target) ||
         (target === checkbox || target === toggle)
       ) {
-        return;
+        return
       }
-      checkbox.checked = false;
+      checkbox.checked = false
     },
     false
-  );
-})(document);
+  )
+}(document))

@@ -26,6 +26,7 @@
     "autoprefixer": "^7.1.6",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
+    "babel-eslint": "^8.0.2",
     "babel-loader": "^7.1.2",
     "babel-plugin-external-helpers": "^6.22.0",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
@@ -35,7 +36,7 @@
     "browser-sync": "^2.18.13",
     "deepmerge": "^2.0.1",
     "del": "^3.0.0",
-    "eslint-config-google": "^0.9.1",
+    "eslint-plugin-compat": "^2.1.0",
     "expose-loader": "^0.7.3",
     "glob": "^7.1.2",
     "gulp": "github:gulpjs/gulp#4.0",
@@ -92,7 +93,6 @@
     "postcss-reporter": "^5.0.0",
     "postcss-scss": "^1.0.2",
     "prettier": "^1.8.2",
-    "release-it": "^4.4.1",
     "require-dir": "^0.3.2",
     "rollup": "^0.51.6",
     "rollup-plugin-commonjs": "^8.2.6",
@@ -110,35 +110,6 @@
     "webpack-bundle-analyzer": "^2.9.1",
     "webpack-merge": "^4.1.1",
     "yargs": "^10.0.3"
-  },
-  "browserslist": [
-    "Chrome >= 45",
-    "Firefox ESR",
-    "Edge >= 12",
-    "Explorer >= 10",
-    "iOS >= 9",
-    "Safari >= 9",
-    "Android >= 4.4",
-    "Opera >= 30"
-  ],
-  "eslintConfig": {
-    "extends": [
-      "eslint:recommended",
-      "google"
-    ],
-    "env": {
-      "browser": true,
-      "es6": true,
-      "node": true,
-      "jquery": true
-    },
-    "parserOptions": {
-      "ecmaVersion": 6,
-      "sourceType": "module"
-    },
-    "rules": {
-      "require-jsdoc": "off"
-    }
   },
   "engines": {
     "node": ">= 8",
