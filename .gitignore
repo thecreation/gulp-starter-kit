@@ -3,6 +3,9 @@ archives
 .publish
 dist
 
+### gemini
+gemini/screens
+
 ### Node ###
 # Logs
 logs

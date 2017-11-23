@@ -63,6 +63,9 @@ This starter also features a number of great software (in the words of their cre
 - [expose-loader](https://webpack.js.org/loaders/expose-loader/)
 - [BannerPlugin](https://webpack.js.org/plugins/banner-plugin/)
 
+### Tests
+- [Gemini](https://gemini-testing.github.io/) - a utility for regression testing the visual appearance of web pages.
+
 ### Git Hooks manager
 - [husky](https://github.com/typicode/husky)
 - [lint-staged](https://github.com/okonet/lint-staged)
@@ -109,6 +112,14 @@ npm install --global babel-cli
 
 ```
 npm install --global gulp-cli
+```
+
+### Install Gemini
+[Install Gemini globally](https://github.com/gemini-testing/gemini#installing).
+```
+npm install -g gemini
+npm install -g selenium-standalone
+selenium-standalone install
 ```
 
 ## Getting started
@@ -251,6 +262,17 @@ Below you can find full details about significant files and folders.
     ├── /layouts/           # Handlebars layouts that are based on
     ├── /partials/          # Handlebars partials that are included / extended
     └── /html/              # Handlebars pages, one per page on the site
+```
+
+## Running tests
+Start `selenium-standalone` in a separate tab before running the tests:
+```
+selenium-standalone start
+```
+
+Run gemini tests with flat reporter:
+```
+gemini test --reporter flat
 ```
 
 ## Dockerization

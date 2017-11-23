@@ -96,7 +96,7 @@ export default {
   },
 
   favicons: {
-    path: '{{root}}assets/favicons/',
+    path: '{{assets}}/favicons/',
     source: 'src/favicons',
     build: 'dist/assets/favicons',
     html: 'src/partials/favicons.hbs'
