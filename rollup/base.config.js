@@ -3,6 +3,9 @@ import commonjs from 'rollup-plugin-commonjs';
 import pkg from '../package';
 import config from '../config';
 import path from 'path';
+import Glob from 'glob-fs';
+
+const glob = Glob();
 
 const external = Object.keys(pkg.dependencies || {});
 
@@ -18,7 +21,7 @@ external.forEach((plugin) => {
 });
 
 export default {
-  input: [path.join(config.scripts.source, 'scripts.js')],
+  input: glob.readdirSync(path.join(config.scripts.source, '**/*.js')),
   // external: external,
   // globals,
   format: 'es',

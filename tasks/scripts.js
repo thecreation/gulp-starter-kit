@@ -21,7 +21,7 @@ import header from 'gulp-header';
 // ------------------
 gulp.task('lint:scripts', () => {
   return gulp
-    .src(`${config.scripts.source}/scripts.js`, {
+    .src(`${config.scripts.source}/**/*.js`, {
       base: './',
       since: gulp.lastRun('lint:scripts'),
     })
@@ -90,7 +90,7 @@ if (config.scripts.bundler === 'webpack') {
 } else {
   gulp.task('make:scripts', (done) => {
     return gulp
-      .src(`${config.scripts.source}/*.js`)
+      .src(`${config.scripts.source}/**/*.js`)
       .pipe(
         plumber({
           errorHandler: notify.onError('Error: <%= error.message %>'),
