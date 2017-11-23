@@ -49,7 +49,7 @@ gulp.task('lint:styles', () => {
 // Compiles sass into css & minifies it (production)
 gulp.task('make:styles', () => {
   return gulp
-    .src(`${config.styles.source}/*.scss`)
+    .src(`${config.styles.source}/**/*.scss`)
     .pipe(
       plumber({errorHandler: notify.onError('Error: <%= error.message %>')})
     )
