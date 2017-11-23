@@ -8,7 +8,6 @@ import gulpif from 'gulp-if';
 import notify from 'gulp-notify';
 import postcss from 'gulp-postcss';
 import syntaxScss from 'postcss-scss';
-import stylefmt from 'stylefmt';
 
 gulp.task('beautify:scripts', () => {
   return gulp
