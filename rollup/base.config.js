@@ -24,7 +24,9 @@ export default {
   input: glob.readdirSync(path.join(config.scripts.source, '**/*.js')),
   // external: external,
   // globals,
-  format: 'es',
+  output: {
+    format: 'es',
+  },
   plugins: [
     // Resolve libs in node_modules
     resolve({
