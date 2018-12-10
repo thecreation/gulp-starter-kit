@@ -1,6 +1,6 @@
 FROM ubuntu:17.04
 
-ENV WORKSPACE /web-starter-kit
+ENV WORKSPACE /gulp-starter-kit
 
 WORKDIR ${WORKSPACE}
 ADD . $WORKSPACE

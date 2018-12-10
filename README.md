@@ -1,4 +1,4 @@
-# Web Starter Kit
+# Gulp Starter Kit
 
 > A starter template for Handlebar, Gulp, ECMAScript(latest), webpack3, sass and postcss.
 
@@ -127,7 +127,7 @@ selenium-standalone install
 1. Clone this Boilerplate
 
 ```bash
-$ git clone https://github.com/amazingsurge/web-starter-kit.git <PROJECT_NAME>
+$ git clone https://github.com/amazingsurge/gulp-starter-kit.git <PROJECT_NAME>
 $ cd <PROJECT_NAME>
 ```
 
@@ -146,7 +146,7 @@ $ gulp
 4. Stay up-to-date
 
 ```bash
-$ git remote add upstream https://github.com/amazingsurge/web-starter-kit.git
+$ git remote add upstream https://github.com/amazingsurge/gulp-starter-kit.git
 $ git pull upstream master
 ```
 
@@ -297,4 +297,4 @@ $ docker-compose rm -fs
 
 ## License
 
-The code is available under the [MIT](https://github.com/amazingSurge/web-starter-kit/blob/master/LICENSE) license.
+The code is available under the [MIT](https://github.com/amazingSurge/gulp-starter-kit/blob/master/LICENSE) license.

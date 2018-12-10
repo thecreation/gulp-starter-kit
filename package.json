@@ -1,17 +1,17 @@
 {
-  "name": "web-starter-kit",
+  "name": "gulp-starter-kit",
   "version": "0.1.4",
   "description": "Template for starting to build modern websites.",
   "author": "amazingSurge <amazingSurge@gmail.com>",
-  "homepage": "https://github.com/amazingSurge/web-starter-kit",
+  "homepage": "https://github.com/amazingSurge/gulp-starter-kit",
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/amazingSurge/web-starter-kit"
+    "url": "https://github.com/amazingSurge/gulp-starter-kit"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/amazingSurge/web-starter-kit/issues"
+    "url": "https://github.com/amazingSurge/gulp-starter-kit/issues"
   },
   "scripts": {
     "start": "gulp",
