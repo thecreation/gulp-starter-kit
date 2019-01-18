@@ -26,6 +26,7 @@ export default {
   // globals,
   output: {
     format: 'es',
+    sourcemap: false
   },
   plugins: [
     // Resolve libs in node_modules
@@ -39,7 +40,5 @@ export default {
     commonjs({
       include: 'node_modules/**',
     }),
-  ],
-
-  sourcemap: false,
+  ]
 };

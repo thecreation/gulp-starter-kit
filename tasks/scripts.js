@@ -14,7 +14,7 @@ import notifier from 'node-notifier';
 import include from 'gulp-include';
 import babel from 'gulp-babel';
 import handleErrors from './utils/handleErrors';
-import rollup from 'gulp-rollup';
+import rollup from 'gulp-better-rollup';
 import header from 'gulp-header';
 
 // SCRIPTS
